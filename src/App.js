@@ -57,18 +57,30 @@ class App extends Component {
           </Menu.Item>
 
           <Menu.Item
+            name='trainer'
+            active={activeItem === 'trainer'}
+            onClick={this.handleItemClick}
+          >
+          Trainer
+          </Menu.Item>
+
+          <Menu.Item
+            name='pokeball'
+            active={activeItem === 'pokeball'}
+            onClick={this.handleItemClick}
+          >
+          Pokeball
+          </Menu.Item>
+
+          <Menu.Item
             name='about'
             active={activeItem === 'about'}
             onClick={this.handleItemClick}
           >
           About
           </Menu.Item>
-        </Menu>
 
-        <header className="App-header">
-          <img src={poke_logo} className="App-logo" alt="poke_logo" />
-        
-        </header>
+        </Menu>
 
         <Label style={{backgroundColor:'#a8a878', color:'white'}}>
           Normal
@@ -124,14 +136,16 @@ class App extends Component {
         <Label style={{backgroundColor:'#ffaec9', color:'white'}}>
           Fairy
         </Label>
+
+
+
+        <header className="App-header">
+          <img src={poke_logo} className="App-logo" alt="poke_logo" />
+        </header>
+        
       </div>
 
     )
   }
 }
 export default App;
-
-
-
-
-
