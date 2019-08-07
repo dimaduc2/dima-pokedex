@@ -26,59 +26,61 @@ class App extends Component {
           <Menu.Item
             name='pokemon'
             active={activeItem === 'pokemon'}
-            onClick={this.handleItemClick}
-          >
-          <Image src={poke_logo} size='mini' />
-          <b>Pokedex</b>
+            onClick={this.handleItemClick}>
+            <Image src={poke_logo} size='mini' />
+            <b>Pokedex</b>
           </Menu.Item>
 
           <Menu.Item
             name='all'
             active={activeItem === 'all'}
-            onClick={this.handleItemClick}
-          >All</Menu.Item>
+            onClick={this.handleItemClick}>
+            All
+          </Menu.Item>
 
           <Menu.Item
             name='type'
             active={activeItem === 'type'}
-            onClick={this.handleItemClick}
-          >Type</Menu.Item>
+            onClick={this.handleItemClick}>
+            Type
+          </Menu.Item>
 
           <Menu.Item
             name='compare'
             active={activeItem === 'compare'}
-            onClick={this.handleItemClick}
-          >Compare</Menu.Item>
+            onClick={this.handleItemClick}>
+            Compare
+          </Menu.Item>
 
           <Menu.Item
             name='trainer'
             active={activeItem === 'trainer'}
-            onClick={this.handleItemClick}
-          >Trainer</Menu.Item>
+            onClick={this.handleItemClick}>
+            Trainer
+          </Menu.Item>
 
           <Menu.Item
             name='pokeball'
             active={activeItem === 'pokeball'}
-            onClick={this.handleItemClick}
-          >Pokeball</Menu.Item>
+            onClick={this.handleItemClick}>
+            Pokeball
+          </Menu.Item>
 
           <Menu.Item
             name='about'
             active={activeItem === 'about'}
-            onClick={this.handleItemClick}
-          >About</Menu.Item>
+            onClick={this.handleItemClick}>
+            About
+          </Menu.Item>
 
         </Menu>
 
-        
         <Type></Type>
 
 
         <header className="App-header">
           <img src={poke_logo} className="App-logo" alt="poke_logo" />
         </header>
-        
-
         
       </div>
 

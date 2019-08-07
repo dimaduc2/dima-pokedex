@@ -16,12 +16,9 @@ class Type extends Component {
     
   }
 
-
-
-
   //Phần 3: các Function
   gioiThieuType = (type) => {
-    //alert("This is Pokemon " + type);
+    // alert("This is Pokemon " + type);
     this.setState({ typeDangChon: type });
   };
 
@@ -30,7 +27,7 @@ class Type extends Component {
     //const {  } = this.props
     return (
       <div className="Type">
-        <h1>All Types of Pokemon </h1>
+        <h1>All Types of Pokemon {typeDangChon}</h1>
         {/* <Image  /> */}
         <Button onClick={() => this.gioiThieuType('Normal')} style={{backgroundColor:'#a8a878', color:'white'}}>
           { typeDangChon==="Normal"
