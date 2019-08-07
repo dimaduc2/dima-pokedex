@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
 
-import poke_logo from './Pokemon_symbol.png';
+import poke_logo from './images/Pokemon_symbol.png';
 import './App.css';
 
 import Type from './Type';
