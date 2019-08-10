@@ -1,168 +1,86 @@
-
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Button, Icon } from 'semantic-ui-react'
-
-
+import { Button, Icon, Image, Grid } from 'semantic-ui-react'
+import Normal from './images/Normal.png';
+import Fire from './images/Fire.png';
+import Water from './images/Water.png';
+import Grass from './images/Grass.png';
+import Electric from './images/Electric.png';
+import Ice from './images/Ice.png';
+import Ground from './images/Ground.png';
+import Flying from './images/Flying.png';
+import Poison from './images/Poison.png';
+import Fighting from './images/Fighting.png';
+import Psychic from './images/Psychic.png';
+import Dark from './images/Dark.png';
+import Rock from './images/Rock.png';
+import Bug from './images/Bug.png';
+import Ghost from './images/Ghost.png';
+import Steel from './images/Steel.png';
+import Dragon from './images/Dragon.png';
+import Fairy from './images/Fairy.png';
 //import './Type.css';
-
-
-
+const types = {
+  '' : {symbol: null, bgcolor: null},
+  'Normal' : {symbol : Normal, bgcolor: '#a8a878'},
+  'Fire' : {symbol : Fire, bgcolor: '#f08030'},
+  'Water' : {symbol : Water, bgcolor: '#6890f0'},
+  'Grass' : {symbol : Grass, bgcolor: '#78c850'},
+  'Electric' : {symbol : Electric, bgcolor: '#f8d030'},
+  'Ice' : {symbol : Ice, bgcolor: '#98d8d8'},
+  'Ground' : {symbol : Ground, bgcolor: '#e0c068'},
+  'Flying' : {symbol : Flying, bgcolor: '#a890f0'},
+  'Poison' : {symbol : Poison, bgcolor: '#a040a0'},
+  'Fighting' : {symbol : Fighting, bgcolor: '#c03028'},
+  'Psychic' : {symbol : Psychic, bgcolor: '#f85888'},
+  'Dark' : {symbol : Dark, bgcolor: '#705848'},
+  'Rock' : {symbol : Rock, bgcolor: '#b8a038'},
+  'Bug' : {symbol : Bug, bgcolor: '#a8b820'},
+  'Ghost' : {symbol : Ghost, bgcolor: '#705898'},
+  'Steel' : {symbol : Steel, bgcolor: '#b8b8d0'},
+  'Dragon' : {symbol : Dragon, bgcolor: '#7038f8'},
+  'Fairy' : {symbol : Fairy, bgcolor: '#ffaec9'},
+}
+const tenTypes = Object.keys(types).slice(1, 19);
 class Type extends Component {
-
 //Phần 2: các State
   state = {
     typeDangChon: "",
-    
   }
-
   //Phần 3: các Function
   gioiThieuType = (type) => {
     // alert("This is Pokemon " + type);
-    this.setState({ typeDangChon: type });
+    if(this.state.typeDangChon === type) {
+      this.setState({ typeDangChon: "" });
+    }
+    else {
+      this.setState({ typeDangChon: type });
+    }
   };
-
   render() {
     var {typeDangChon} = this.state;
     //const {  } = this.props
     return (
-      <div className="Type">
+      <div className="Type" align='center'>
         <h1>All Types of Pokemon {typeDangChon}</h1>
-        {/* <Image  /> */}
-        <Button onClick={() => this.gioiThieuType('Normal')} style={{backgroundColor:'#a8a878', color:'white'}}>
-          { typeDangChon==="Normal"
-            ? <Icon name='check' />
-            : null
+        <Image src={types[typeDangChon].symbol} size='mini' />
+        <br/>
+        <Grid columns={6} doubling >
+          { tenTypes.map(
+              (moiType) => 
+              <Grid.Column>
+                <Button onClick={() => this.gioiThieuType(moiType)} style={{backgroundColor: types[moiType].bgcolor, color:'white'}}>
+                  { typeDangChon=== moiType
+                    ? <Icon name='check'  />
+                    : null
+                  }
+                  {moiType}
+                </Button>
+              </Grid.Column>
+            )
           }
-          Normal
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Fire')} style={{backgroundColor:'#f08030', color:'white'}}>
-          { typeDangChon==="Fire"
-            ? <Icon name='check' />
-            : null
-          }
-          Fire
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Water')} style={{backgroundColor:'#6890f0', color:'white'}}>
-          { typeDangChon==="Water"
-            ? <Icon name='check' />
-            : null
-          }
-          Water
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Grass')} style={{backgroundColor:'#78c850', color:'white'}}>
-          { typeDangChon==="Grass"
-            ? <Icon name='check' />
-            : null
-          }
-          Grass
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Electric')} style={{backgroundColor:'#f8d030', color:'white'}}>
-          { typeDangChon==="Electric"
-            ? <Icon name='check' />
-            : null
-          }
-          Electric
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Ice')} style={{backgroundColor:'#98d8d8', color:'white'}}>
-          { typeDangChon==="Ice"
-            ? <Icon name='check' />
-            : null
-          }
-          Ice
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Ground')} style={{backgroundColor:'#e0c068', color:'white'}}>
-          { typeDangChon==="Ground"
-            ? <Icon name='check' />
-            : null
-          }
-          Ground
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Flying')} style={{backgroundColor:'#a890f0', color:'white'}}>
-          { typeDangChon==="Flying"
-            ? <Icon name='check' />
-            : null
-          }
-          Flying
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Poison')} style={{backgroundColor:'#a040a0', color:'white'}}>
-          { typeDangChon==="Poison"
-            ? <Icon name='check' />
-            : null
-          }
-          Poison
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Fighting')} style={{backgroundColor:'#c03028', color:'white'}}>
-          { typeDangChon==="Fighting"
-            ? <Icon name='check' />
-            : null
-          }
-          Fighting
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Psychic')} style={{backgroundColor:'#f85888', color:'white'}}>
-          { typeDangChon==="Psychic"
-            ? <Icon name='check' />
-            : null
-          }
-          Psychic
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Dark')} style={{backgroundColor:'#705848', color:'white'}}>
-          { typeDangChon==="Dark"
-            ? <Icon name='check' />
-            : null
-          }
-          Dark
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Rock')} style={{backgroundColor:'#b8a038', color:'white'}}>
-          { typeDangChon==="Rock"
-            ? <Icon name='check' />
-            : null
-          }
-          Rock
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Bug')} style={{backgroundColor:'#a8b820', color:'white'}}>
-          { typeDangChon==="Bug"
-            ? <Icon name='check' />
-            : null
-          }
-          Bug
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Ghost')} style={{backgroundColor:'#705898', color:'white'}}>
-          { typeDangChon==="Ghost"
-            ? <Icon name='check' />
-            : null
-          }
-          Ghost
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Steel')} style={{backgroundColor:'#b8b8d0', color:'white'}}>
-          { typeDangChon==="Steel"
-            ? <Icon name='check' />
-            : null
-          }
-          Steel
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Dragon')} style={{backgroundColor:'#7038f8', color:'white'}}>
-          { typeDangChon==="Dragon"
-            ? <Icon name='check' />
-            : null
-          }
-          Dragon
-        </Button>
-        <Button onClick={() => this.gioiThieuType('Fairy')} style={{backgroundColor:'#ffaec9', color:'white'}}>
-          { typeDangChon==="Fairy"
-            ? <Icon name='check' />
-            : null
-          }
-          Fairy
-        </Button>
-
+        </Grid>
       </div>
-
-
-
-
-
-
     )
   }
 }

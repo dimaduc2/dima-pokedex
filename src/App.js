@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
 
 import poke_logo from './images/Pokemon_symbol.png';
+
 import './App.css';
 
 import Type from './Type';
@@ -11,10 +12,19 @@ import Type from './Type';
 class App extends Component {
 
 //Phần 2: các State
-  state = {}
+  state = {
+    dangXemGi: "dangXemHome",
+  }
 
 //Phần 3: các Function
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({ activeItem: name });
+  }
+  
+  
+  bamHome = () => {
+    this.setState({dangXemGi:"dangXemHome", activeItem: "" });
+  }
 
   render() {
     const { activeItem } = this.state
@@ -24,9 +34,9 @@ class App extends Component {
         <Menu borderless inverted style={{backgroundColor:'#8B0000'}}>
           
           <Menu.Item
-            name='pokemon'
-            active={activeItem === 'pokemon'}
-            onClick={this.handleItemClick}>
+            name='Pokedex'
+            active={activeItem === 'Pokedex'}
+            onClick={this.bamHome} >
             <Image src={poke_logo} size='mini' />
             <b>Pokedex</b>
           </Menu.Item>
@@ -77,6 +87,7 @@ class App extends Component {
 
         <Type></Type>
 
+        <br/><br/>
 
         <header className="App-header">
           <img src={poke_logo} className="App-logo" alt="poke_logo" />
