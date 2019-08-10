@@ -1,31 +1,103 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b5a6fbc3e79a110027b5e1357c3a5876",
+    "revision": "7c449317446d9ae501af145278af56cf",
     "url": "/dima-pokedex/index.html"
   },
   {
-    "revision": "97e360eb0425975d45f4",
+    "revision": "b64d72a0f7575e93c0e4",
     "url": "/dima-pokedex/static/css/2.916669b4.chunk.css"
   },
   {
-    "revision": "9cf379d4b86d7373bf99",
+    "revision": "20818d5b797f8589014a",
     "url": "/dima-pokedex/static/css/main.2cce8147.chunk.css"
   },
   {
-    "revision": "97e360eb0425975d45f4",
-    "url": "/dima-pokedex/static/js/2.3227d9e6.chunk.js"
+    "revision": "b64d72a0f7575e93c0e4",
+    "url": "/dima-pokedex/static/js/2.1f582923.chunk.js"
   },
   {
-    "revision": "9cf379d4b86d7373bf99",
-    "url": "/dima-pokedex/static/js/main.ae54c821.chunk.js"
+    "revision": "20818d5b797f8589014a",
+    "url": "/dima-pokedex/static/js/main.be2a8cd7.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
     "url": "/dima-pokedex/static/js/runtime~main.8c727313.js"
   },
   {
+    "revision": "683b578d5df988e6435cd40d41636be1",
+    "url": "/dima-pokedex/static/media/Bug.683b578d.png"
+  },
+  {
+    "revision": "e76a0f8af86cc7d62932fff89cb4d64b",
+    "url": "/dima-pokedex/static/media/Dark.e76a0f8a.png"
+  },
+  {
+    "revision": "9a6f3f5f53062b5d35c03669ccd6a7c5",
+    "url": "/dima-pokedex/static/media/Dragon.9a6f3f5f.png"
+  },
+  {
+    "revision": "8e64be41cdd3322614adadc0e41614db",
+    "url": "/dima-pokedex/static/media/Electric.8e64be41.png"
+  },
+  {
+    "revision": "844bf9728dc7d0d44dfaef1ec3613a46",
+    "url": "/dima-pokedex/static/media/Fairy.844bf972.png"
+  },
+  {
+    "revision": "739e0341f26998accaaa915bf96f3783",
+    "url": "/dima-pokedex/static/media/Fighting.739e0341.png"
+  },
+  {
+    "revision": "e20a8db1cab1bedf934c9dad5649f7d5",
+    "url": "/dima-pokedex/static/media/Fire.e20a8db1.png"
+  },
+  {
+    "revision": "7213112620d481acebad23b3f0597d49",
+    "url": "/dima-pokedex/static/media/Flying.72131126.png"
+  },
+  {
+    "revision": "ae489523d69c47ae192deeb5b20f1b53",
+    "url": "/dima-pokedex/static/media/Ghost.ae489523.png"
+  },
+  {
+    "revision": "80efee718982f2ff24830df0940ef1bb",
+    "url": "/dima-pokedex/static/media/Grass.80efee71.png"
+  },
+  {
+    "revision": "487e5fafe633852d56af362be162ad92",
+    "url": "/dima-pokedex/static/media/Ground.487e5faf.png"
+  },
+  {
+    "revision": "6e7d5d9434fa0e8bead7b4166a205e22",
+    "url": "/dima-pokedex/static/media/Ice.6e7d5d94.png"
+  },
+  {
+    "revision": "a03d675a70e0f89cc86ad30e73fe6dea",
+    "url": "/dima-pokedex/static/media/Normal.a03d675a.png"
+  },
+  {
+    "revision": "7192956d127c5442437e31047c290a6a",
+    "url": "/dima-pokedex/static/media/Poison.7192956d.png"
+  },
+  {
     "revision": "99651ad2dad610748f67b49c3b805082",
     "url": "/dima-pokedex/static/media/Pokemon_symbol.99651ad2.png"
+  },
+  {
+    "revision": "5d4ad538216dd1ac35e932e644a16aed",
+    "url": "/dima-pokedex/static/media/Psychic.5d4ad538.png"
+  },
+  {
+    "revision": "0c22c73ba52dc0c9acc5bfc1abac38a7",
+    "url": "/dima-pokedex/static/media/Rock.0c22c73b.png"
+  },
+  {
+    "revision": "a6bab6c1e3c0664261ed6fe64b16039e",
+    "url": "/dima-pokedex/static/media/Steel.a6bab6c1.png"
+  },
+  {
+    "revision": "1296d91bad0e2929804b2179a7c536cc",
+    "url": "/dima-pokedex/static/media/Water.1296d91b.png"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
