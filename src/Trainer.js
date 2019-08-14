@@ -1,11 +1,14 @@
 
 //Phần 1: các Import
 import React, { Component } from 'react'
-//import {  } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
 
 
 //import './Trainer.css';
 
+
+
+import Aura_Guardian_Ash from './Aura Guardian Ash.jpg';
 
 
 class Trainer extends Component {
@@ -19,9 +22,11 @@ class Trainer extends Component {
     //const {  } = this.state
 
     return (
-      <div className="Trainer">
+      <div className="Trainer" align="center">
         
-
+        <Image src={Aura_Guardian_Ash} size='medium' />
+              <br/><br/>
+              <p>Aura Guardian Ash Satoshi Ketchum (Red Vampire)</p>
 
       </div>
 

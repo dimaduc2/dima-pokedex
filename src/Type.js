@@ -1,24 +1,24 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
 import { Button, Icon, Image, Grid } from 'semantic-ui-react'
-import Normal from './images/Normal.png';
-import Fire from './images/Fire.png';
-import Water from './images/Water.png';
-import Grass from './images/Grass.png';
-import Electric from './images/Electric.png';
-import Ice from './images/Ice.png';
-import Ground from './images/Ground.png';
-import Flying from './images/Flying.png';
-import Poison from './images/Poison.png';
-import Fighting from './images/Fighting.png';
-import Psychic from './images/Psychic.png';
-import Dark from './images/Dark.png';
-import Rock from './images/Rock.png';
-import Bug from './images/Bug.png';
-import Ghost from './images/Ghost.png';
-import Steel from './images/Steel.png';
-import Dragon from './images/Dragon.png';
-import Fairy from './images/Fairy.png';
+import Normal from './Type/Normal.png';
+import Fire from './Type/Fire.png';
+import Water from './Type/Water.png';
+import Grass from './Type/Grass.png';
+import Electric from './Type/Electric.png';
+import Ice from './Type/Ice.png';
+import Ground from './Type/Ground.png';
+import Flying from './Type/Flying.png';
+import Poison from './Type/Poison.png';
+import Fighting from './Type/Fighting.png';
+import Psychic from './Type/Psychic.png';
+import Dark from './Type/Dark.png';
+import Rock from './Type/Rock.png';
+import Bug from './Type/Bug.png';
+import Ghost from './Type/Ghost.png';
+import Steel from './Type/Steel.png';
+import Dragon from './Type/Dragon.png';
+import Fairy from './Type/Fairy.png';
 //import './Type.css';
 const types = {
   '' : {symbol: null, bgcolor: null},

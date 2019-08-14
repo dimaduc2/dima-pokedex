@@ -20,17 +20,10 @@ class Compare extends Component {
 
     return (
       <div className="Compare">
-        
-
-
+        <p>so sánh 2 con pokemon và con nào mạnh hơn</p>
       </div>
-
     )
   }
 }
 export default Compare;
-
-
-
-
 

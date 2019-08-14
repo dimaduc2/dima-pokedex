@@ -3,17 +3,22 @@
 import React, { Component } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
 
-import poke_logo from './images/Pokemon_symbol.png';
+import poke_logo from './Type/Pokemon_symbol.png';
 
 import './App.css';
-
+import Compare from './Compare'
+import Trainer from './Trainer'
 import Type from './Type';
+import PokeBall from './PokeBall';
+import About from './About';
+
 
 class App extends Component {
 
 //Phần 2: các State
   state = {
     dangXemGi: "dangXemHome",
+
   }
 
 //Phần 3: các Function
@@ -25,6 +30,7 @@ class App extends Component {
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
+
 
   render() {
     const { activeItem } = this.state
@@ -85,10 +91,41 @@ class App extends Component {
 
         </Menu>
 
-        <Type></Type>
+
+        {activeItem === "all"
+          ? <p>tên pokemon</p>  
+          : null
+        }
+
+        {activeItem === "type"
+          ? <Type></Type>
+          : null
+        }
+
+        {activeItem === "compare"
+          ? <Compare></Compare>
+          : null
+        }
+
+        {activeItem === "trainer"
+          ? <Trainer></Trainer>
+          : null
+        }
+
+        {activeItem === "pokeball"
+          ? <PokeBall></PokeBall>
+          : null
+        }
+
+        {activeItem === "about"
+          ? <About></About>
+            
+          : null
+        }
+
+
 
         <br/><br/>
-
         <header className="App-header">
           <img src={poke_logo} className="App-logo" alt="poke_logo" />
         </header>

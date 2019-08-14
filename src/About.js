@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 //import {  } from 'semantic-ui-react'
 
 
-//import './About.css';
+//import './Compare.css';
 
 
 
@@ -21,16 +21,19 @@ class About extends Component {
     return (
       <div className="About">
         
-
+        <p>
+          Type là gì?
+          <br/>
+          là sức mạnh của pokemon, mỗi con có 1 hoặc 2 sức mạnh.
+          <br/><br/>
+          Pokeball là gì?
+          <br/>
+          Là quả bóng bắt pokemon hoang để kết bạn hoặc bảo vệ hoặc vô hiệu hóa khi pokemon hoang phá hoại.
+          <br/>
+        </p>
 
       </div>
-
     )
   }
 }
 export default About;
-
-
-
-
-
