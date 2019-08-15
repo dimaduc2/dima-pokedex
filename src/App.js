@@ -6,6 +6,7 @@ import { Menu, Image } from 'semantic-ui-react'
 import poke_logo from './Type/Pokemon_symbol.png';
 
 import './App.css';
+import All from './All'
 import Compare from './Compare'
 import Trainer from './Trainer'
 import Type from './Type';
@@ -93,7 +94,8 @@ class App extends Component {
 
 
         {activeItem === "all"
-          ? <p>tên pokemon</p>  
+          ? <All></All>
+          // ? <p>sdfsf</p>  
           : null
         }
 
