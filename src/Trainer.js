@@ -22,19 +22,19 @@ class Trainer extends Component {
 
     return (
       <div className="Trainer" align="center">
-        
+        <br/>
         <Image src={Aura_Guardian_Ash} size='medium' />
+        <br/>
+        <p>Aura Guardian Ash Satoshi Ketchum (Red)</p>
         <br/><br/>
-        <p>Aura Guardian Ash Satoshi Ketchum (Red Vampire)</p>
-        
         <Image src={AshMistyVampire} size='medium' />
-        <br/><br/>
+        <br/>
         <p>Ash and Misty is Vampire</p>
-
-        <Image src={WerePokemon} size='medium' />
         <br/><br/>
+        <Image src={WerePokemon} size='medium' />
+        <br/>
         <p>AshLucario and SerenaBraixen kill Demon</p>
-
+        <br/><br/>
       </div>
 
     )

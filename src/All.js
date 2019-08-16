@@ -12,30 +12,68 @@ import Mega_Charizard_Z from './Mega Charizard X Y Z/Mega Charizard Z.png';
 class All extends Component {
 
 //Phần 2: các State
-  state = {}
+  state = { }
 
 //Phần 3: các Function
 
   render() {
-    //const {  } = this.state
-
+    // const {  } = this.state
+    const { Eevees } = this.props;
     return (
       <div className="All" align="center">
-        
         <Image src={Mega_Charizard_X} size='medium' />
         <br/>
-        <p>Mega Charizard X and 2 Type: Fire vs Dragon</p>
+        <p>Mega Charizard X</p>
+        <p>Type: Fire vs Dragon</p>
+        <p>HP: 78</p>
+        <p>Attack: 130</p>
+        <p>Defense: 111</p>
+        <p>Sp. Atk: 130</p>
+        <p>Sp. Def: 85</p>
+        <p>Speed: 100</p>
+        <p>Total:	634</p>
         <br/><br/>
         <Image src={Mega_Charizard_Y} size='medium' />
         <br/>
-        <p>Mega Charizard Y and 2 Type: Fire vs Flying</p>
+        <p>Mega Charizard Y</p>
+        <p>Type: Fire vs Flying</p>
+        <p>HP: 78</p>
+        <p>Attack: 104</p>
+        <p>Defense: 78</p>
+        <p>Sp. Atk: 159</p>
+        <p>Sp. Def: 115</p>
+        <p>Speed: 100</p>
+        <p>Total:	634</p>
         <br/><br/>
         <Image src={Mega_Charizard_Z} size='medium' />
         <br/>
-        <p>Mega Charizard Z (X + Y) and 3 Type: Fire vs Flying vs Dragon</p>
+        <p>Mega Charizard Z (X + Y)</p>
+        <p>Mega Charizard X</p>
+        <p>Type: Fire vs Flying vs Dragon</p>
+        <p>HP: 78</p>
+        <p>Attack: 130</p>
+        <p>Defense: 111</p>
+        <p>Sp. Atk: 159</p>
+        <p>Sp. Def: 115</p>
+        <p>Speed: 100</p>
+        <p>Total:	693</p>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
+        {
+          Object.keys(Eevees).map(
+            (moiSo) => 
+            <div>
+              <Image src={Eevees[moiSo].picture} size='medium' />
+              <h1>{Eevees[moiSo].name}</h1>
+              <p>{Eevees[moiSo].types}</p>  
+              <p>{Eevees[moiSo].hp}</p>
+              <p>{Eevees[moiSo].speed}</p>
+              <br/><br/>
+            </div>
+          )
+        }
+        
       </div>
-
     )
   }
 }

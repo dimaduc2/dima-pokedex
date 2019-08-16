@@ -13,6 +13,81 @@ import Type from './Type';
 import PokeBall from './PokeBall';
 import About from './About';
 
+import Eevee from './Eeveelutions/133 Eevee (Normal).jpg';
+import Vaporeon from './Eeveelutions/134 Vaporeon (Water).jpg';
+import Jolteon from './Eeveelutions/135 Jolteon (Electric).jpg';
+import Flareon from './Eeveelutions/136 Flareon (Fire).jpg';
+import Espeon from './Eeveelutions/196 Espeon (Psychic).jpg';
+import Umbreon from './Eeveelutions/197 Umbreon (Dark).jpg';
+import Leafeon from './Eeveelutions/470 Leafeon (Grass).jpg';
+import Glaceon from './Eeveelutions/471 Glaceon (Ice).jpg';
+import Sylveon from './Eeveelutions/700 Sylveon (Fairy).jpg';
+
+const Eeveelutions = {
+  '133': {
+    name: 'Eevee',
+    picture: Eevee,
+    types: ['Normal'],
+    hp: 55,
+    speed: 55,
+  },
+  '134': {
+    name: 'Vaporeon',
+    picture: Vaporeon,
+    types: ['Water'],
+    hp: 130,
+    speed: 65,
+  },
+  '135': {
+    name: 'Jolteon',
+    picture: Jolteon,
+    types: ['Electric'],
+    hp: 65,
+    speed: 130,
+  },
+  '136': {
+    name: 'Flareon',
+    picture: Flareon,
+    types: ['Fire'],
+    hp: 65,
+    speed: 65,
+  },
+  '196': {
+    name: 'Espeon',
+    picture: Espeon,
+    types: ['Psychic'],
+    hp: 65,
+    speed: 110,
+  },
+  '197': {
+    name: 'Umbreon',
+    picture: Umbreon,
+    types: ['Dark'],
+    hp: 95,
+    speed: 65,
+  },
+  '470': {
+    name: 'Leafeon',
+    picture: Leafeon,
+    types: ['Grass'],
+    hp: 65,
+    speed: 95,
+  },
+  '471': {
+    name: 'Glaceon',
+    picture: Glaceon,
+    types: ['Ice'],
+    hp: 65,
+    speed: 65,
+  },
+  '700': {
+    name: 'Sylveon',
+    picture: Sylveon,
+    types: ['Fairy'],
+    hp: 95,
+    speed: 60,
+  }
+}
 
 class App extends Component {
 
@@ -27,11 +102,9 @@ class App extends Component {
     this.setState({ activeItem: name });
   }
   
-  
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
-
 
   render() {
     const { activeItem } = this.state
@@ -92,9 +165,8 @@ class App extends Component {
 
         </Menu>
 
-
         {activeItem === "all"
-          ? <All></All>
+          ? <All Eevees = {Eeveelutions} ></All>
           // ? <p>sdfsf</p>  
           : null
         }
@@ -121,11 +193,8 @@ class App extends Component {
 
         {activeItem === "about"
           ? <About></About>
-            
           : null
         }
-
-
 
         <br/><br/>
         <header className="App-header">

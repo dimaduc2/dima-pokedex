@@ -36,7 +36,7 @@ class About extends Component {
           <br/><br/>
           Trainer là gì?
           <br/>
-          là giới triệu pokemon người có pokemon
+          là giới triệu người có pokemon
           <br/><br/>
           Pokeball là gì?
           <br/>
