@@ -1,27 +1,63 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8ad74f464a6614dda52ddfc9018857a7",
+    "revision": "357cb534bf41958da1858b37b7c45d16",
     "url": "/dima-pokedex/index.html"
   },
   {
-    "revision": "19f43e59edb6bc889490",
+    "revision": "b923380c12d40cd96c14",
     "url": "/dima-pokedex/static/css/2.916669b4.chunk.css"
   },
   {
-    "revision": "0cccd167d3fa4ab6c640",
+    "revision": "eac8566c7eb5c253d835",
     "url": "/dima-pokedex/static/css/main.2cce8147.chunk.css"
   },
   {
-    "revision": "19f43e59edb6bc889490",
-    "url": "/dima-pokedex/static/js/2.44536924.chunk.js"
+    "revision": "b923380c12d40cd96c14",
+    "url": "/dima-pokedex/static/js/2.99efacb6.chunk.js"
   },
   {
-    "revision": "0cccd167d3fa4ab6c640",
-    "url": "/dima-pokedex/static/js/main.dcb68362.chunk.js"
+    "revision": "eac8566c7eb5c253d835",
+    "url": "/dima-pokedex/static/js/main.060d151d.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
     "url": "/dima-pokedex/static/js/runtime~main.8c727313.js"
+  },
+  {
+    "revision": "ae452560b0a59ad8f2a3790bb7358c86",
+    "url": "/dima-pokedex/static/media/133 Eevee (Normal).ae452560.jpg"
+  },
+  {
+    "revision": "62f911f2a6248c80e4d1b56294bc389f",
+    "url": "/dima-pokedex/static/media/134 Vaporeon (Water).62f911f2.jpg"
+  },
+  {
+    "revision": "a0bfe2586ec36d242a6a6cfb259275f4",
+    "url": "/dima-pokedex/static/media/135 Jolteon (Electric).a0bfe258.jpg"
+  },
+  {
+    "revision": "4ab1e2c12892910dacab462dbe38d5ff",
+    "url": "/dima-pokedex/static/media/136 Flareon (Fire).4ab1e2c1.jpg"
+  },
+  {
+    "revision": "5806e666f747edb7e50185772bc3f0c9",
+    "url": "/dima-pokedex/static/media/196 Espeon (Psychic).5806e666.jpg"
+  },
+  {
+    "revision": "fbc4b698c3316f70462fee0fb1a2fafd",
+    "url": "/dima-pokedex/static/media/197 Umbreon (Dark).fbc4b698.jpg"
+  },
+  {
+    "revision": "ffc22156bc2658c26fb2e9a70c6a694f",
+    "url": "/dima-pokedex/static/media/470 Leafeon (Grass).ffc22156.jpg"
+  },
+  {
+    "revision": "1fa204453094f2fe7b5d465f5120f4b4",
+    "url": "/dima-pokedex/static/media/471 Glaceon (Ice).1fa20445.jpg"
+  },
+  {
+    "revision": "16e5a112cda62e5ba42b482d4a5f4523",
+    "url": "/dima-pokedex/static/media/700 Sylveon (Fairy).16e5a112.jpg"
   },
   {
     "revision": "059a645c3da27ad4dd000b51c939a4d0",
@@ -140,6 +176,18 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Master Ball.65d731eb.jpg"
   },
   {
+    "revision": "448d49bce018e4e718c038dfd875b32e",
+    "url": "/dima-pokedex/static/media/Mega Charizard X.448d49bc.png"
+  },
+  {
+    "revision": "17c92934071352bc5f102447d1d9bf35",
+    "url": "/dima-pokedex/static/media/Mega Charizard Y.17c92934.png"
+  },
+  {
+    "revision": "c55dd496dadeb0eff2742f20db78ddf9",
+    "url": "/dima-pokedex/static/media/Mega Charizard Z.c55dd496.png"
+  },
+  {
     "revision": "baa91d45f61c7cbbaf5ccaddd8b3af7b",
     "url": "/dima-pokedex/static/media/Mewtwo Ball.baa91d45.png"
   },
@@ -220,6 +268,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Water.1296d91b.png"
   },
   {
+    "revision": "18fc32ba1dc4b8b76ea9ea5792e7d9d4",
+    "url": "/dima-pokedex/static/media/WerePokemon Night Battle.18fc32ba.png"
+  },
+  {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
     "url": "/dima-pokedex/static/media/brand-icons.13db00b7.eot"
   },
@@ -282,5 +334,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "ef60a4f6c25ef7f39f2d25a748dbecfe",
     "url": "/dima-pokedex/static/media/outline-icons.ef60a4f6.woff"
+  },
+  {
+    "revision": "f6beeeec9118158f149da3eccc898841",
+    "url": "/dima-pokedex/static/media/you taste soooo good.f6beeeec.jpg"
   }
 ]);
