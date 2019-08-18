@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "357cb534bf41958da1858b37b7c45d16",
+    "revision": "2fd1f512a156d74ecc5808cb49c2ff3b",
     "url": "/dima-pokedex/index.html"
   },
   {
-    "revision": "b923380c12d40cd96c14",
+    "revision": "4dd6b2762eb5174fd958",
     "url": "/dima-pokedex/static/css/2.916669b4.chunk.css"
   },
   {
-    "revision": "eac8566c7eb5c253d835",
+    "revision": "e29f734029e8b2a93a1f",
     "url": "/dima-pokedex/static/css/main.2cce8147.chunk.css"
   },
   {
-    "revision": "b923380c12d40cd96c14",
-    "url": "/dima-pokedex/static/js/2.99efacb6.chunk.js"
+    "revision": "4dd6b2762eb5174fd958",
+    "url": "/dima-pokedex/static/js/2.1e446257.chunk.js"
   },
   {
-    "revision": "eac8566c7eb5c253d835",
-    "url": "/dima-pokedex/static/js/main.060d151d.chunk.js"
+    "revision": "e29f734029e8b2a93a1f",
+    "url": "/dima-pokedex/static/js/main.f4abc8fc.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
@@ -122,6 +122,26 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c1df25b94d4a3c6778e1ad58a09f4b1c",
     "url": "/dima-pokedex/static/media/GS Ball.c1df25b9.jpg"
+  },
+  {
+    "revision": "956adc7a5f54ec4cb79996c7ba606389",
+    "url": "/dima-pokedex/static/media/Genesect (Electric) - Shock Drive.956adc7a.png"
+  },
+  {
+    "revision": "aa202781f383a902602980090ae83b91",
+    "url": "/dima-pokedex/static/media/Genesect (Fire) - Burn Drive.aa202781.png"
+  },
+  {
+    "revision": "9346d9353dff2f43886c266f6ab843e4",
+    "url": "/dima-pokedex/static/media/Genesect (Ice) - Chill Drive.9346d935.png"
+  },
+  {
+    "revision": "0747d1843fddd17923677109c8057b0c",
+    "url": "/dima-pokedex/static/media/Genesect (Normal).0747d184.png"
+  },
+  {
+    "revision": "6358424034800b2550de9b6989cf014c",
+    "url": "/dima-pokedex/static/media/Genesect (Water) - Douse Drive.63584240.png"
   },
   {
     "revision": "ae489523d69c47ae192deeb5b20f1b53",
