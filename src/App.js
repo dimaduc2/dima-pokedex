@@ -247,7 +247,7 @@ class App extends Component {
     const { activeItem } = this.state
 
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="App">
           <Menu borderless inverted style={{backgroundColor:'#8B0000'}}>
             
