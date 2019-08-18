@@ -3,9 +3,12 @@
 import React, { Component } from 'react'
 import { Menu, Image } from 'semantic-ui-react'
 
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 import poke_logo from './Type/Pokemon_symbol.png';
 
 import './App.css';
+import Home from './Home'
 import All from './All'
 import Compare from './Compare'
 import Trainer from './Trainer'
@@ -229,7 +232,6 @@ class App extends Component {
 //Phần 2: các State
   state = {
     dangXemGi: "dangXemHome",
-
   }
 
 //Phần 3: các Function
@@ -245,98 +247,77 @@ class App extends Component {
     const { activeItem } = this.state
 
     return (
-      <div className="App">
-        <Menu borderless inverted style={{backgroundColor:'#8B0000'}}>
+      <Router>
+        <div className="App">
+          <Menu borderless inverted style={{backgroundColor:'#8B0000'}}>
+            
+            <Menu.Item
+              name='Pokedex'
+              active={activeItem === 'Pokedex'}
+              onClick={this.bamHome} >
+              <Image src={poke_logo} size='mini' />
+              <Link to="/"><b>Pokedex</b></Link>
+            </Menu.Item>
+
+            <Menu.Item
+              name='all'
+              active={activeItem === 'all'}
+              onClick={this.handleItemClick}>
+              <Link to="/All">All</Link>
+            </Menu.Item>
+
+            <Menu.Item
+              name='type'
+              active={activeItem === 'type'}
+              onClick={this.handleItemClick}>
+              <Link to="/Type">Type</Link>
+            </Menu.Item>
+
+            <Menu.Item
+              name='compare'
+              active={activeItem === 'compare'}
+              onClick={this.handleItemClick}>
+              <Link to="/Compare">Compare</Link>
+            </Menu.Item>
+
+            <Menu.Item
+              name='trainer'
+              active={activeItem === 'trainer'}
+              onClick={this.handleItemClick}>
+              <Link to="/Trainer">Trainer</Link>
+            </Menu.Item>
+
+            <Menu.Item
+              name='pokeball'
+              active={activeItem === 'pokeball'}
+              onClick={this.handleItemClick}>
+              <Link to="/Pokeball">Pokeball</Link>
+            </Menu.Item>
+
+            <Menu.Item
+              name='about'
+              active={activeItem === 'about'}
+              onClick={this.handleItemClick}>
+              <Link to="/About" >About</Link>
+            </Menu.Item>
+
+          </Menu>
+
+          <Route exact path = "/" component = {Home} />
+          <Route path = "/All" render={() => <All Pokedex = {Pokemon} />} />
+          <Route path = "/Type" component = {Type} />
+          <Route path = "/Compare" component = {Compare} />
+          <Route path = "/Trainer" component = {Trainer} />
+          <Route path = "/PokeBall" component = {PokeBall} />
+          <Route path = "/About" component = {About} />
           
-          <Menu.Item
-            name='Pokedex'
-            active={activeItem === 'Pokedex'}
-            onClick={this.bamHome} >
-            <Image src={poke_logo} size='mini' />
-            <b>Pokedex</b>
-          </Menu.Item>
-
-          <Menu.Item
-            name='all'
-            active={activeItem === 'all'}
-            onClick={this.handleItemClick}>
-            All
-          </Menu.Item>
-
-          <Menu.Item
-            name='type'
-            active={activeItem === 'type'}
-            onClick={this.handleItemClick}>
-            Type
-          </Menu.Item>
-
-          <Menu.Item
-            name='compare'
-            active={activeItem === 'compare'}
-            onClick={this.handleItemClick}>
-            Compare
-          </Menu.Item>
-
-          <Menu.Item
-            name='trainer'
-            active={activeItem === 'trainer'}
-            onClick={this.handleItemClick}>
-            Trainer
-          </Menu.Item>
-
-          <Menu.Item
-            name='pokeball'
-            active={activeItem === 'pokeball'}
-            onClick={this.handleItemClick}>
-            Pokeball
-          </Menu.Item>
-
-          <Menu.Item
-            name='about'
-            active={activeItem === 'about'}
-            onClick={this.handleItemClick}>
-            About
-          </Menu.Item>
-
-        </Menu>
-
-        {activeItem === "all"
-          ? <All Pokedex = {Pokemon} ></All>
-          : null
-        }
-
-        {activeItem === "type"
-          ? <Type></Type>
-          : null
-        }
-
-        {activeItem === "compare"
-          ? <Compare></Compare>
-          : null
-        }
-
-        {activeItem === "trainer"
-          ? <Trainer></Trainer>
-          : null
-        }
-
-        {activeItem === "pokeball"
-          ? <PokeBall></PokeBall>
-          : null
-        }
-
-        {activeItem === "about"
-          ? <About></About>
-          : null
-        }
-
-        <br/><br/>
-        <header className="App-header">
-          <img src={poke_logo} className="App-logo" alt="poke_logo" />
-        </header>
-        
-      </div>
-
+          <br/><br/>
+          <header className="App-header">
+            <img src={poke_logo} className="App-logo" alt="poke_logo" />
+          </header>
+          
+        </div>
+      </Router>
     )
   }
 }
