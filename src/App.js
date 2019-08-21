@@ -1,7 +1,7 @@
 
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Menu, Image } from 'semantic-ui-react'
+import { Grid, Menu, Image } from 'semantic-ui-react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -15,6 +15,7 @@ import Trainer from './Trainer'
 import Type from './Type';
 import PokeBall from './PokeBall';
 import About from './About';
+import Evolution from './Evolution';
 
 import Genesect_Normal from './Genesect/Genesect (Normal).png';
 import Genesect_Electric from './Genesect/Genesect (Electric) - Shock Drive.png';
@@ -37,7 +38,8 @@ import Glaceon from './Eeveelutions/471 Glaceon (Ice).jpg';
 import Sylveon from './Eeveelutions/700 Sylveon (Fairy).jpg';
 
 const Pokemon = {
-  'GenesectN':{
+  
+  '649N':{
     name: 'Genesect Normal',
     picture: Genesect_Normal,
     types: ['Bug Steel (Normal)'],
@@ -48,7 +50,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 99
   },
-  'GenesectE':{
+  '649E':{
     name: 'Genesect Electric',
     picture: Genesect_Electric,
     types: ['Bug Steel (Electric)'],
@@ -59,7 +61,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 99
   },
-  'GenesectF':{
+  '649F':{
     name: 'Genesect Fire',
     picture: Genesect_Fire,
     types: ['Bug Steel (Fire)'],
@@ -70,7 +72,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 99
   },
-  'GenesectI':{
+  '649I':{
     name: 'Genesect Ice',
     picture: Genesect_Ice,
     types: ['Bug Steel (Ice)'],
@@ -81,7 +83,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 99
   },
-  'GenesectW':{
+  '649W':{
     name: 'Genesect Water',
     picture: Genesect_Water,
     types: ['Bug vs Steel (Water)'],
@@ -92,7 +94,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 99
   },
-  'CharizardX':{
+  '006X':{
     name: 'Mega Charizard X',
     picture: Mega_Charizard_X,
     types: ['Fire vs Dragon'],
@@ -103,7 +105,7 @@ const Pokemon = {
     sp_def: 85,
     speed: 100
   },
-  'CharizardY':{  
+  '006Y':{  
     name: 'Mega Charizard Y',
     picture: Mega_Charizard_Y,
     types: 'Type: Fire vs Flying',
@@ -114,7 +116,7 @@ const Pokemon = {
     sp_def: 115,
     speed: 100
   },
-  'CharizardZ':{  
+  '006Z':{  
     name: 'Mega Charizard Z (X + Y)',
     picture: Mega_Charizard_Z,
     types: ['Fire vs Flying vs Dragon'],
@@ -258,14 +260,14 @@ class App extends Component {
               <Image src={poke_logo} size='mini' />
               <Link to="/"><b>Pokedex</b></Link>
             </Menu.Item>
-
+            
             <Menu.Item
               name='all'
               active={activeItem === 'all'}
               onClick={this.handleItemClick}>
               <Link to="/All">All</Link>
             </Menu.Item>
-
+            
             <Menu.Item
               name='type'
               active={activeItem === 'type'}
@@ -295,6 +297,13 @@ class App extends Component {
             </Menu.Item>
 
             <Menu.Item
+              name='evolution'
+              active={activeItem === 'evolution'}
+              onClick={this.handleItemClick}>
+              <Link to="/Evolution" >Evolution</Link>
+            </Menu.Item>
+
+            <Menu.Item
               name='about'
               active={activeItem === 'about'}
               onClick={this.handleItemClick}>
@@ -310,6 +319,7 @@ class App extends Component {
           <Route path = "/Trainer" component = {Trainer} />
           <Route path = "/PokeBall" component = {PokeBall} />
           <Route path = "/About" component = {About} />
+          <Route path = "/Evolution" component = {Evolution} />
           
           <br/><br/>
           <header className="App-header">
