@@ -38,6 +38,10 @@ class About extends Component {
           Pokeball là gì?
           <br/>
           Là quả bóng bắt pokemon hoang để kết bạn hoặc bảo vệ hoặc vô hiệu hóa khi pokemon hoang phá hoại.
+          <br/><br/>
+          Evolution là gì?
+          <br/>
+          Là pokemon tiến hóa theo level tăng khi đấu đầu đối thủ và tập luyện hoặc dùng hòn đá có type
           <br/>
         </p>
         

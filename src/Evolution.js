@@ -40,36 +40,35 @@ class Evolution extends Component {
 
 
 
-        <Grid columns={3}>
+        <Grid columns={5} doubling>
           {
             Object.keys(Pokedex).map(
               (moiSo) => 
               <Grid.Column>
-
                 
-<Popup
-  trigger={
-    <div>
-      <Image src={Pokedex[moiSo].picture}  size='tiny' />
-      <p>{Pokedex[moiSo].name}</p>
-    </div>
-  }>
-<Popup.Content>
-<Card>
-                <Image src={Pokedex[moiSo].picture} size='tiny' />
-<Card.Content>
-<Card.Header>{Pokedex[moiSo].name}</Card.Header>
-<Card.Description>
-                <h1>{Pokedex[moiSo].name}</h1>
-                <p>evolves into {Pokedex[moiSo].evolves_into}</p>
-                <p>evolves from {Pokedex[moiSo].evolves_from}</p>
-                <br/><br/>
-</Card.Description>
-</Card.Content>
+                <Popup
+                  trigger={
+                    <div>
+                      <Image src={Pokedex[moiSo].picture}  size='tiny' />
+                      <p>{Pokedex[moiSo].name}</p>
+                    </div>
+                  }>
+                <Popup.Content>
+                  <Card>
+                    <Image src={Pokedex[moiSo].picture} size='small' />
+                    <Card.Content>
+                      <Card.Header>{Pokedex[moiSo].name}</Card.Header>
+                      <Card.Description>
+                        <h1>{Pokedex[moiSo].name}</h1>
+                        <p>evolves into {Pokedex[moiSo].evolves_into}</p>
+                        <p>evolves from {Pokedex[moiSo].evolves_from}</p>
+                        <br/><br/>
+                      </Card.Description>
+                    </Card.Content>
 
-</Card>
-</Popup.Content>
-</Popup>
+                  </Card>
+                  </Popup.Content>
+                </Popup>
 
               </Grid.Column>
             )
