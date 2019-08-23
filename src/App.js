@@ -23,6 +23,7 @@ import Genesect_Fire from './Genesect/Genesect (Fire) - Burn Drive.png';
 import Genesect_Ice from './Genesect/Genesect (Ice) - Chill Drive.png';
 import Genesect_Water from './Genesect/Genesect (Water) - Douse Drive.png';
 
+import Charizard from './Mega Charizard X Y Z/Charizard.png';
 import Mega_Charizard_X from './Mega Charizard X Y Z/Mega Charizard X.png';
 import Mega_Charizard_Y from './Mega Charizard X Y Z/Mega Charizard Y.png';
 import Mega_Charizard_Z from './Mega Charizard X Y Z/Mega Charizard Z.png';
@@ -40,7 +41,7 @@ import Sylveon from './Eeveelutions/700 Sylveon (Fairy).jpg';
 const Pokemon = {
   
   '649N':{
-    name: 'Genesect Normal',
+    name: 'Geneqsect Normal',
     picture: Genesect_Normal,
     types: ['Bug Steel (Normal)'],
     hp: 71,
@@ -48,7 +49,9 @@ const Pokemon = {
     defense: 95,
     sp_atk: 120,
     sp_def: 95,
-    speed: 99
+    speed: 99,
+    evolves_into: [],
+    evolves_from: ''
   },
   '649E':{
     name: 'Genesect Electric',
@@ -59,7 +62,9 @@ const Pokemon = {
     defense: 95,
     sp_atk: 120,
     sp_def: 95,
-    speed: 99
+    speed: 99,
+    evolves_into: [],
+    evolves_from: ''
   },
   '649F':{
     name: 'Genesect Fire',
@@ -70,7 +75,9 @@ const Pokemon = {
     defense: 95,
     sp_atk: 120,
     sp_def: 95,
-    speed: 99
+    speed: 99,
+    evolves_into: [],
+    evolves_from: ''
   },
   '649I':{
     name: 'Genesect Ice',
@@ -81,7 +88,9 @@ const Pokemon = {
     defense: 95,
     sp_atk: 120,
     sp_def: 95,
-    speed: 99
+    speed: 99,
+    evolves_into: [],
+    evolves_from: ''
   },
   '649W':{
     name: 'Genesect Water',
@@ -92,7 +101,22 @@ const Pokemon = {
     defense: 95,
     sp_atk: 120,
     sp_def: 95,
-    speed: 99
+    speed: 99,
+    evolves_into: [],
+    evolves_from: ''
+  },
+  '006' :{
+    name: 'Charizard',
+    picture: Charizard,
+    types: ['Fire vs Flying'],
+    hp: 78,
+    attack: 84,
+    defense: 78,
+    sp_atk: 109,
+    sp_def: 85,
+    speed: 100,
+    evolves_into: ['Mega Charizard X', 'Mega Charizard Y', 'Mega Charizard Z'],
+    evolves_from: ''
   },
   '006X':{
     name: 'Mega Charizard X',
@@ -103,7 +127,9 @@ const Pokemon = {
     defense: 111,
     sp_atk: 130,
     sp_def: 85,
-    speed: 100
+    speed: 100,
+    evolves_into: [],
+    evolves_from: 'Charizard'
   },
   '006Y':{  
     name: 'Mega Charizard Y',
@@ -114,7 +140,9 @@ const Pokemon = {
     defense: 78,
     sp_atk: 159,
     sp_def: 115,
-    speed: 100
+    speed: 100,
+    evolves_into: [],
+    evolves_from: 'Charizard'
   },
   '006Z':{  
     name: 'Mega Charizard Z (X + Y)',
@@ -125,7 +153,9 @@ const Pokemon = {
     defense: 111,
     sp_atk: 159,
     sp_def: 115,
-    speed: 100
+    speed: 100,
+    evolves_into: [],
+    evolves_from: 'Charizard'
   },
   '133': {
     name: 'Eevee',
@@ -136,7 +166,9 @@ const Pokemon = {
     defense: 50,
     sp_atk: 45,
     sp_def: 65,
-    speed: 55
+    speed: 55,
+    evolves_into: ['Vaporeon ', 'Jolteon ', 'Flareon ', 'Espeon ', 'Umbreon ', 'Leafeon ', 'Glaceon ', 'Sylveon '],
+    evolves_from: ''
   },
   '134': {
     name: 'Vaporeon',
@@ -147,7 +179,9 @@ const Pokemon = {
     defense: 60,
     sp_atk: 110,
     sp_def: 95,
-    speed: 65
+    speed: 65,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   },
   '135': {
     name: 'Jolteon',
@@ -158,7 +192,9 @@ const Pokemon = {
     defense: 60,
     sp_atk: 110,
     sp_def: 95,
-    speed: 130
+    speed: 130,
+    evolves_into: [],
+    evolves_from: 'Eevee'
     
   },
   '136': {
@@ -170,7 +206,9 @@ const Pokemon = {
     defense: 60,
     sp_atk: 95,
     sp_def: 110,
-    speed: 65
+    speed: 65,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   },
   '196': {
     name: 'Espeon',
@@ -181,7 +219,9 @@ const Pokemon = {
     defense: 60,
     sp_atk: 130,
     sp_def: 95,
-    speed: 110
+    speed: 110,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   },
   '197': {
     name: 'Umbreon',
@@ -192,7 +232,9 @@ const Pokemon = {
     defense: 110,
     sp_atk: 60,
     sp_def: 130,
-    speed: 65
+    speed: 65,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   },
   '470': {
     name: 'Leafeon',
@@ -203,7 +245,9 @@ const Pokemon = {
     defense: 130,
     sp_atk: 60,
     sp_def: 65,
-    speed: 95
+    speed: 95,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   },
   '471': {
     name: 'Glaceon',
@@ -214,7 +258,9 @@ const Pokemon = {
     defense: 110,
     sp_atk: 130,
     sp_def: 95,
-    speed: 65
+    speed: 65,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   },
   '700': {
     name: 'Sylveon',
@@ -225,7 +271,9 @@ const Pokemon = {
     defense: 65,
     sp_atk: 110,
     sp_def: 130,
-    speed: 60
+    speed: 60,
+    evolves_into: [],
+    evolves_from: 'Eevee'
   }
 }
 
@@ -255,59 +303,75 @@ class App extends Component {
             
             <Menu.Item
               name='Pokedex'
+              as={Link}
+              to="/"
               active={activeItem === 'Pokedex'}
               onClick={this.bamHome} >
               <Image src={poke_logo} size='mini' />
-              <Link to="/"><b>Pokedex</b></Link>
+              Pokedex
             </Menu.Item>
             
             <Menu.Item
+              as={Link}
+              to="/All"
               name='all'
               active={activeItem === 'all'}
               onClick={this.handleItemClick}>
-              <Link to="/All">All</Link>
+              All
             </Menu.Item>
             
             <Menu.Item
+              as={Link}
+              to="/Type"
               name='type'
               active={activeItem === 'type'}
               onClick={this.handleItemClick}>
-              <Link to="/Type">Type</Link>
+              Type
             </Menu.Item>
 
             <Menu.Item
+              as={Link}
+              to="/Compare"
               name='compare'
               active={activeItem === 'compare'}
               onClick={this.handleItemClick}>
-              <Link to="/Compare">Compare</Link>
+              Compare
             </Menu.Item>
 
             <Menu.Item
+              as={Link}
+              to="/Trainer"
               name='trainer'
               active={activeItem === 'trainer'}
               onClick={this.handleItemClick}>
-              <Link to="/Trainer">Trainer</Link>
+              Trainer
             </Menu.Item>
 
             <Menu.Item
+              as={Link}
+              to="/Pokeball"
               name='pokeball'
               active={activeItem === 'pokeball'}
               onClick={this.handleItemClick}>
-              <Link to="/Pokeball">Pokeball</Link>
+              Pokeball
             </Menu.Item>
 
             <Menu.Item
+              as={Link}
+              to="/Evolution"
               name='evolution'
               active={activeItem === 'evolution'}
               onClick={this.handleItemClick}>
-              <Link to="/Evolution" >Evolution</Link>
+              Evolution
             </Menu.Item>
 
             <Menu.Item
+              as={Link}
+              to="/About"
               name='about'
               active={activeItem === 'about'}
               onClick={this.handleItemClick}>
-              <Link to="/About" >About</Link>
+              About
             </Menu.Item>
 
           </Menu>
@@ -318,8 +382,8 @@ class App extends Component {
           <Route path = "/Compare" component = {Compare} />
           <Route path = "/Trainer" component = {Trainer} />
           <Route path = "/PokeBall" component = {PokeBall} />
+          <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} />} />
           <Route path = "/About" component = {About} />
-          <Route path = "/Evolution" component = {Evolution} />
           
           <br/><br/>
           <header className="App-header">
