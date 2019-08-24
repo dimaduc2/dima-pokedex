@@ -1,7 +1,7 @@
 
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Grid, Image, Card, Popup } from 'semantic-ui-react'
+import { Grid, Image, Card, Popup, Icon, Button } from 'semantic-ui-react'
 
 //import './All.css';
 
@@ -56,7 +56,8 @@ class All extends Component {
                               <p>Speed {Pokedex[moiSo].speed}</p>
                               <p>Total {Pokedex[moiSo].hp + Pokedex[moiSo].attack + Pokedex[moiSo].defense + 
                                         Pokedex[moiSo].sp_atk + Pokedex[moiSo].sp_def + Pokedex[moiSo].speed}</p>
-                              <button></button>
+                              <Button basic color='red'><Icon name='star outline' />Favorite</Button>
+
                             </Grid.Column>
                           </Grid>
                         </Card.Description>

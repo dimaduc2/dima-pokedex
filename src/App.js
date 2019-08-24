@@ -14,8 +14,9 @@ import Compare from './Compare'
 import Trainer from './Trainer'
 import Type from './Type';
 import PokeBall from './PokeBall';
-import About from './About';
 import Evolution from './Evolution';
+import Favourites from './Favourites';
+import About from './About';
 
 import Genesect_Normal from './Genesect/Genesect (Normal).png';
 import Genesect_Electric from './Genesect/Genesect (Electric) - Shock Drive.png';
@@ -37,6 +38,9 @@ import Umbreon from './Eeveelutions/197 Umbreon (Dark).jpg';
 import Leafeon from './Eeveelutions/470 Leafeon (Grass).jpg';
 import Glaceon from './Eeveelutions/471 Glaceon (Ice).jpg';
 import Sylveon from './Eeveelutions/700 Sylveon (Fairy).jpg';
+
+import Reshiram from './Dragon Black White/Reshiram.jpg';
+import Zekrom from './Dragon Black White/Zekrom.jpg';
 
 const Pokemon = {
   
@@ -157,7 +161,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Charizard'
   },
-  '133': {
+  '133-133': {
     name: 'Eevee',
     picture: Eevee,
     types: ['Normal'],
@@ -170,7 +174,7 @@ const Pokemon = {
     evolves_into: ['Vaporeon ', 'Jolteon ', 'Flareon ', 'Espeon ', 'Umbreon ', 'Leafeon ', 'Glaceon ', 'Sylveon '],
     evolves_from: ''
   },
-  '134': {
+  '133-134': {
     name: 'Vaporeon',
     picture: Vaporeon,
     types: ['Water'],
@@ -183,7 +187,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Eevee'
   },
-  '135': {
+  '133-135': {
     name: 'Jolteon',
     picture: Jolteon,
     types: ['Electric'],
@@ -197,7 +201,7 @@ const Pokemon = {
     evolves_from: 'Eevee'
     
   },
-  '136': {
+  '133-136': {
     name: 'Flareon',
     picture: Flareon,
     types: ['Fire'],
@@ -210,7 +214,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Eevee'
   },
-  '196': {
+  '133-196': {
     name: 'Espeon',
     picture: Espeon,
     types: ['Psychic'],
@@ -223,7 +227,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Eevee'
   },
-  '197': {
+  '133-197': {
     name: 'Umbreon',
     picture: Umbreon,
     types: ['Dark'],
@@ -236,7 +240,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Eevee'
   },
-  '470': {
+  '133-470': {
     name: 'Leafeon',
     picture: Leafeon,
     types: ['Grass'],
@@ -249,7 +253,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Eevee'
   },
-  '471': {
+  '133-471': {
     name: 'Glaceon',
     picture: Glaceon,
     types: ['Ice'],
@@ -262,7 +266,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'Eevee'
   },
-  '700': {
+  '133-700': {
     name: 'Sylveon',
     picture: Sylveon,
     types: ['Fairy'],
@@ -274,6 +278,32 @@ const Pokemon = {
     speed: 60,
     evolves_into: [],
     evolves_from: 'Eevee'
+  },
+  '643': {
+    name: 'Reshiram',
+    picture: Reshiram,
+    types: ['Dragon vs Fire'],
+    hp: 100,
+    attack: 120,
+    defense: 100,
+    sp_atk: 150,
+    sp_def: 120,
+    speed: 90,
+    evolves_into: [],
+    evolves_from: ''
+  },
+  '644': {
+    name: 'Zekrom',
+    picture: Zekrom,
+    types: ['Dragon vs Electric'],
+    hp: 100,
+    attack: 150,
+    defense: 120,
+    sp_atk: 120,
+    sp_def: 100,
+    speed: 90,
+    evolves_into: [],
+    evolves_from: ''
   }
 }
 
@@ -367,6 +397,15 @@ class App extends Component {
 
             <Menu.Item
               as={Link}
+              to="/Favourites"
+              name='favourites'
+              active={activeItem === 'favourites'}
+              onClick={this.handleItemClick}>
+              Favourites
+            </Menu.Item>
+
+            <Menu.Item
+              as={Link}
               to="/About"
               name='about'
               active={activeItem === 'about'}
@@ -383,6 +422,7 @@ class App extends Component {
           <Route path = "/Trainer" component = {Trainer} />
           <Route path = "/PokeBall" component = {PokeBall} />
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} />} />
+          <Route path = "/Favourites" component = {Favourites} />
           <Route path = "/About" component = {About} />
           
           <br/><br/>
