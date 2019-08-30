@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0cd64b1302a2131b02cbdac62cf7aedb",
+    "revision": "77dc14253546da1a4483c1f3260c13cd",
     "url": "/dima-pokedex/index.html"
   },
   {
-    "revision": "839c3d2739b6024135df",
+    "revision": "dc11215066ab5f2748f0",
     "url": "/dima-pokedex/static/css/2.916669b4.chunk.css"
   },
   {
-    "revision": "6ecfbbc9de4d42e9a6f1",
+    "revision": "3790ac927bde2959f86b",
     "url": "/dima-pokedex/static/css/main.2cce8147.chunk.css"
   },
   {
-    "revision": "839c3d2739b6024135df",
-    "url": "/dima-pokedex/static/js/2.a90a89db.chunk.js"
+    "revision": "dc11215066ab5f2748f0",
+    "url": "/dima-pokedex/static/js/2.a2b899b2.chunk.js"
   },
   {
-    "revision": "6ecfbbc9de4d42e9a6f1",
-    "url": "/dima-pokedex/static/js/main.24da566b.chunk.js"
+    "revision": "3790ac927bde2959f86b",
+    "url": "/dima-pokedex/static/js/main.845f6081.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
@@ -264,12 +264,88 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Repeat Ball.93801b2b.png"
   },
   {
+    "revision": "922ed4b7e1b9b40b1b7d218d928ea3e2",
+    "url": "/dima-pokedex/static/media/Reshiram.922ed4b7.jpg"
+  },
+  {
     "revision": "0c22c73ba52dc0c9acc5bfc1abac38a7",
     "url": "/dima-pokedex/static/media/Rock.0c22c73b.png"
   },
   {
     "revision": "a376d9422ab9ff53dff2972520488662",
     "url": "/dima-pokedex/static/media/Safari Ball.a376d942.png"
+  },
+  {
+    "revision": "930c6793733dd60db6c8b3e81242c5b8",
+    "url": "/dima-pokedex/static/media/Silvally Bug.930c6793.png"
+  },
+  {
+    "revision": "f774a2b1597e482ee0d05d2c1b750b6a",
+    "url": "/dima-pokedex/static/media/Silvally Dark.f774a2b1.png"
+  },
+  {
+    "revision": "66adac72f9313dad8179b7ee8c7f8146",
+    "url": "/dima-pokedex/static/media/Silvally Dragon.66adac72.png"
+  },
+  {
+    "revision": "77d5e844d3a9cc75b520f7c392dff8ae",
+    "url": "/dima-pokedex/static/media/Silvally Electric.77d5e844.png"
+  },
+  {
+    "revision": "e88e5e4a4e7352cd6a78bba68a9aa724",
+    "url": "/dima-pokedex/static/media/Silvally Fairy.e88e5e4a.png"
+  },
+  {
+    "revision": "22de01e10e28e85ffd985e4496fe62a8",
+    "url": "/dima-pokedex/static/media/Silvally Fighting.22de01e1.png"
+  },
+  {
+    "revision": "ad55df2ce11f1a1f0f808b1c3ef58c5b",
+    "url": "/dima-pokedex/static/media/Silvally Fire.ad55df2c.png"
+  },
+  {
+    "revision": "416ccc3b4bf001cb1bf88430c02d57ce",
+    "url": "/dima-pokedex/static/media/Silvally Flying.416ccc3b.png"
+  },
+  {
+    "revision": "108529b8bd24eec39d1a5ed9d13c2696",
+    "url": "/dima-pokedex/static/media/Silvally Ghost.108529b8.png"
+  },
+  {
+    "revision": "762f1ddd74e99d2fe736bfe269558221",
+    "url": "/dima-pokedex/static/media/Silvally Grass.762f1ddd.png"
+  },
+  {
+    "revision": "724fffc89903632469f42c5435135854",
+    "url": "/dima-pokedex/static/media/Silvally Ground.724fffc8.png"
+  },
+  {
+    "revision": "847f2ecba08a366d7c9fb3bb4c903c5e",
+    "url": "/dima-pokedex/static/media/Silvally Ice.847f2ecb.png"
+  },
+  {
+    "revision": "5d6f62b1bfe44dc41a54b5887dbe2ffa",
+    "url": "/dima-pokedex/static/media/Silvally Normal.5d6f62b1.png"
+  },
+  {
+    "revision": "5ca72ea7c8e87e3b0d54a98fdc5add70",
+    "url": "/dima-pokedex/static/media/Silvally Poison.5ca72ea7.png"
+  },
+  {
+    "revision": "be1897dcbe0a6f1ec8fdfc5dc66808ab",
+    "url": "/dima-pokedex/static/media/Silvally Psychic.be1897dc.png"
+  },
+  {
+    "revision": "e70bbe187db504d853c48088a1a5d839",
+    "url": "/dima-pokedex/static/media/Silvally Rock.e70bbe18.png"
+  },
+  {
+    "revision": "0bd69ea63b434d81c4103559c3145bd2",
+    "url": "/dima-pokedex/static/media/Silvally Steel.0bd69ea6.png"
+  },
+  {
+    "revision": "011243c07e2a253a58837ab5e4862ffc",
+    "url": "/dima-pokedex/static/media/Silvally Water.011243c0.png"
   },
   {
     "revision": "d7b8046eeabbda22c989e7adff09a87f",
@@ -294,6 +370,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "18fc32ba1dc4b8b76ea9ea5792e7d9d4",
     "url": "/dima-pokedex/static/media/WerePokemon Night Battle.18fc32ba.png"
+  },
+  {
+    "revision": "28b82d0bd1b26eb5120f2ab8d2174aa3",
+    "url": "/dima-pokedex/static/media/Zekrom.28b82d0b.jpg"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
