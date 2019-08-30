@@ -1,4 +1,3 @@
-
 //Phần 1: các Import
 import React, { Component } from 'react'
 import { Grid, Image, Card, Popup } from 'semantic-ui-react'

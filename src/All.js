@@ -1,4 +1,3 @@
-
 //Phần 1: các Import
 import React, { Component } from 'react'
 import { Grid, Image, Card, Popup, Icon, Button } from 'semantic-ui-react'
@@ -14,23 +13,20 @@ class All extends Component {
 
   render() {
     // const {  } = this.state
-    const { Pokedex } = this.props;
+    const { Pokedex, addToFavourites, favPokemon, removeFromFavourites } = this.props;
     return (
       <div className="All" align="center">
-        
         <br/><br/>
-        
         <Grid columns={5} doubling>
           {
             Object.keys(Pokedex).map(
-              (moiSo) => 
+              (moiTen) => 
               <Grid.Column>
-                
                 <Popup
                   trigger={
                     <div>
-                      <Image src={Pokedex[moiSo].picture}  size='tiny' />
-                      <p>{Pokedex[moiSo].name}</p>
+                      <Image src={Pokedex[moiTen].picture}  size='tiny' />
+                      <p>{Pokedex[moiTen].name}</p>
                     </div>
                   }
                   position='top center'
@@ -40,23 +36,28 @@ class All extends Component {
                   <Popup.Content>
                     <Card fluid>
                       <Card.Content>
-                        <Card.Header>{Pokedex[moiSo].name}</Card.Header>
+                        <Card.Header>{Pokedex[moiTen].name}</Card.Header>
                         <Card.Description>
                           <Grid columns={2}>
                             <Grid.Column width={10}>
-                              <Image src={Pokedex[moiSo].picture} size='large' />
+                              <Image src={Pokedex[moiTen].picture} size='large' />
                             </Grid.Column>
                             <Grid.Column width={6}>
-                              <p>{Pokedex[moiSo].types}</p>  
-                              <p>HP {Pokedex[moiSo].hp}</p>
-                              <p>Attack {Pokedex[moiSo].attack}</p>
-                              <p>Defense {Pokedex[moiSo].defense}</p>
-                              <p>Sp. Atk {Pokedex[moiSo].sp_atk}</p>
-                              <p>Sp. Def {Pokedex[moiSo].sp_def}</p>
-                              <p>Speed {Pokedex[moiSo].speed}</p>
-                              <p>Total {Pokedex[moiSo].hp + Pokedex[moiSo].attack + Pokedex[moiSo].defense + 
-                                        Pokedex[moiSo].sp_atk + Pokedex[moiSo].sp_def + Pokedex[moiSo].speed}</p>
-                              <Button basic color='red'><Icon name='star outline' />Favorite</Button>
+                              <p>Type: {Pokedex[moiTen].types}</p>  
+                              <p>HP: {Pokedex[moiTen].hp}</p>
+                              <p>Attack: {Pokedex[moiTen].attack}</p>
+                              <p>Defense: {Pokedex[moiTen].defense}</p>
+                              <p>Sp. Atk: {Pokedex[moiTen].sp_atk}</p>
+                              <p>Sp. Def: {Pokedex[moiTen].sp_def}</p>
+                              <p>Speed: {Pokedex[moiTen].speed}</p>
+                              <p>Total: {Pokedex[moiTen].hp + Pokedex[moiTen].attack + Pokedex[moiTen].defense + 
+                                        Pokedex[moiTen].sp_atk + Pokedex[moiTen].sp_def + Pokedex[moiTen].speed}</p>
+
+                              <Button basic color='red' onClick = {
+                                moiTen in favPokemon ? () => removeFromFavourites(moiTen) : () => addToFavourites(moiTen)}>
+                                <Icon name={moiTen in favPokemon ?'star' :'star outline'} />
+                                {moiTen in favPokemon ?'Remove' :'Favorite'}
+                              </Button>
 
                             </Grid.Column>
                           </Grid>
@@ -65,12 +66,10 @@ class All extends Component {
                     </Card>
                   </Popup.Content>
                 </Popup>
-
               </Grid.Column>
             )
           }
         </Grid>
-        
       </div>
     )
   }
