@@ -59,7 +59,7 @@ class Type extends Component {
   };
   render() {
     var {typeDangChon} = this.state;
-    //const {  } = this.props
+    const { Pokedex } = this.props
     return (
       <div className="Type" align='center'>
         <h1>All Types of Pokemon {typeDangChon}</h1>
@@ -77,6 +77,23 @@ class Type extends Component {
                   {moiType}
                 </Button>
               </Grid.Column>
+            )
+          }
+        </Grid>
+        <Grid columns={6} doubling >
+          {
+            Object.keys(Pokedex).map(
+              (moiTen) =>
+              <div>
+                {
+                Pokedex[moiTen].types.includes(typeDangChon)
+                
+                  ? <Image src={Pokedex[moiTen].picture} size='tiny' />
+                  : null
+                }
+              </div>
+
+
             )
           }
         </Grid>

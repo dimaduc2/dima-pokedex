@@ -43,7 +43,8 @@ class All extends Component {
                               <Image src={Pokedex[moiTen].picture} size='large' />
                             </Grid.Column>
                             <Grid.Column width={6}>
-                              <p>Type: {Pokedex[moiTen].types}</p>  
+                              <p>Type: {Pokedex[moiTen].types}</p>
+                              {Pokedex[moiTen].info ? <p>Info: {Pokedex[moiTen].info}</p> : null}
                               <p>HP: {Pokedex[moiTen].hp}</p>
                               <p>Attack: {Pokedex[moiTen].attack}</p>
                               <p>Defense: {Pokedex[moiTen].defense}</p>

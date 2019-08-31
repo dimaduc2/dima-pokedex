@@ -66,8 +66,9 @@ const Pokemon = {
   'genesectN':{
     name: 'Genesect Normal',
     pokedexNum: 649,
+    info: "he's power Normal by drive: Normal",
     picture: Genesect_Normal,
-    types: ['Bug Steel (Normal)'],
+    types: ['Bug', 'Steel'],
     hp: 71,
     attack: 120,
     defense: 95,
@@ -80,8 +81,9 @@ const Pokemon = {
   'genesectE':{
     name: 'Genesect Electric',
     pokedexNum: 649,
+    info: "he's power Electric by drive: Shock",
     picture: Genesect_Electric,
-    types: ['Bug Steel (Electric)'],
+    types: ['Bug', 'Steel'],
     hp: 71,
     attack: 120,
     defense: 95,
@@ -94,8 +96,9 @@ const Pokemon = {
   'genesectF':{
     name: 'Genesect Fire',
     pokedexNum: 649,
+    info: "he's power Fire by drive: Burn",
     picture: Genesect_Fire,
-    types: ['Bug Steel (Fire)'],
+    types: ['Bug', 'Steel'],
     hp: 71, 
     attack: 120,
     defense: 95,
@@ -108,8 +111,9 @@ const Pokemon = {
   'genesectI':{
     name: 'Genesect Ice',
     pokedexNum: 649,
+    info: "he's power Ice by drive: Chill",
     picture: Genesect_Ice,
-    types: ['Bug Steel (Ice)'],
+    types: ['Bug', 'Steel'],
     hp: 71,
     attack: 120,
     defense: 95,
@@ -122,8 +126,9 @@ const Pokemon = {
   'genesectW':{
     name: 'Genesect Water',
     pokedexNum: 649,
+    info: "her's power Water by drive: Douse",
     picture: Genesect_Water,
-    types: ['Bug vs Steel (Water)'],
+    types: ['Bug', 'Steel'],
     hp: 71,
     attack: 120,
     defense: 95,
@@ -137,7 +142,7 @@ const Pokemon = {
     name: 'Charizard',
     pokedexNum: 6,
     picture: Charizard,
-    types: ['Fire vs Flying'],
+    types: ['Fire', 'Flying'],
     hp: 78,
     attack: 84,
     defense: 78,
@@ -151,7 +156,7 @@ const Pokemon = {
     name: 'Mega Charizard X',
     pokedexNum: 6,
     picture: Mega_Charizard_X,
-    types: ['Fire vs Dragon'],
+    types: ['Fire', 'Dragon'],
     hp: 78,
     attack: 130,
     defense: 111,
@@ -165,7 +170,7 @@ const Pokemon = {
     name: 'Mega Charizard Y',
     pokedexNum: 6,
     picture: Mega_Charizard_Y,
-    types: 'Fire vs Flying',
+    types: ['Fire', 'Flying'],
     hp: 78,
     attack: 104,
     defense: 78,
@@ -179,7 +184,7 @@ const Pokemon = {
     name: 'Mega Charizard Z (X + Y)',
     pokedexNum: 6,
     picture: Mega_Charizard_Z,
-    types: ['Fire vs Flying vs Dragon'],
+    types: ['Fire', 'Flying', 'Dragon'],
     hp: 78,
     attack: 130,
     defense: 111,
@@ -320,7 +325,7 @@ const Pokemon = {
     name: 'Reshiram',
     pokedexNum: 643,
     picture: Reshiram,
-    types: ['Dragon vs Fire'],
+    types: ['Dragon', 'Fire'],
     hp: 100,
     attack: 120,
     defense: 100,
@@ -334,7 +339,7 @@ const Pokemon = {
     name: 'Zekrom',
     pokedexNum: 644,
     picture: Zekrom,
-    types: ['Dragon vs Electric'],
+    types: ['Dragon', 'Electric'],
     hp: 100,
     attack: 150,
     defense: 120,
@@ -736,7 +741,7 @@ class App extends Component {
           <Route exact path = "/" component = {Home} />
           <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
                                                             removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
-          <Route path = "/Type" component = {Type} />
+          <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} />} />
           <Route path = "/Compare" component = {Compare} />
           <Route path = "/Trainer" component = {Trainer} />
           <Route path = "/PokeBall" component = {PokeBall} />
