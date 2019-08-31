@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Button, Icon, Image, Grid } from 'semantic-ui-react'
+import { Button, Icon, Image, Grid, Card, Popup } from 'semantic-ui-react'
 import Normal from './Type/Normal.png';
 import Fire from './Type/Fire.png';
 import Water from './Type/Water.png';
@@ -59,7 +59,7 @@ class Type extends Component {
   };
   render() {
     var {typeDangChon} = this.state;
-    const { Pokedex } = this.props
+    const { Pokedex, addToFavourites, removeFromFavourites } = this.props
     return (
       <div className="Type" align='center'>
         <h1>All Types of Pokemon {typeDangChon}</h1>
@@ -88,7 +88,49 @@ class Type extends Component {
                 {
                 Pokedex[moiTen].types.includes(typeDangChon)
                 
-                  ? <Image src={Pokedex[moiTen].picture} size='tiny' />
+                  
+                  ? <Grid.Column>
+                      <Popup
+                        trigger={
+                          <div>
+                            <Image src={Pokedex[moiTen].picture}  size='tiny' />
+                            <p>{Pokedex[moiTen].name}</p>
+                          </div>
+                        }
+                        position='top center'
+                        on='click'
+                        wide='very'
+                      >
+                        <Popup.Content>
+                          <Card fluid>
+                            <Card.Content>
+                              <Card.Header>{Pokedex[moiTen].name}</Card.Header>
+                              <Card.Description>
+                                <Grid columns={2}>
+                                  <Grid.Column width={10}>
+                                    <Image src={Pokedex[moiTen].picture} size='large' />
+                                  </Grid.Column>
+                                  <Grid.Column width={6}>
+                                    <p>Type: {Pokedex[moiTen].types}</p>
+                                    {Pokedex[moiTen].info ? <p>Info: {Pokedex[moiTen].info}</p> : null}
+                                    <p>HP: {Pokedex[moiTen].hp}</p>
+                                    <p>Attack: {Pokedex[moiTen].attack}</p>
+                                    <p>Defense: {Pokedex[moiTen].defense}</p>
+                                    <p>Sp. Atk: {Pokedex[moiTen].sp_atk}</p>
+                                    <p>Sp. Def: {Pokedex[moiTen].sp_def}</p>
+                                    <p>Speed: {Pokedex[moiTen].speed}</p>
+                                    <p>Total: {Pokedex[moiTen].hp + Pokedex[moiTen].attack + Pokedex[moiTen].defense + 
+                                              Pokedex[moiTen].sp_atk + Pokedex[moiTen].sp_def + Pokedex[moiTen].speed}</p>
+      
+                                  </Grid.Column>
+                                </Grid>
+                              </Card.Description>
+                            </Card.Content>
+                          </Card>
+                        </Popup.Content>
+                      </Popup>
+                    </Grid.Column>
+
                   : null
                 }
               </div>
