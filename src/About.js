@@ -42,6 +42,10 @@ class About extends Component {
           Evolution là gì?
           <br/>
           Là pokemon tiến hóa theo level tăng khi đấu đầu đối thủ và tập luyện hoặc dùng hòn đá có type
+          <br/><br/>
+          Favourites là gì?
+          <br/>
+          Là danh sách ưa thích.
           <br/>
         </p>
         

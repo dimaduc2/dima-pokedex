@@ -741,7 +741,8 @@ class App extends Component {
           <Route exact path = "/" component = {Home} />
           <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
                                                             removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
-          <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} />} />
+          <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
+                                                            removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
           <Route path = "/Compare" component = {Compare} />
           <Route path = "/Trainer" component = {Trainer} />
           <Route path = "/PokeBall" component = {PokeBall} />

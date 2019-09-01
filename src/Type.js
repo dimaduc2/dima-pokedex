@@ -59,7 +59,7 @@ class Type extends Component {
   };
   render() {
     var {typeDangChon} = this.state;
-    const { Pokedex, addToFavourites, removeFromFavourites } = this.props
+    const { Pokedex, addToFavourites, removeFromFavourites, favPokemon } = this.props
     return (
       <div className="Type" align='center'>
         <h1>All Types of Pokemon {typeDangChon}</h1>
@@ -84,11 +84,10 @@ class Type extends Component {
           {
             Object.keys(Pokedex).map(
               (moiTen) =>
-              <div>
-                {
+              
+                
                 Pokedex[moiTen].types.includes(typeDangChon)
                 
-                  
                   ? <Grid.Column>
                       <Popup
                         trigger={
@@ -97,10 +96,7 @@ class Type extends Component {
                             <p>{Pokedex[moiTen].name}</p>
                           </div>
                         }
-                        position='top center'
-                        on='click'
-                        wide='very'
-                      >
+                        position='top center' on='click' wide='very'>
                         <Popup.Content>
                           <Card fluid>
                             <Card.Content>
@@ -121,7 +117,15 @@ class Type extends Component {
                                     <p>Speed: {Pokedex[moiTen].speed}</p>
                                     <p>Total: {Pokedex[moiTen].hp + Pokedex[moiTen].attack + Pokedex[moiTen].defense + 
                                               Pokedex[moiTen].sp_atk + Pokedex[moiTen].sp_def + Pokedex[moiTen].speed}</p>
-      
+                                    
+                                    
+                                    <Button basic color='red' onClick = {
+                                      moiTen in favPokemon ? () => removeFromFavourites(moiTen) : () => addToFavourites(moiTen)}>
+                                      <Icon name={moiTen in favPokemon ?'star' :'star outline'} />
+                                      {moiTen in favPokemon ?'Remove' :'Favorite'}
+                                    </Button>
+
+
                                   </Grid.Column>
                                 </Grid>
                               </Card.Description>
@@ -132,10 +136,6 @@ class Type extends Component {
                     </Grid.Column>
 
                   : null
-                }
-              </div>
-
-
             )
           }
         </Grid>

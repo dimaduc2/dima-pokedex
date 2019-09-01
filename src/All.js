@@ -13,7 +13,7 @@ class All extends Component {
 
   render() {
     // const {  } = this.state
-    const { Pokedex, addToFavourites, favPokemon, removeFromFavourites } = this.props;
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites } = this.props;
     return (
       <div className="All" align="center">
         <br/><br/>
