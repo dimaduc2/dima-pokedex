@@ -633,14 +633,18 @@ class App extends Component {
   removeFromFavourites = (tenPokeMuonXoa) => {
     var newFav = this.state.favPokemon;
     //lấy danh sách Pokemon ưa thích CŨ, đang ở trong state favPokemon, rồi cho vào newFav
-
     delete newFav[tenPokeMuonXoa];
     //xóa tên Pokemon ưa thích khỏi newFar
-      
+
     this.setState({ favPokemon: newFav });
     //thay đổi state favPokemon
     //cho newFav (gồm tất cả pokemon ưa thích cũ trừ pokemon vừa xóa) vào trong favPokemon
   }
+
+  removeAllFromFavourites = () => {
+    this.setState({ favPokemon: {} });
+  }
+
 
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
@@ -748,7 +752,7 @@ class App extends Component {
           <Route path = "/PokeBall" component = {PokeBall} />
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} />} />
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
-                                                            removeFromFavourites = {this.removeFromFavourites} />} />
+                        removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites} />} />
           <Route path = "/About" component = {About} />
           
           <br/><br/>

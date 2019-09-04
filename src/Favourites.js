@@ -10,13 +10,20 @@ class Favourites extends Component {
   state = {}
 
 //Phần 3: các Function
-
   render() {
     // const {  } = this.state
-    const { favPokemon, Pokedex, removeFromFavourites } = this.props;
+    const { favPokemon, Pokedex, removeFromFavourites, removeAllFromFavourites } = this.props;
 
     return (
       <div className="Favourites">
+        {
+          Object.keys(favPokemon).length === 0 
+          ? null
+          : <Button basic color='red' onClick = {removeAllFromFavourites}>
+              <Icon name='star' />Remove All
+            </Button>
+        }
+        <br/><br/>
         {
           <Grid columns={3} doubling>
             {
