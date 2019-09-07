@@ -13,7 +13,7 @@ class All extends Component {
 
   render() {
     // const {  } = this.state
-    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites } = this.props;
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, comparePokemon1, comparePokemon2 } = this.props;
     return (
       <div className="All" align="center">
         <br/><br/>
@@ -60,6 +60,18 @@ class All extends Component {
                                 {moiTen in favPokemon ?'Remove' :'Favorite'}
                               </Button>
 
+                              <Button basic color='black' onClick = {
+                               () => comparePokemon1 (moiTen) }>
+                              {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
+                                Compare1
+                              </Button>
+                              <Button basic color='black' onClick = {
+                                () => comparePokemon2 (moiTen) }>
+                              {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
+                                Compare2
+                              </Button>
+                              
+                              {/* <Button */}
                             </Grid.Column>
                           </Grid>
                         </Card.Description>

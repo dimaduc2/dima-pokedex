@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Icon, Button, Image, Grid, Card} from 'semantic-ui-react'
+import {Icon, Button, Image, Grid, Card} from 'semantic-ui-react'
 
 //import './Compare.css';
 

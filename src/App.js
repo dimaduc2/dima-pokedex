@@ -601,7 +601,6 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: ''
   }
-  
 }
 
 class App extends Component {
@@ -610,6 +609,8 @@ class App extends Component {
   state = {
     dangXemGi: "dangXemHome",
     favPokemon: {},
+    comPokemon1: '',
+    comPokemon2: ''
   }
 
 //Phần 3: các Function
@@ -617,6 +618,15 @@ class App extends Component {
     this.setState({ activeItem: name });
   }
 
+  comparePokemon1 = (newName1) => {
+    this.setState({comPokemon1: newName1})
+   //  alert(newName)
+   }
+   comparePokemon2 = (newName2) => {
+    this.setState({comPokemon2: newName2})
+   //  alert(newName)
+   }
+  
   addToFavourites = (tenPokeMoi) => {
 
     var newFav = this.state.favPokemon;
@@ -646,12 +656,13 @@ class App extends Component {
   }
 
 
+
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
 
   render() {
-    const { activeItem, favPokemon } = this.state
+    const { activeItem, favPokemon, comPokemon1, comPokemon2 } = this.state
 
     return (
       <Router basename={process.env.PUBLIC_URL}>
@@ -743,16 +754,29 @@ class App extends Component {
           </Menu>
 
           <Route exact path = "/" component = {Home} />
+          
           <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
-                                                            removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
+                              comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
+                              removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
+          
           <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
                                                             removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
-          <Route path = "/Compare" component = {Compare} />
+          
+          <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
+          
+          
+          Pokedex = {Pokemon}   />} />
+          
           <Route path = "/Trainer" component = {Trainer} />
+          
           <Route path = "/PokeBall" component = {PokeBall} />
+          
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} />} />
+          
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
-                        removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites} />} />
+                                                                removeFromFavourites = {this.removeFromFavourites} 
+                                                                removeAllFromFavourites = {this.removeAllFromFavourites} />} />
+          
           <Route path = "/About" component = {About} />
           
           <br/><br/>
