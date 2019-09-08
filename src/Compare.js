@@ -1,8 +1,9 @@
 //Phần 1: các Import
-import React, { Component         ,Grid,Card} from 'react'
-import { Image, Table, Tab } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Image, Table, Dropdown } from 'semantic-ui-react'
 
 //import './Compare.css';
+
 
 class Compare extends Component {
 
@@ -13,13 +14,48 @@ class Compare extends Component {
 
   render() {
     const { comPokemon1, comPokemon2, Pokedex} = this.props
+
+      const pokemonOptions = Object.keys(Pokedex).map (
+        (moiTen) => (
+          {
+            key: moiTen,
+            text: Pokedex[moiTen].name,
+            value: moiTen,
+            image: { avatar: true, src: Pokedex[moiTen].picture },
+          }
+        )
+      )
+
     return (
       <div className="Compare" align="center">
         { comPokemon1 === "" || comPokemon2 === ""
           ? null
           : <Table definition textAlign="center">
-
               <Table.Header>
+                <Table.Row align="center">
+                  <Table.HeaderCell />
+                  
+                  <Table.HeaderCell>
+                  <Dropdown
+                    placeholder='Select Friend'
+                    fluid
+                    selection
+                    options={pokemonOptions}
+                  />
+                  </Table.HeaderCell>
+
+                  <Table.HeaderCell>
+                  <Dropdown
+                    placeholder='Select Friend'
+                    fluid
+                    selection
+                    options={pokemonOptions}
+                  />
+                  </Table.HeaderCell>
+
+
+                </Table.Row>
+                
                 <Table.Row align="center">
                   <Table.HeaderCell />
                   <Table.HeaderCell><Image src = {Pokedex[comPokemon1].picture} size='medium' /></Table.HeaderCell>

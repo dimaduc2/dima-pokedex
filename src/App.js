@@ -757,7 +757,8 @@ class App extends Component {
           
           <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
                               comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
-                              removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
+                              removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} 
+                              comPokemon1 = {comPokemon1} />} />
           
           <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
                                                             removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />

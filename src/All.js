@@ -13,7 +13,7 @@ class All extends Component {
 
   render() {
     // const {  } = this.state
-    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, comparePokemon1, comparePokemon2 } = this.props;
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, comparePokemon1, comparePokemon2, comPokemon1 } = this.props;
     return (
       <div className="All" align="center">
         <br/><br/>
@@ -60,17 +60,24 @@ class All extends Component {
                                 {moiTen in favPokemon ?'Remove' :'Favorite'}
                               </Button>
 
-                              <Button basic color='black' onClick = {
-                               () => comparePokemon1 (moiTen) }>
-                              {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
-                                Compare1
+                              <Button basic color='black' onClick = { () => comparePokemon1 (moiTen) }>
+                                {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
+                                Compare
                               </Button>
-                              <Button basic color='black' onClick = {
-                                () => comparePokemon2 (moiTen) }>
-                              {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
-                                Compare2
-                              </Button>
+
+
+                              {comPokemon1 === ''
+                                ? null
+                                : <Button basic color='black' onClick = { () => comparePokemon2 (moiTen) }>
+                                    {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
+                                    Compare vs {comPokemon1}
+                                  </Button>
+                              }
                               
+                              
+
+
+
                               {/* <Button */}
                             </Grid.Column>
                           </Grid>
