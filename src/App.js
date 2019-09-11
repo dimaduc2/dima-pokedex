@@ -620,12 +620,23 @@ class App extends Component {
 
   comparePokemon1 = (newName1) => {
     this.setState({comPokemon1: newName1})
-   //  alert(newName)
-   }
-   comparePokemon2 = (newName2) => {
+    //  alert(newName1)
+  }
+  comparePokemon2 = (newName2) => {
     this.setState({comPokemon2: newName2})
-   //  alert(newName)
-   }
+    //  alert(newName2)
+  }
+
+  selectPokemon1 = (e, {value}) => {
+    // alert(value)
+    this.setState({comPokemon1: value})
+  }
+  
+  selectPokemon2 = (e, {value}) => {
+    // alert(value)
+    this.setState({comPokemon2: value})
+  }
+  
   
   addToFavourites = (tenPokeMoi) => {
 
@@ -764,7 +775,7 @@ class App extends Component {
                                                             removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
           
           <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
-          
+          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2}
           
           Pokedex = {Pokemon}   />} />
           

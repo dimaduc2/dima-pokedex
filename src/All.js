@@ -74,10 +74,6 @@ class All extends Component {
                                   </Button>
                               }
                               
-                              
-
-
-
                               {/* <Button */}
                             </Grid.Column>
                           </Grid>

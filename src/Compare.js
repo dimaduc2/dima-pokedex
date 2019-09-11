@@ -13,7 +13,7 @@ class Compare extends Component {
 //Phần 3: các Function
 
   render() {
-    const { comPokemon1, comPokemon2, Pokedex} = this.props
+    const { comPokemon1, comPokemon2, Pokedex, selectPokemon1, selectPokemon2} = this.props
 
       const pokemonOptions = Object.keys(Pokedex).map (
         (moiTen) => (
@@ -37,19 +37,23 @@ class Compare extends Component {
                   
                   <Table.HeaderCell>
                   <Dropdown
-                    placeholder='Select Friend'
+                    placeholder='Select Pokemon'
                     fluid
+                    search
                     selection
                     options={pokemonOptions}
+                    onChange={selectPokemon1}
                   />
                   </Table.HeaderCell>
 
                   <Table.HeaderCell>
                   <Dropdown
-                    placeholder='Select Friend'
+                    placeholder='Select Pokemon'
                     fluid
+                    search
                     selection
                     options={pokemonOptions}
+                    onChange={selectPokemon2}
                   />
                   </Table.HeaderCell>
 
