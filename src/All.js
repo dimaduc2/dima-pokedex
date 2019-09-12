@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Grid, Image, Card, Popup, Icon, Button } from 'semantic-ui-react'
+import { Grid, Image, Card, Popup, Icon, Button, Label } from 'semantic-ui-react'
 
 //import './All.css';
 
@@ -13,7 +13,7 @@ class All extends Component {
 
   render() {
     // const {  } = this.state
-    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, comparePokemon1, comparePokemon2, comPokemon1 } = this.props;
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, comparePokemon1, comparePokemon2, comPokemon1, typesInfo } = this.props;
     return (
       <div className="All" align="center">
         <br/><br/>
@@ -39,12 +39,15 @@ class All extends Component {
                         <Card.Header>{Pokedex[moiTen].name}</Card.Header>
                         <Card.Description>
                           <Grid columns={2}>
-                            <Grid.Column width={10}>
+                            <Grid.Column width={10} align="center">
                               <Image src={Pokedex[moiTen].picture} size='large' />
+                              <p>{Pokedex[moiTen].types.map((moiType) => <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</p>
                             </Grid.Column>
                             <Grid.Column width={6}>
-                              <p>Type: {Pokedex[moiTen].types}</p>
-                              {Pokedex[moiTen].info ? <p>Info: {Pokedex[moiTen].info}</p> : null}
+                              {Pokedex[moiTen].info 
+                                ? <p> Info: {Pokedex[moiTen].info} </p> 
+                                : null
+                              }
                               <p>HP: {Pokedex[moiTen].hp}</p>
                               <p>Attack: {Pokedex[moiTen].attack}</p>
                               <p>Defense: {Pokedex[moiTen].defense}</p>

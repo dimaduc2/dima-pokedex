@@ -28,38 +28,41 @@ class Compare extends Component {
 
     return (
       <div className="Compare" align="center">
+        
+        <Table definition textAlign="center">
+          <Table.Header>
+            <Table.Row align="center">
+              <Table.HeaderCell />
+
+              <Table.HeaderCell>
+                <Dropdown
+                placeholder='Select Pokemon'
+                fluid
+                search
+                selection
+                options={pokemonOptions}
+                onChange={selectPokemon1}
+                />
+              </Table.HeaderCell>
+
+              <Table.HeaderCell>
+                <Dropdown
+                placeholder='Select Pokemon'
+                fluid
+                search
+                selection
+                options={pokemonOptions}
+                onChange={selectPokemon2}
+                />
+              </Table.HeaderCell>
+            </Table.Row>
+          </Table.Header>
+        </Table>
+        
         { comPokemon1 === "" || comPokemon2 === ""
           ? null
           : <Table definition textAlign="center">
               <Table.Header>
-                <Table.Row align="center">
-                  <Table.HeaderCell />
-                  
-                  <Table.HeaderCell>
-                  <Dropdown
-                    placeholder='Select Pokemon'
-                    fluid
-                    search
-                    selection
-                    options={pokemonOptions}
-                    onChange={selectPokemon1}
-                  />
-                  </Table.HeaderCell>
-
-                  <Table.HeaderCell>
-                  <Dropdown
-                    placeholder='Select Pokemon'
-                    fluid
-                    search
-                    selection
-                    options={pokemonOptions}
-                    onChange={selectPokemon2}
-                  />
-                  </Table.HeaderCell>
-
-
-                </Table.Row>
-                
                 <Table.Row align="center">
                   <Table.HeaderCell />
                   <Table.HeaderCell><Image src = {Pokedex[comPokemon1].picture} size='medium' /></Table.HeaderCell>

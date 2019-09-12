@@ -60,6 +60,46 @@ import SilvallyRock from './Silvally Type/Silvally Rock.png';
 import SilvallySteel from './Silvally Type/Silvally Steel.png';
 import SilvallyWater from './Silvally Type/Silvally Water.png';
 
+import Normal from './Type/Normal.png';
+import Fire from './Type/Fire.png';
+import Water from './Type/Water.png';
+import Grass from './Type/Grass.png';
+import Electric from './Type/Electric.png';
+import Ice from './Type/Ice.png';
+import Ground from './Type/Ground.png';
+import Flying from './Type/Flying.png';
+import Poison from './Type/Poison.png';
+import Fighting from './Type/Fighting.png';
+import Psychic from './Type/Psychic.png';
+import Dark from './Type/Dark.png';
+import Rock from './Type/Rock.png';
+import Bug from './Type/Bug.png';
+import Ghost from './Type/Ghost.png';
+import Steel from './Type/Steel.png';
+import Dragon from './Type/Dragon.png';
+import Fairy from './Type/Fairy.png';
+
+const typesInfo = {
+  '' : {symbol: null, bgcolor: null},
+  'Normal' : {symbol : Normal, bgcolor: '#a8a878'},
+  'Fire' : {symbol : Fire, bgcolor: '#f08030'},
+  'Water' : {symbol : Water, bgcolor: '#6890f0'},
+  'Grass' : {symbol : Grass, bgcolor: '#78c850'},
+  'Electric' : {symbol : Electric, bgcolor: '#f8d030'},
+  'Ice' : {symbol : Ice, bgcolor: '#98d8d8'},
+  'Ground' : {symbol : Ground, bgcolor: '#e0c068'},
+  'Flying' : {symbol : Flying, bgcolor: '#a890f0'},
+  'Poison' : {symbol : Poison, bgcolor: '#a040a0'},
+  'Fighting' : {symbol : Fighting, bgcolor: '#c03028'},
+  'Psychic' : {symbol : Psychic, bgcolor: '#f85888'},
+  'Dark' : {symbol : Dark, bgcolor: '#705848'},
+  'Rock' : {symbol : Rock, bgcolor: '#b8a038'},
+  'Bug' : {symbol : Bug, bgcolor: '#a8b820'},
+  'Ghost' : {symbol : Ghost, bgcolor: '#705898'},
+  'Steel' : {symbol : Steel, bgcolor: '#b8b8d0'},
+  'Dragon' : {symbol : Dragon, bgcolor: '#7038f8'},
+  'Fairy' : {symbol : Fairy, bgcolor: '#ffaec9'},
+}
 
 const Pokemon = {
   
@@ -767,12 +807,11 @@ class App extends Component {
           <Route exact path = "/" component = {Home} />
           
           <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
-                              comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
-                              removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} 
-                              comPokemon1 = {comPokemon1} />} />
+          comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} typesInfo = {typesInfo}
+          removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} comPokemon1 = {comPokemon1} />} />
           
           <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
-                                                            removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} />} />
+          removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo} />} />
           
           <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
           selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2}
