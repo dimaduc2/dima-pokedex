@@ -189,7 +189,7 @@ const Pokemon = {
     sp_atk: 109,
     sp_def: 85,
     speed: 100,
-    evolves_into: ['Mega Charizard X', 'Mega Charizard Y', 'Mega Charizard Z'],
+    evolves_into: ['charizardX', 'charizardY', 'charizardZ'],
     evolves_from: ''
   },
   'charizardX':{
@@ -204,7 +204,7 @@ const Pokemon = {
     sp_def: 85,
     speed: 100,
     evolves_into: [],
-    evolves_from: 'Charizard'
+    evolves_from: 'charizard'
   },
   'charizardY':{  
     name: 'Mega Charizard Y',
@@ -218,7 +218,7 @@ const Pokemon = {
     sp_def: 115,
     speed: 100,
     evolves_into: [],
-    evolves_from: 'Charizard'
+    evolves_from: 'charizard'
   },
   'charizardZ':{  
     name: 'Mega Charizard Z (X + Y)',
@@ -232,7 +232,7 @@ const Pokemon = {
     sp_def: 115,
     speed: 100,
     evolves_into: [],
-    evolves_from: 'Charizard'
+    evolves_from: 'charizard'
   },
   'eevee': {
     name: 'Eevee',
@@ -245,7 +245,7 @@ const Pokemon = {
     sp_atk: 45,
     sp_def: 65,
     speed: 55,
-    evolves_into: ['Vaporeon ', 'Jolteon ', 'Flareon ', 'Espeon ', 'Umbreon ', 'Leafeon ', 'Glaceon ', 'Sylveon '],
+    evolves_into: ['vaporeon', 'jolteon', 'flareon', 'espeon', 'umbreon', 'leafeon', 'glaceon', 'sylveon'],
     evolves_from: ''
   },
   'vaporeon': {
@@ -260,7 +260,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 65,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'jolteon': {
     name: 'Jolteon',
@@ -274,7 +274,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 130,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
     
   },
   'flareon': {
@@ -289,7 +289,7 @@ const Pokemon = {
     sp_def: 110,
     speed: 65,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'espeon': {
     name: 'Espeon',
@@ -303,7 +303,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 110,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'umbreon': {
     name: 'Umbreon',
@@ -317,7 +317,7 @@ const Pokemon = {
     sp_def: 130,
     speed: 65,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'leafeon': {
     name: 'Leafeon',
@@ -331,7 +331,7 @@ const Pokemon = {
     sp_def: 65,
     speed: 95,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'glaceon': {
     name: 'Glaceon',
@@ -345,7 +345,7 @@ const Pokemon = {
     sp_def: 95,
     speed: 65,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'sylveon': {
     name: 'Sylveon',
@@ -359,7 +359,7 @@ const Pokemon = {
     sp_def: 130,
     speed: 60,
     evolves_into: [],
-    evolves_from: 'Eevee'
+    evolves_from: 'eevee'
   },
   'reshiram': {
     name: 'Reshiram',
@@ -814,8 +814,7 @@ class App extends Component {
           removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo} />} />
           
           <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
-          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2}
-          
+          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} 
           Pokedex = {Pokemon}   />} />
           
           <Route path = "/Trainer" component = {Trainer} />

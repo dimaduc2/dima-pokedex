@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Image, Table, Dropdown } from 'semantic-ui-react'
+import { Image, Table, Dropdown, Label } from 'semantic-ui-react'
 
 //import './Compare.css';
 
@@ -13,7 +13,7 @@ class Compare extends Component {
 //Phần 3: các Function
 
   render() {
-    const { comPokemon1, comPokemon2, Pokedex, selectPokemon1, selectPokemon2} = this.props
+    const { comPokemon1, comPokemon2, Pokedex, selectPokemon1, selectPokemon2, typesInfo} = this.props
 
       const pokemonOptions = Object.keys(Pokedex).map (
         (moiTen) => (
@@ -78,8 +78,15 @@ class Compare extends Component {
               <Table.Body>
                 <Table.Row>
                   <Table.Cell>Type</Table.Cell>
-                  <Table.Cell>{Pokedex[comPokemon1].types}</Table.Cell>
-                  <Table.Cell>{Pokedex[comPokemon2].types}</Table.Cell>
+
+
+                  <Table.Cell>{Pokedex[comPokemon1].types.map((moiType) => 
+                              <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</Table.Cell>
+
+                  <Table.Cell>{Pokedex[comPokemon2].types.map((moiType) => 
+                              <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</Table.Cell>
+
+
                 </Table.Row>
                 <Table.Row>
                   <Table.Cell>HP</Table.Cell>

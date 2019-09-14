@@ -20,33 +20,43 @@ class Evolution extends Component {
         <Grid columns={5} doubling>
           {
             Object.keys(Pokedex).map(
-              (moiSo) => 
+              (moiTenPokemon) => 
               <Grid.Column>
                 
                 <Popup
                   trigger={
                     <div>
-                      <Image src={Pokedex[moiSo].picture}  size='tiny' />
-                      <p>{Pokedex[moiSo].name}</p>
+                      <Image src={Pokedex[moiTenPokemon].picture}  size='tiny' />
+                      <p>{Pokedex[moiTenPokemon].name}</p>
                     </div>
-                  }>
+                  }
+                  on='click'>
                 <Popup.Content>
                   <Card>
-                    <Image src={Pokedex[moiSo].picture} size='small' />
+                    <Image src={Pokedex[moiTenPokemon].picture} size='small' />
                     <Card.Content>
-                      <Card.Header>{Pokedex[moiSo].name}</Card.Header>
+                      <Card.Header>{Pokedex[moiTenPokemon].name}</Card.Header>
                       <Card.Description>
-                        <h1>{Pokedex[moiSo].name}</h1>
-                        <p>evolves into {Pokedex[moiSo].evolves_into}</p>
-                        <p>evolves from {Pokedex[moiSo].evolves_from}</p>
+                        <h1>{Pokedex[moiTenPokemon].name}</h1>
+                        
+                        <p>evolves into: {Pokedex[moiTenPokemon].evolves_into.map (
+                          (moiTenEvolveInto) => <Image src={Pokedex[moiTenEvolveInto] 
+                                                ? Pokedex[moiTenEvolveInto].picture 
+                                                : null} 
+                                                size='tiny' />)}</p>
+                        
+                        <p>evolves from:
+                          <Image src={Pokedex[moiTenPokemon].evolves_from 
+                          ? Pokedex[Pokedex[moiTenPokemon].evolves_from].picture 
+                          : null} 
+                          size='tiny' /></p>
+
                         <br/><br/>
                       </Card.Description>
                     </Card.Content>
-
                   </Card>
                   </Popup.Content>
                 </Popup>
-
               </Grid.Column>
             )
           }

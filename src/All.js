@@ -13,7 +13,8 @@ class All extends Component {
 
   render() {
     // const {  } = this.state
-    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, comparePokemon1, comparePokemon2, comPokemon1, typesInfo } = this.props;
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, 
+            comparePokemon1, comparePokemon2, comPokemon1, typesInfo } = this.props;
     return (
       <div className="All" align="center">
         <br/><br/>
@@ -41,7 +42,8 @@ class All extends Component {
                           <Grid columns={2}>
                             <Grid.Column width={10} align="center">
                               <Image src={Pokedex[moiTen].picture} size='large' />
-                              <p>{Pokedex[moiTen].types.map((moiType) => <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</p>
+                              <p>{Pokedex[moiTen].types.map((moiType) => 
+                              <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</p>
                             </Grid.Column>
                             <Grid.Column width={6}>
                               {Pokedex[moiTen].info 
