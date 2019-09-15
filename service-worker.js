@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/dima-pokedex/precache-manifest.65bfedc13ce985e8af782e3bc20b84d0.js"
+  "/dima-pokedex/precache-manifest.95e20e81167b5e4f62d3a19f4cdd389a.js"
 );
 
 self.addEventListener('message', (event) => {
