@@ -1,6 +1,8 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import {Icon, Button, Image, Grid, Card} from 'semantic-ui-react'
+import {Icon, Button, Image, Grid, Card, Popup} from 'semantic-ui-react'
+
+import Profile from './Profile'
 
 //import './Compare.css';
 
@@ -12,7 +14,8 @@ class Favourites extends Component {
 //Phần 3: các Function
   render() {
     // const {  } = this.state
-    const { favPokemon, Pokedex, removeFromFavourites, removeAllFromFavourites } = this.props;
+    const { favPokemon, Pokedex, removeFromFavourites, removeAllFromFavourites, 
+      comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo, addToFavourites } = this.props;
 
     return (
       <div className="Favourites">
@@ -31,14 +34,24 @@ class Favourites extends Component {
                 (moiTen) => 
                 <Grid.Column align='center'>
                   <Card raised>
-                    <Image circular src={Pokedex[moiTen].picture}  size='medium' />
+                    {/* <Image circular src={Pokedex[moiTen].picture}  size='medium' /> */}
+
+                    <Popup
+                      trigger={
+                        <Image src={Pokedex[moiTen].picture}  size='smail' />
+                      }
+                      position='top center' on='click' wide='very'>
+                      <Popup.Content>
+                        <Profile Pokedex={Pokedex} moiTen={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                        comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
+                        typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                      </Popup.Content>
+                    </Popup>
+
                     <Card.Content>
                       <Card.Header>
                         {Pokedex[moiTen].name}
                       </Card.Header>
-                      <Card.Description>
-                        {Pokedex[moiTen].types}
-                      </Card.Description>
                     </Card.Content>
                     <Card.Content extra>
                       <Button basic color='red' onClick = {() => removeFromFavourites(moiTen)}>

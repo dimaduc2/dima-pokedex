@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Menu, Image } from 'semantic-ui-react'
+import { Menu, Image, Checkbox, Icon } from 'semantic-ui-react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -650,14 +650,23 @@ class App extends Component {
     dangXemGi: "dangXemHome",
     favPokemon: {},
     comPokemon1: '',
-    comPokemon2: ''
+    comPokemon2: '', 
+    light_or_dark: true
   }
 
 //Phần 3: các Function
+  
+  doimau = () => {
+    if (this.state.light_or_dark === true) {
+      this.setState({light_or_dark: false});
+    }
+    else {
+      this.setState({light_or_dark: true});
+    }
+  }
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name });
   }
-
   comparePokemon1 = (newName1) => {
     this.setState({comPokemon1: newName1})
     //  alert(newName1)
@@ -666,18 +675,14 @@ class App extends Component {
     this.setState({comPokemon2: newName2})
     //  alert(newName2)
   }
-
   selectPokemon1 = (e, {value}) => {
     // alert(value)
     this.setState({comPokemon1: value})
   }
-  
   selectPokemon2 = (e, {value}) => {
     // alert(value)
     this.setState({comPokemon2: value})
   }
-  
-  
   addToFavourites = (tenPokeMoi) => {
 
     var newFav = this.state.favPokemon;
@@ -690,7 +695,6 @@ class App extends Component {
     //thay đổi state favPokemon
     //cho newFav (gồm tất cả pokemon ưa thích cũ và mới) vào trong favPokemon
   }
-
   removeFromFavourites = (tenPokeMuonXoa) => {
     var newFav = this.state.favPokemon;
     //lấy danh sách Pokemon ưa thích CŨ, đang ở trong state favPokemon, rồi cho vào newFav
@@ -701,23 +705,18 @@ class App extends Component {
     //thay đổi state favPokemon
     //cho newFav (gồm tất cả pokemon ưa thích cũ trừ pokemon vừa xóa) vào trong favPokemon
   }
-
   removeAllFromFavourites = () => {
     this.setState({ favPokemon: {} });
   }
-
-
-
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
-
   render() {
-    const { activeItem, favPokemon, comPokemon1, comPokemon2 } = this.state
+    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark } = this.state
 
     return (
       <Router basename={process.env.PUBLIC_URL}>
-        <div className="App">
+        <div className="App" style={{backgroundColor: light_or_dark ?'white' :'black', color: light_or_dark ?'black' :'white'}}>
           <Menu borderless inverted style={{backgroundColor:'#8B0000'}}>
             
             <Menu.Item
@@ -725,7 +724,7 @@ class App extends Component {
               as={Link}
               to="/"
               active={activeItem === 'Pokedex'}
-              onClick={this.bamHome} >
+              onClick={this.bamHome}>
               <Image src={poke_logo} size='mini' />
               Pokedex
             </Menu.Item>
@@ -801,7 +800,10 @@ class App extends Component {
               onClick={this.handleItemClick}>
               About
             </Menu.Item>
-
+            <Menu.Item>
+              <Icon name='adjust' />
+              <Checkbox toggle onChange={this.doimau} style={{marginLeft:"5px", marginRight:"5px"}} />
+            </Menu.Item>
           </Menu>
 
           <Route exact path = "/" component = {Home} />
@@ -826,7 +828,8 @@ class App extends Component {
           
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
                                                                 removeFromFavourites = {this.removeFromFavourites} 
-                                                                removeAllFromFavourites = {this.removeAllFromFavourites} />} />
+                                                                removeAllFromFavourites = {this.removeAllFromFavourites}
+                                                                addToFavourites = {this.addToFavourites} typesInfo={typesInfo} />} />
           
           <Route path = "/About" component = {About} />
           

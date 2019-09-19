@@ -1,6 +1,8 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
 import { Button, Icon, Image, Grid, Card, Popup } from 'semantic-ui-react'
+
+import Profile from './Profile'
 //import './Type.css';
 class Type extends Component {
 //Phần 2: các State
@@ -19,7 +21,8 @@ class Type extends Component {
   };
   render() {
     var {typeDangChon} = this.state;
-    const { Pokedex, addToFavourites, removeFromFavourites, favPokemon, typesInfo } = this.props
+    const { Pokedex, addToFavourites, removeFromFavourites, favPokemon, typesInfo, 
+            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2 } = this.props
     const tenTypes = Object.keys(typesInfo).slice(1, 19);
     return (
       <div className="Type" align='center'>
@@ -44,59 +47,26 @@ class Type extends Component {
         <Grid columns={6} doubling >
           {
             Object.keys(Pokedex).map(
-              (moiTen) =>
-              
+              (moiTen) => Pokedex[moiTen].types.includes(typeDangChon)
                 
-                Pokedex[moiTen].types.includes(typeDangChon)
-                
-                  ? <Grid.Column>
-                      <Popup
-                        trigger={
-                          <div>
-                            <Image src={Pokedex[moiTen].picture}  size='tiny' />
-                            <p>{Pokedex[moiTen].name}</p>
-                          </div>
-                        }
-                        position='top center' on='click' wide='very'>
-                        <Popup.Content>
-                          <Card fluid>
-                            <Card.Content>
-                              <Card.Header>{Pokedex[moiTen].name}</Card.Header>
-                              <Card.Description>
-                                <Grid columns={2}>
-                                  <Grid.Column width={10}>
-                                    <Image src={Pokedex[moiTen].picture} size='large' />
-                                  </Grid.Column>
-                                  <Grid.Column width={6}>
-                                    <p>Type: {Pokedex[moiTen].types}</p>
-                                    {Pokedex[moiTen].info ? <p>Info: {Pokedex[moiTen].info}</p> : null}
-                                    <p>HP: {Pokedex[moiTen].hp}</p>
-                                    <p>Attack: {Pokedex[moiTen].attack}</p>
-                                    <p>Defense: {Pokedex[moiTen].defense}</p>
-                                    <p>Sp. Atk: {Pokedex[moiTen].sp_atk}</p>
-                                    <p>Sp. Def: {Pokedex[moiTen].sp_def}</p>
-                                    <p>Speed: {Pokedex[moiTen].speed}</p>
-                                    <p>Total: {Pokedex[moiTen].hp + Pokedex[moiTen].attack + Pokedex[moiTen].defense + 
-                                              Pokedex[moiTen].sp_atk + Pokedex[moiTen].sp_def + Pokedex[moiTen].speed}</p>
-                                    
-                                    
-                                    <Button basic color='red' onClick = {
-                                      moiTen in favPokemon ? () => removeFromFavourites(moiTen) : () => addToFavourites(moiTen)}>
-                                      <Icon name={moiTen in favPokemon ?'star' :'star outline'} />
-                                      {moiTen in favPokemon ?'Remove' :'Favorite'}
-                                    </Button>
+              ? <Grid.Column>
+                  <Popup
+                    trigger={
+                      <div>
+                        <Image src={Pokedex[moiTen].picture}  size='tiny' />
+                        <p>{Pokedex[moiTen].name}</p>
+                      </div>
+                    }
+                    position='top center' on='click' wide='very'>
+                    <Popup.Content>
+                      <Profile Pokedex={Pokedex} moiTen={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                      comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
+                      typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                    </Popup.Content>
+                  </Popup>
+                </Grid.Column>
 
-
-                                  </Grid.Column>
-                                </Grid>
-                              </Card.Description>
-                            </Card.Content>
-                          </Card>
-                        </Popup.Content>
-                      </Popup>
-                    </Grid.Column>
-
-                  : null
+              : null
             )
           }
         </Grid>
