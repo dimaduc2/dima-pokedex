@@ -24,7 +24,7 @@ class Profile extends Component {
           <Card.Header>{Pokedex[moiTen].name}</Card.Header>
           <Card.Description>
             <Grid columns={2}>
-              <Grid.Column width={10}   ign="center">
+              <Grid.Column width={10} align="center">
                 <Image src={Pokedex[moiTen].picture} size='large' />
                 <p>{Pokedex[moiTen].types.map((moiType) => 
                 <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</p>

@@ -1,10 +1,17 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Menu, Image, Checkbox, Icon } from 'semantic-ui-react'
+import { Menu, Image, Checkbox, Icon, Dropdown, Label } from 'semantic-ui-react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import poke_logo from './Type/Pokemon_symbol.png';
+import poke_logo_blue from './Type/Pokemon_symbol_blue.png';
+import poke_logo_green from './Type/Pokemon_symbol_green.png';
+import poke_logo_orange from './Type/Pokemon_symbol_orange.png';
+import poke_logo_purple from './Type/Pokemon_symbol_purple.png';
+import poke_logo_brown from './Type/Pokemon_symbol_brown.png';
+import poke_logo_pink from './Type/Pokemon_symbol_pink.png';
+import poke_logo_gray from './Type/Pokemon_symbol_gray.png';
 
 import './App.css';
 import Home from './Home'
@@ -651,11 +658,15 @@ class App extends Component {
     favPokemon: {},
     comPokemon1: '',
     comPokemon2: '', 
-    light_or_dark: true
+    light_or_dark: true,
+    colorTheme: 'red'
+
   }
 
 //Phần 3: các Function
-  
+  changeColorTheme = (color) => {
+    this.setState({colorTheme: color})
+  }
   doimau = () => {
     if (this.state.light_or_dark === true) {
       this.setState({light_or_dark: false});
@@ -712,20 +723,38 @@ class App extends Component {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
   render() {
-    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark } = this.state
+    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark, colorTheme } = this.state
 
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App" style={{backgroundColor: light_or_dark ?'white' :'black', color: light_or_dark ?'black' :'white'}}>
-          <Menu borderless inverted style={{backgroundColor:'#8B0000'}}>
-            
+          <Menu borderless inverted 
+                style={{backgroundColor: colorTheme === 'red'
+                  ? '#8B0000'
+                  : colorTheme
+                }}>
             <Menu.Item
               name='Pokedex'
               as={Link}
               to="/"
               active={activeItem === 'Pokedex'}
               onClick={this.bamHome}>
-              <Image src={poke_logo} size='mini' />
+              <Image src={colorTheme === 'red'
+                ? poke_logo
+                : colorTheme === 'blue'
+                  ? poke_logo_blue
+                  : colorTheme === 'green'
+                    ? poke_logo_green
+                    :colorTheme === 'orange'
+                      ? poke_logo_orange
+                      : colorTheme === 'purple'
+                        ? poke_logo_purple
+                        : colorTheme === 'brown'
+                          ? poke_logo_brown
+                          : colorTheme === 'pink'
+                            ? poke_logo_pink
+                            : poke_logo_gray
+            } size='mini' />
               Pokedex
             </Menu.Item>
             
@@ -800,10 +829,63 @@ class App extends Component {
               onClick={this.handleItemClick}>
               About
             </Menu.Item>
-            <Menu.Item>
-              <Icon name='adjust' />
-              <Checkbox toggle onChange={this.doimau} style={{marginLeft:"5px", marginRight:"5px"}} />
-            </Menu.Item>
+
+            <Dropdown item icon='setting' simple>
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <Icon name='adjust' />
+                  <Checkbox toggle onChange={this.doimau} style={{marginLeft:"5px", marginRight:"5px"}} />
+                </Dropdown.Item>
+                
+                <Dropdown item text="Theme">
+                  <Dropdown.Menu>
+                    
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('red')}><Label color='red'>red</Label>
+                      {colorTheme === 'red'
+                        ? <Icon name='check' color='red'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('blue')}><Label color='blue'>blue</Label>
+                      {colorTheme === 'blue'
+                        ? <Icon name='check' color='blue'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('green')}><Label color='green'>green</Label>
+                      {colorTheme === 'green'
+                        ? <Icon name='check' color='green'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('orange')}><Label color='orange'>orange</Label>
+                      {colorTheme === 'orange'
+                        ? <Icon name='check' color='orange'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('purple')}><Label color='purple'>purple</Label>
+                      {colorTheme === 'purple'
+                        ? <Icon name='check' color='purple'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('brown')}><Label color='brown'>brown</Label>
+                      {colorTheme === 'brown'
+                        ? <Icon name='check' color='brown'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('pink')}><Label color='pink'>pink</Label>
+                      {colorTheme === 'pink'
+                        ? <Icon name='check' color='pink'/>
+                        : null
+                      }</Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('gray')}><Label color='grey'>grey</Label>
+                      {colorTheme === 'grey'
+                        ? <Icon name='check' color='grey'/>
+                        : null
+                      }</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
+              </Dropdown.Menu>
+            </Dropdown>
+
           </Menu>
 
           <Route exact path = "/" component = {Home} />
@@ -814,7 +896,9 @@ class App extends Component {
           comPokemon2 = {comPokemon2} />} />
           
           <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
-          removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo} />} />
+          removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo}
+          comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} 
+          comPokemon2 = {comPokemon2} />} />
           
           <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
           selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} 
@@ -827,15 +911,30 @@ class App extends Component {
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} />} />
           
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
-                                                                removeFromFavourites = {this.removeFromFavourites} 
-                                                                removeAllFromFavourites = {this.removeAllFromFavourites}
-                                                                addToFavourites = {this.addToFavourites} typesInfo={typesInfo} />} />
+          removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites}
+          addToFavourites = {this.addToFavourites} typesInfo={typesInfo} comparePokemon1 = {this.comparePokemon1} 
+          comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} />} />
           
           <Route path = "/About" component = {About} />
           
           <br/><br/>
           <header className="App-header">
-            <img src={poke_logo} className="App-logo" alt="poke_logo" />
+            <img src={colorTheme === 'red'
+                ? poke_logo 
+                : colorTheme === 'blue'
+                  ? poke_logo_blue
+                  : colorTheme === 'green'
+                    ? poke_logo_green
+                    : colorTheme === 'orange'
+                      ? poke_logo_orange
+                      : colorTheme === 'purple'
+                        ? poke_logo_purple
+                        : colorTheme === 'brown'
+                          ? poke_logo_brown
+                          : colorTheme === 'pink'
+                            ? poke_logo_pink
+                            : poke_logo_gray
+              } className="App-logo" alt="poke_logo" />
           </header>
           
         </div>

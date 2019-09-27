@@ -34,8 +34,8 @@ class Type extends Component {
               (moiType) => 
               <Grid.Column>
                 <Button onClick={() => this.gioiThieuType(moiType)} style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>
-                  { typeDangChon=== moiType
-                    ? <Icon name='check'  />
+                  { typeDangChon === moiType
+                    ? <Icon name='check'/>
                     : null
                   }
                   {moiType}

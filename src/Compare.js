@@ -79,13 +79,11 @@ class Compare extends Component {
                 <Table.Row>
                   <Table.Cell>Type</Table.Cell>
 
-
                   <Table.Cell>{Pokedex[comPokemon1].types.map((moiType) => 
-                              <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</Table.Cell>
+                  <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</Table.Cell>
 
                   <Table.Cell>{Pokedex[comPokemon2].types.map((moiType) => 
-                              <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</Table.Cell>
-
+                  <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</Table.Cell>
 
                 </Table.Row>
                 <Table.Row>
