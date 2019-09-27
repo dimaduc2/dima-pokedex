@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "580d1e2d25f8ac3b947ed14564461dfb",
+    "revision": "2fa4dff357ccb921ae73842b35476187",
     "url": "/dima-pokedex/index.html"
   },
   {
-    "revision": "9400ed2cdc5181957a98",
+    "revision": "91eb33ede991224c76b8",
     "url": "/dima-pokedex/static/css/2.734b0118.chunk.css"
   },
   {
-    "revision": "cc9f50529e06bcdef159",
-    "url": "/dima-pokedex/static/css/main.2cce8147.chunk.css"
+    "revision": "6f3614e2f97f39842ecc",
+    "url": "/dima-pokedex/static/css/main.94ad8322.chunk.css"
   },
   {
-    "revision": "9400ed2cdc5181957a98",
-    "url": "/dima-pokedex/static/js/2.60390d07.chunk.js"
+    "revision": "91eb33ede991224c76b8",
+    "url": "/dima-pokedex/static/js/2.e83afebb.chunk.js"
   },
   {
-    "revision": "cc9f50529e06bcdef159",
-    "url": "/dima-pokedex/static/js/main.3c146a21.chunk.js"
+    "revision": "6f3614e2f97f39842ecc",
+    "url": "/dima-pokedex/static/js/main.b601de21.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
@@ -242,6 +242,34 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "99651ad2dad610748f67b49c3b805082",
     "url": "/dima-pokedex/static/media/Pokemon_symbol.99651ad2.png"
+  },
+  {
+    "revision": "edcfca2edbd09a359efc39dd4a8c2fa6",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_blue.edcfca2e.png"
+  },
+  {
+    "revision": "15e94397abfa80e2202e47e8ed6a55e1",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_brown.15e94397.png"
+  },
+  {
+    "revision": "ade362b43b06ab969f66f9f2b410ea40",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_gray.ade362b4.png"
+  },
+  {
+    "revision": "68b280735b52ca57536635df612619da",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_green.68b28073.png"
+  },
+  {
+    "revision": "3e2d2f3368ceca912fbb8918019130f8",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_orange.3e2d2f33.png"
+  },
+  {
+    "revision": "c2e1fcd32037f44bca194cc0474a6417",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_pink.c2e1fcd3.png"
+  },
+  {
+    "revision": "a04ba315c4120a3726ec4459252a3b5b",
+    "url": "/dima-pokedex/static/media/Pokemon_symbol_purple.a04ba315.png"
   },
   {
     "revision": "4f37dcdf2bbc708803f4c6d29516f284",
