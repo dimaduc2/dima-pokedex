@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2fa4dff357ccb921ae73842b35476187",
+    "revision": "d62ade9efac19c48ce38bdd5b9e397c3",
     "url": "/dima-pokedex/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/css/2.734b0118.chunk.css"
   },
   {
-    "revision": "6f3614e2f97f39842ecc",
+    "revision": "e7a1f033b041357241b8",
     "url": "/dima-pokedex/static/css/main.94ad8322.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/js/2.e83afebb.chunk.js"
   },
   {
-    "revision": "6f3614e2f97f39842ecc",
-    "url": "/dima-pokedex/static/js/main.b601de21.chunk.js"
+    "revision": "e7a1f033b041357241b8",
+    "url": "/dima-pokedex/static/js/main.7fe27d81.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
