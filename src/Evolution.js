@@ -1,23 +1,89 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Grid, Image, Card, Popup } from 'semantic-ui-react'
+import { Grid, Image, Card, Popup, Dropdown } from 'semantic-ui-react'
 
 //import './Compare.css';
 
 class Evolution extends Component {
 
 //Phần 2: các State
-  state = {}
+  state = { tenPokemonDaChon: "eevee" }
 
 //Phần 3: các Function
+  hienTheoAlert  = (e, {value}) => {
 
-  render() {
-    //const {  } = this.state
     const { Pokedex } = this.props;
+    
+    var tenPokemonEvolves = "";
+
+    for(let i = 0; i < Pokedex[value].evolves_into.length; i++){
+      tenPokemonEvolves += (Pokedex[value].evolves_into[i] + "\n")
+    }
+
+    // alert(Pokedex[value].name + " " 
+    //   + "\n" + "evolves into: " +  "\n" + tenPokemonEvolves
+    //   + "\n" + "evolves from: " +  "\n" + Pokedex[value].evolves_from
+    // )
+
+     
+    
+    this.setState({tenPokemonDaChon: value })
+
+
+
+
+
+  }
+
+  
+  render() {
+    const { tenPokemonDaChon } = this.state
+    const { Pokedex } = this.props;
+    
+    const pokemonOptions = Object.keys(Pokedex).map (
+      (moiTen) => (
+        {
+          key: moiTen,
+          text: Pokedex[moiTen].name,
+          value: moiTen,
+          image: { avatar: true, src: Pokedex[moiTen].picture },
+        }
+      )
+    )
     return (
       <div className="Evolution" align="center">
+        <Dropdown
+          placeholder='Select Pokemon'
+          fluid
+          search
+          selection
+          options={pokemonOptions}
+          onChange={this.hienTheoAlert}
+        /><br/><br/>
+        
 
-        <Grid columns={5} doubling>
+
+
+
+        <Image src={Pokedex[tenPokemonDaChon].picture} size='small' />
+
+
+
+
+
+
+        {/* <Grid columns={5} doubling>
+          {
+            Object.keys(Pokedex).map(
+              (moiTenPokemon) => 
+              <Grid.Column>
+              
+              </Grid.Column>
+            )
+          }
+        </Grid> */}
+
+        {/* <Grid columns={5} doubling>
           {
             Object.keys(Pokedex).map(
               (moiTenPokemon) => 
@@ -60,7 +126,7 @@ class Evolution extends Component {
               </Grid.Column>
             )
           }
-        </Grid>
+        </Grid> */}
       </div>
     )
   }

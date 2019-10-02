@@ -32,29 +32,31 @@ class Compare extends Component {
         <Table definition textAlign="center">
           <Table.Header>
             <Table.Row align="center">
+              
               <Table.HeaderCell />
 
               <Table.HeaderCell>
                 <Dropdown
-                placeholder='Select Pokemon'
-                fluid
-                search
-                selection
-                options={pokemonOptions}
-                onChange={selectPokemon1}
+                  placeholder='Select Pokemon'
+                  fluid
+                  search
+                  selection
+                  options={pokemonOptions}
+                  onChange={selectPokemon1}
                 />
               </Table.HeaderCell>
 
               <Table.HeaderCell>
                 <Dropdown
-                placeholder='Select Pokemon'
-                fluid
-                search
-                selection
-                options={pokemonOptions}
-                onChange={selectPokemon2}
+                  placeholder='Select Pokemon'
+                  fluid
+                  search
+                  selection
+                  options={pokemonOptions}
+                  onChange={selectPokemon2}
                 />
               </Table.HeaderCell>
+
             </Table.Row>
           </Table.Header>
         </Table>

@@ -44,10 +44,13 @@ class Profile extends Component {
                           Pokedex[moiTen].sp_atk + Pokedex[moiTen].sp_def + Pokedex[moiTen].speed}</p>
                 <Button basic color='red' onClick = {
                   moiTen in favPokemon ? () => removeFromFavourites(moiTen) : () => addToFavourites(moiTen)}>
-                  <Icon name={moiTen in favPokemon ?'star' :'star outline'} />
-                  {moiTen in favPokemon ?'Remove' :'Favorite'}
+                  <Icon name = {moiTen in favPokemon ? 'star' : 'star outline'} />
+                              {moiTen in favPokemon ? 'Remove' : 'Favorite'}
                 </Button>
-                <Button basic color='black' onClick = { () => comparePokemon1 (moiTen) }>
+
+                {comPokemon2 === moiTen
+                  ?null
+                  : <Button basic color='black' onClick = { () => comparePokemon1 (moiTen) }>
                   {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
                   {comPokemon1 === moiTen
                     ? <Icon name='check' color="green" />
@@ -58,10 +61,11 @@ class Profile extends Component {
                     : 'Compare'
                   }
                 </Button>
-                {comPokemon1 === ''
+                }
+
+                {comPokemon1 === moiTen || comPokemon1 === ''
                   ? null
                   : <Button basic color='black' onClick = { () => comparePokemon2 (moiTen) }>
-                      {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
                       {comPokemon2 === moiTen
                         ? <Icon name='check' color="green" />
                         : null
@@ -72,6 +76,7 @@ class Profile extends Component {
                       }
                     </Button>
                 }
+
               </Grid.Column>
             </Grid>
           </Card.Description>

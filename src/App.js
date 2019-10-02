@@ -754,7 +754,7 @@ class App extends Component {
                           : colorTheme === 'pink'
                             ? poke_logo_pink
                             : poke_logo_gray
-            } size='mini' />
+              } size='mini' />
               Pokedex
             </Menu.Item>
             
@@ -880,6 +880,7 @@ class App extends Component {
                         ? <Icon name='check' color='grey'/>
                         : null
                       }</Dropdown.Item>
+                      
                   </Dropdown.Menu>
                 </Dropdown>
 
