@@ -15,62 +15,63 @@ class Profile extends Component {
   render() {
     // const {  } = this.state
 
-    const { Pokedex, moiTen, comPokemon1, comPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
+    const { Pokedex, tenPokemonDangXem, comPokemon1, comPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
       removeFromFavourites, addToFavourites } = this.props
 
     return (
       <Card fluid>
         <Card.Content>
-          <Card.Header>{Pokedex[moiTen].name}</Card.Header>
+          <Card.Header>{Pokedex[tenPokemonDangXem].name}</Card.Header>
           <Card.Description>
             <Grid columns={2}>
               <Grid.Column width={10} align="center">
-                <Image src={Pokedex[moiTen].picture} size='large' />
-                <p>{Pokedex[moiTen].types.map((moiType) => 
+                <Image src={Pokedex[tenPokemonDangXem].picture} size='large' />
+                <p>{Pokedex[tenPokemonDangXem].types.map((moiType) => 
                 <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</p>
               </Grid.Column>
               <Grid.Column width={6}>
-                {Pokedex[moiTen].info 
-                  ? <p> Info: {Pokedex[moiTen].info} </p> 
+                {Pokedex[tenPokemonDangXem].info 
+                  ? <p> Info: {Pokedex[tenPokemonDangXem].info} </p> 
                   : null
                 }
-                <p>HP: {Pokedex[moiTen].hp}</p>
-                <p>Attack: {Pokedex[moiTen].attack}</p>
-                <p>Defense: {Pokedex[moiTen].defense}</p>
-                <p>Sp. Atk: {Pokedex[moiTen].sp_atk}</p>
-                <p>Sp. Def: {Pokedex[moiTen].sp_def}</p>
-                <p>Speed: {Pokedex[moiTen].speed}</p>
-                <p>Total: {Pokedex[moiTen].hp + Pokedex[moiTen].attack + Pokedex[moiTen].defense + 
-                          Pokedex[moiTen].sp_atk + Pokedex[moiTen].sp_def + Pokedex[moiTen].speed}</p>
+                <p>HP: {Pokedex[tenPokemonDangXem].hp}</p>
+                <p>Attack: {Pokedex[tenPokemonDangXem].attack}</p>
+                <p>Defense: {Pokedex[tenPokemonDangXem].defense}</p>
+                <p>Sp. Atk: {Pokedex[tenPokemonDangXem].sp_atk}</p>
+                <p>Sp. Def: {Pokedex[tenPokemonDangXem].sp_def}</p>
+                <p>Speed: {Pokedex[tenPokemonDangXem].speed}</p>
+                <p>Total: {Pokedex[tenPokemonDangXem].hp + Pokedex[tenPokemonDangXem].attack + Pokedex[tenPokemonDangXem].defense + 
+                          Pokedex[tenPokemonDangXem].sp_atk + Pokedex[tenPokemonDangXem].sp_def + Pokedex[tenPokemonDangXem].speed}</p>
+                
                 <Button basic color='red' onClick = {
-                  moiTen in favPokemon ? () => removeFromFavourites(moiTen) : () => addToFavourites(moiTen)}>
-                  <Icon name = {moiTen in favPokemon ? 'star' : 'star outline'} />
-                              {moiTen in favPokemon ? 'Remove' : 'Favorite'}
+                  tenPokemonDangXem in favPokemon ? () => removeFromFavourites(tenPokemonDangXem) : () => addToFavourites(tenPokemonDangXem)}>
+                  <Icon name = {tenPokemonDangXem in favPokemon ? 'star' : 'star outline'} />
+                              {tenPokemonDangXem in favPokemon ? 'Remove' : 'Favorite'}
                 </Button>
 
-                {comPokemon2 === moiTen
+                {comPokemon2 === tenPokemonDangXem
                   ?null
-                  : <Button basic color='black' onClick = { () => comparePokemon1 (moiTen) }>
-                  {/* <Icon name={moiTen in comPokemon ?'circle' :'circle outline'} /> */}
-                  {comPokemon1 === moiTen
+                  : <Button basic color='black' onClick = { () => comparePokemon1 (tenPokemonDangXem) }>
+                  {/* <Icon name={tenPokemonDangXem in comPokemon ?'circle' :'circle outline'} /> */}
+                  {comPokemon1 === tenPokemonDangXem
                     ? <Icon name='check' color="green" />
                     : null
                   }
-                  {comPokemon1 === moiTen
+                  {comPokemon1 === tenPokemonDangXem
                     ? 'Comparing'
                     : 'Compare'
                   }
                 </Button>
                 }
 
-                {comPokemon1 === moiTen || comPokemon1 === ''
+                {comPokemon1 === tenPokemonDangXem || comPokemon1 === ''
                   ? null
-                  : <Button basic color='black' onClick = { () => comparePokemon2 (moiTen) }>
-                      {comPokemon2 === moiTen
+                  : <Button basic color='black' onClick = { () => comparePokemon2 (tenPokemonDangXem) }>
+                      {comPokemon2 === tenPokemonDangXem
                         ? <Icon name='check' color="green" />
                         : null
                       }
-                      {comPokemon2 === moiTen
+                      {comPokemon2 === tenPokemonDangXem
                         ? <span>Compared vs {comPokemon1}</span>
                         : <span>Compare vs {comPokemon1}</span>
                       }

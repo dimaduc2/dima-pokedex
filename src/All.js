@@ -66,9 +66,7 @@ class All extends Component {
             : 6
         } doubling >
          */}
-        <Grid columns={soCot 
-
-        } doubling >
+        <Grid columns={soCot} doubling >
           {
             Object.keys(Pokedex).map(
               (moiTen) => 
@@ -80,7 +78,7 @@ class All extends Component {
                     </div>}
                   position='top center' on='click' wide='very' >
                   <Popup.Content>
-                    <Profile Pokedex={Pokedex} moiTen={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
                     comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
                     typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
                   </Popup.Content>
@@ -89,8 +87,6 @@ class All extends Component {
             )
           }
         </Grid>
-
-
       </div>
     )
   }

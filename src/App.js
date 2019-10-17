@@ -11,7 +11,7 @@ import poke_logo_orange from './Type/Pokemon_symbol_orange.png';
 import poke_logo_purple from './Type/Pokemon_symbol_purple.png';
 import poke_logo_brown from './Type/Pokemon_symbol_brown.png';
 import poke_logo_pink from './Type/Pokemon_symbol_pink.png';
-import poke_logo_gray from './Type/Pokemon_symbol_gray.png';
+import poke_logo_grey from './Type/Pokemon_symbol_grey.png';
 
 import './App.css';
 import Home from './Home'
@@ -227,7 +227,7 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: 'charizard'
   },
-  'charizardZ':{  
+  'charizardZ':{
     name: 'Mega Charizard Z (X + Y)',
     pokedexNum: 6,
     picture: Mega_Charizard_Z,
@@ -753,7 +753,7 @@ class App extends Component {
                           ? poke_logo_brown
                           : colorTheme === 'pink'
                             ? poke_logo_pink
-                            : poke_logo_gray
+                            : poke_logo_grey
               } size='mini' />
               Pokedex
             </Menu.Item>
@@ -875,7 +875,7 @@ class App extends Component {
                         ? <Icon name='check' color='pink'/>
                         : null
                       }</Dropdown.Item>
-                    <Dropdown.Item onClick={ () => this.changeColorTheme('gray')}><Label color='grey'>grey</Label>
+                    <Dropdown.Item onClick={ () => this.changeColorTheme('grey')}><Label color='grey'>grey</Label>
                       {colorTheme === 'grey'
                         ? <Icon name='check' color='grey'/>
                         : null
@@ -902,14 +902,17 @@ class App extends Component {
           comPokemon2 = {comPokemon2} />} />
           
           <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
-          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} 
-          Pokedex = {Pokemon}   />} />
+          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} Pokedex = {Pokemon} 
+          favPokemon={favPokemon} typesInfo={typesInfo} />} />
           
           <Route path = "/Trainer" component = {Trainer} />
           
           <Route path = "/PokeBall" component = {PokeBall} />
           
-          <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} />} />
+          <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} comPokemon1 = {comPokemon1} 
+          comPokemon2 = {comPokemon2} comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
+          removeFromFavourites={this.removeFromFavourites} addToFavourites={this.addToFavourites} typesInfo={typesInfo}
+          favPokemon = {favPokemon} /> } />
           
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
           removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites}
@@ -934,7 +937,7 @@ class App extends Component {
                           ? poke_logo_brown
                           : colorTheme === 'pink'
                             ? poke_logo_pink
-                            : poke_logo_gray
+                            : poke_logo_grey
               } className="App-logo" alt="poke_logo" />
           </header>
           

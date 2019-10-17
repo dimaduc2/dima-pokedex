@@ -2,6 +2,8 @@
 import React, { Component } from 'react'
 import { Grid, Image, Card, Popup, Dropdown } from 'semantic-ui-react'
 
+import Profile from './Profile'
+
 //import './Compare.css';
 
 class Evolution extends Component {
@@ -10,35 +12,30 @@ class Evolution extends Component {
   state = { tenPokemonDaChon: "eevee" }
 
 //Phần 3: các Function
-  hienTheoAlert  = (e, {value}) => {
+  chonPokemon  = (e, {value}) => {
 
     const { Pokedex } = this.props;
     
-    var tenPokemonEvolves = "";
+    // var tenPokemonEvolves = "";
 
-    for(let i = 0; i < Pokedex[value].evolves_into.length; i++){
-      tenPokemonEvolves += (Pokedex[value].evolves_into[i] + "\n")
-    }
+    // for(let i = 0; i < Pokedex[value].evolves_into.length; i++){
+    //   tenPokemonEvolves += (Pokedex[value].evolves_into[i] + "\n")
+    // }
 
     // alert(Pokedex[value].name + " " 
     //   + "\n" + "evolves into: " +  "\n" + tenPokemonEvolves
     //   + "\n" + "evolves from: " +  "\n" + Pokedex[value].evolves_from
     // )
 
-     
-    
     this.setState({tenPokemonDaChon: value })
-
-
-
-
-
+    
   }
 
   
   render() {
     const { tenPokemonDaChon } = this.state
-    const { Pokedex } = this.props;
+    const { Pokedex, comPokemon1, comPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
+            removeFromFavourites, addToFavourites } = this.props;
     
     const pokemonOptions = Object.keys(Pokedex).map (
       (moiTen) => (
@@ -58,19 +55,65 @@ class Evolution extends Component {
           search
           selection
           options={pokemonOptions}
-          onChange={this.hienTheoAlert}
+          onChange={this.chonPokemon}
         /><br/><br/>
-        
-
-
-
 
         <Image src={Pokedex[tenPokemonDaChon].picture} size='small' />
+        <p>{Pokedex[tenPokemonDaChon].name}</p>
+
+        {Pokedex[tenPokemonDaChon].evolves_from
+          ? <Popup
+              trigger={<div>
+                <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_from].picture} size='small' />
+                <p>{Pokedex[Pokedex[tenPokemonDaChon].evolves_from].name}</p>
+              </div>}
+              position='top center' on='click' wide='very' >
+              <Popup.Content>
+                <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
+                typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+              </Popup.Content>
+            </Popup>
+          : null
+        }
 
 
+        {
+          Pokedex[tenPokemonDaChon].evolves_into.map (
+            (moiPokeEvo) =>
+                <Popup
+                  trigger={<div>
+                    <Image src={Pokedex[moiPokeEvo].picture} size='small' />
+                    {Pokedex[moiPokeEvo].name}
+                  </div>}
+                  position='top center' on='click' wide='very' >
+                  <Popup.Content>
+                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                    comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
+                    typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                  </Popup.Content>
+                </Popup>
+          )
+          
+        }
 
 
+          
 
+
+          
+
+        {/* <p>{Pokedex[tenPokemonDaChon].evolves_into}</p> */}
+
+        {/* 
+        {Pokedex[tenPokemonDaChon].evolves_into
+          ? <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_into].picture} size='small' />
+          : null
+        }
+         */}
+
+
+        
 
         {/* <Grid columns={5} doubling>
           {
