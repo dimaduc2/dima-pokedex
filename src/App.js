@@ -19,6 +19,7 @@ import All from './All'
 import Compare from './Compare'
 import Trainer from './Trainer'
 import Type from './Type';
+import Types_Z from './Types Z';
 import PokeBall from './PokeBall';
 import Evolution from './Evolution';
 import Favourites from './Favourites';
@@ -85,6 +86,118 @@ import Ghost from './Type/Ghost.png';
 import Steel from './Type/Steel.png';
 import Dragon from './Type/Dragon.png';
 import Fairy from './Type/Fairy.png';
+
+import Buginium_Z from './Pokemon Sun & Moon - All Types Z/Buginium_Z_Dream.png';
+import Darkinium_Z from './Pokemon Sun & Moon - All Types Z/Darkinium_Z_Dream.png';
+import Dragonium_Z from './Pokemon Sun & Moon - All Types Z/Dragonium_Z_Dream.png';
+import Electrium_Z from './Pokemon Sun & Moon - All Types Z/Electrium_Z_Dream.png';
+import Fairium_Z from './Pokemon Sun & Moon - All Types Z/Fairium_Z_Dream.png';
+import Fightinium_Z from './Pokemon Sun & Moon - All Types Z/Fightinium_Z_Dream.png';
+import Firium_Z from './Pokemon Sun & Moon - All Types Z/Firium_Z_Dream.png';
+import Flyinium_Z from './Pokemon Sun & Moon - All Types Z/Flyinium_Z_Dream.png';
+import Ghostium_Z from './Pokemon Sun & Moon - All Types Z/Ghostium_Z_Dream.png';
+import Grassium_Z from './Pokemon Sun & Moon - All Types Z/Grassium_Z_Dream.png';
+import Groundium_Z from './Pokemon Sun & Moon - All Types Z/Groundium_Z_Dream.png';
+import Icium_Z from './Pokemon Sun & Moon - All Types Z/Icium_Z_Dream.png';
+import Normalium_Z from './Pokemon Sun & Moon - All Types Z/Normalium_Z_Dream.png';
+import Poisonium_Z from './Pokemon Sun & Moon - All Types Z/Poisonium_Z_Dream.png';
+import Psychium_Z from './Pokemon Sun & Moon - All Types Z/Psychium_Z_Dream.png';
+import Rockium_Z from './Pokemon Sun & Moon - All Types Z/Rockium_Z_Dream.png';
+import Steelium_Z from './Pokemon Sun & Moon - All Types Z/Steelium_Z_Dream.png';
+import Waterium_Z from './Pokemon Sun & Moon - All Types Z/Waterium_Z_Dream.png';
+
+const typesZ = {
+  'buginiumZ' : {
+    name: 'Buginium Z',
+    picture: Buginium_Z,
+    types: 'Bug'
+  },
+  'darkiniumZ' : {
+    name: 'Darkinium Z',
+    picture: Darkinium_Z,
+    types: 'Dark'
+  },
+  'dragoniumZ' : {
+    name: 'Dragonium Z',
+    picture: Dragonium_Z,
+    types: 'Dragon'
+  },
+  'electriumZ' : {
+    name: 'Electrium Z',
+    picture: Electrium_Z,
+    types: 'Electric'
+  },
+  'fairiumZ' : {
+    name: 'Fairium Z',
+    picture: Fairium_Z,
+    types: 'Fairy'
+  },
+  'fightiniumZ' : {
+    name: 'Fightinium Z',
+    picture: Fightinium_Z,
+    types: 'Fighting'
+  },
+  'firiumZ' : {
+    name: 'Firium Z',
+    picture: Firium_Z,
+    types: 'Fire'
+  },
+  'flyiniumZ' : {
+    name: 'Flyinium Z',
+    picture: Flyinium_Z,
+    types: 'Flying'
+  },
+  'ghostiumZ' : {
+    name: 'Ghostium Z',
+    picture: Ghostium_Z,
+    types: 'Ghost'
+  },
+  'grassiumZ' : {
+    name: 'Grassium Z',
+    picture: Grassium_Z,
+    types: 'Grass'
+  },
+  'groundiumZ' : {
+    name: 'Groundium Z',
+    picture: Groundium_Z,
+    types: 'Ground'
+  },
+  'iciumZ' : {
+    name: 'Icium Z',
+    picture: Icium_Z,
+    types: 'Ice'
+  },
+  'normaliumZ' : {
+    name: 'Normalium Z',
+    picture: Normalium_Z,
+    types: 'Normal'
+  },
+  'poisoniumZ' : {
+    name: 'Poisonium Z',
+    picture: Poisonium_Z,
+    types: 'Poison'
+  },
+  'psychiumZ' : {
+    name: 'Psychium Z',
+    picture: Psychium_Z,
+    types: 'Psychic'
+  },
+  'rockiumZ' : {
+    name: 'Rockium Z',
+    picture: Rockium_Z,
+    types: 'Rock'
+  },
+  'steeliumZ' : {
+    name: 'Steelium Z',
+    picture: Steelium_Z,
+    types: 'Steel'
+  },
+  'wateriumZ' : {
+    name: 'Waterium Z',
+    picture: Waterium_Z,
+    types: 'Water'
+  }
+}
 
 const typesInfo = {
   '' : {symbol: null, bgcolor: null},
@@ -778,6 +891,16 @@ class App extends Component {
 
             <Menu.Item
               as={Link}
+              to="/Types_Z"
+              name='types_z'
+              active={activeItem === 'types_z'}
+              onClick={this.handleItemClick}>
+              Type Z
+            </Menu.Item>
+
+
+            <Menu.Item
+              as={Link}
               to="/Compare"
               name='compare'
               active={activeItem === 'compare'}
@@ -901,6 +1024,8 @@ class App extends Component {
           comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} 
           comPokemon2 = {comPokemon2} />} />
           
+          <Route path = "/Types_Z" render={() => <Types_Z typesZ = {typesZ} />} />
+
           <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
           selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} Pokedex = {Pokemon} 
           favPokemon={favPokemon} typesInfo={typesInfo} />} />

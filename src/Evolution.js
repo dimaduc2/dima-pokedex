@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Grid, Image, Card, Popup, Dropdown } from 'semantic-ui-react'
+import { Grid, Image, Card, Popup, Dropdown, Icon } from 'semantic-ui-react'
 
 import Profile from './Profile'
 
@@ -58,8 +58,31 @@ class Evolution extends Component {
           onChange={this.chonPokemon}
         /><br/><br/>
 
-        <Image src={Pokedex[tenPokemonDaChon].picture} size='small' />
-        <p>{Pokedex[tenPokemonDaChon].name}</p>
+        <Popup
+          trigger={<div>
+            <Image src={Pokedex[tenPokemonDaChon].picture} size='small' />
+            <p>{Pokedex[tenPokemonDaChon].name}</p>
+          </div>}
+          position='top center' on='click' wide='very' >
+          <Popup.Content>
+            <Profile Pokedex={Pokedex}
+            tenPokemonDangXem={tenPokemonDaChon} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
+            comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+            typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+          </Popup.Content>
+        </Popup>
+
+        <br/><br/><br/><br/>
+
+        {Pokedex[tenPokemonDaChon].evolves_into.length > 0 || Pokedex[tenPokemonDaChon].evolves_from !== ''
+          ? Pokedex[tenPokemonDaChon].evolves_from
+              ?<Icon name='arrow up' size='massive' />
+              :<Icon name='arrow down' size='massive' />
+            
+          : null
+        }
+
+        <br/><br/><br/><br/>
 
         {Pokedex[tenPokemonDaChon].evolves_from
           ? <Popup
@@ -69,8 +92,8 @@ class Evolution extends Component {
               </div>}
               position='top center' on='click' wide='very' >
               <Popup.Content>
-                <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
-                comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
+                <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
+                comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
                 typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
               </Popup.Content>
             </Popup>
@@ -78,25 +101,25 @@ class Evolution extends Component {
         }
 
 
-        {
-          Pokedex[tenPokemonDaChon].evolves_into.map (
+        <Grid columns={4} doubling style={{align:'center'}}>
+          <Grid.Row>
+          {Pokedex[tenPokemonDaChon].evolves_into.map (
             (moiPokeEvo) =>
-                <Popup
-                  trigger={<div>
-                    <Image src={Pokedex[moiPokeEvo].picture} size='small' />
-                    {Pokedex[moiPokeEvo].name}
-                  </div>}
-                  position='top center' on='click' wide='very' >
-                  <Popup.Content>
-                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
-                    comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
-                    typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
-                  </Popup.Content>
-                </Popup>
-          )
-          
-        }
-
+              <Popup
+                trigger={<Grid.Column>
+                  <Image src={Pokedex[moiPokeEvo].picture} size='small' />
+                  {Pokedex[moiPokeEvo].name}
+                  </Grid.Column>}
+                position='top center' on='click' wide='very' >
+                <Popup.Content>
+                  <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
+                  comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                  typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                </Popup.Content>
+              </Popup>
+            )}
+            </Grid.Row>
+        </Grid>
 
           
 
