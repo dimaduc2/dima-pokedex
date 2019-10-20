@@ -942,6 +942,15 @@ class App extends Component {
               active={activeItem === 'favourites'}
               onClick={this.handleItemClick}>
               Favourites
+              
+              {
+                Object.keys(favPokemon).length === 0 
+                ? null
+                : <Label color='red' >
+                    {Object.keys(favPokemon).length}
+                  </Label>
+              }
+
             </Menu.Item>
 
             <Menu.Item
