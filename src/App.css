@@ -31,3 +31,9 @@
     transform: rotate(360deg);
   }
 }
+
+.nut-bam-len-tren {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

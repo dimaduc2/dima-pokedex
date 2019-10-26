@@ -1,8 +1,10 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Menu, Image, Checkbox, Icon, Dropdown, Label } from 'semantic-ui-react'
+import { Menu, Image, Checkbox, Icon, Dropdown, Label, Button } from 'semantic-ui-react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
+import ScrollableAnchor from 'react-scrollable-anchor'
 
 import poke_logo from './Type/Pokemon_symbol.png';
 import poke_logo_blue from './Type/Pokemon_symbol_blue.png';
@@ -841,6 +843,11 @@ class App extends Component {
     return (
       <Router basename={process.env.PUBLIC_URL}>
         <div className="App" style={{backgroundColor: light_or_dark ?'white' :'black', color: light_or_dark ?'black' :'white'}}>
+          
+          <ScrollableAnchor id={'denTrenCung'}>
+            <div></div> 
+          </ScrollableAnchor>
+
           <Menu borderless inverted 
                 style={{backgroundColor: colorTheme === 'red'
                   ? '#8B0000'
@@ -1074,7 +1081,9 @@ class App extends Component {
                             : poke_logo_grey
               } className="App-logo" alt="poke_logo" />
           </header>
-          
+
+          <a href='#denTrenCung' className='nut-bam-len-tren'> <Icon bordered inverted color='teal' name='angle double up' /> </a>
+
         </div>
       </Router>
     )
