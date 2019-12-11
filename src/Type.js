@@ -12,7 +12,7 @@ class Type extends Component {
   //Phần 3: các Function
   gioiThieuType = (type) => {
     // alert("This is Pokemon " + type);
-    if(this.state.typeDangChon === type) {
+    if (this.state.typeDangChon === type) {
       this.setState({ typeDangChon: "" });
     }
     else {
@@ -22,7 +22,7 @@ class Type extends Component {
   render() {
     var {typeDangChon} = this.state;
     const { Pokedex, addToFavourites, removeFromFavourites, favPokemon, typesInfo, 
-            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2 } = this.props
+            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, selectPokemon2 } = this.props
     const tenTypes = Object.keys(typesInfo).slice(1, 19);
     return (
       <div className="Type" align='center'>
@@ -30,45 +30,41 @@ class Type extends Component {
         <Image src={typesInfo[typeDangChon].symbol} size='mini' />
         <br/>
         <Grid columns={6} doubling >
-          { tenTypes.map(
-              (moiType) => 
-              <Grid.Column>
-                <Button onClick={() => this.gioiThieuType(moiType)} style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>
-                  { typeDangChon === moiType
-                    ? <Icon name='check'/>
-                    : null
-                  }
-                  {moiType}
-                </Button>
-              </Grid.Column>
-            )
-          }
+        { tenTypes.map(
+            (moiType) => 
+            <Grid.Column>
+              <Button onClick={() => this.gioiThieuType(moiType)} style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>
+                { typeDangChon === moiType
+                  ? <Icon name='check'/>
+                  : null
+                } {moiType}
+              </Button>
+            </Grid.Column>
+          )}
         </Grid>
         <Grid columns={6} doubling >
-          {
-            Object.keys(Pokedex).map(
-              (moiTen) => Pokedex[moiTen].types.includes(typeDangChon)
-                
-              ? <Grid.Column>
-                  <Popup
-                    trigger={
-                      <div>
-                        <Image src={Pokedex[moiTen].picture}  size='tiny' />
-                        <p>{Pokedex[moiTen].name}</p>
-                      </div>
-                    }
-                    position='top center' on='click' wide='very'>
-                    <Popup.Content>
-                      <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
-                      comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
-                      typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
-                    </Popup.Content>
-                  </Popup>
-                </Grid.Column>
+          {Object.keys(Pokedex).map(
+            (moiTen) => Pokedex[moiTen].types.includes(typeDangChon)
+              
+            ? <Grid.Column>
+                <Popup
+                  trigger={
+                    <div>
+                      <Image src={Pokedex[moiTen].picture}  size='tiny' />
+                      <p>{Pokedex[moiTen].name}</p>
+                    </div>
+                  }
+                  position='top center' on='click' wide='very'>
+                  <Popup.Content>
+                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                    comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} typesInfo={typesInfo} 
+                    removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} selectPokemon2 = {selectPokemon2}/>
+                  </Popup.Content>
+                </Popup>
+              </Grid.Column>
 
-              : null
-            )
-          }
+            : null
+          )}
         </Grid>
       </div>
     )

@@ -1,0 +1,15 @@
+
+.qua-bong-nhay {
+  animation: nhay infinite 0.3s linear alternate ;
+}
+@keyframes nhay {
+	0% {
+		transform: translate(0,0) scale(1,1);
+  }
+  80% {
+    transform: translate(0,100px) scale(1,1);
+  }
+	100% {
+		transform: translate(0,100px) scale(1.2,0.8);
+	}
+}

@@ -14,7 +14,7 @@ class Favourites extends Component {
 //Phần 3: các Function
   render() {
     // const {  } = this.state
-    const { favPokemon, Pokedex, removeFromFavourites, removeAllFromFavourites, 
+    const { favPokemon, Pokedex, removeFromFavourites, removeAllFromFavourites, selectPokemon2, 
       comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo, addToFavourites } = this.props;
 
     return (
@@ -43,8 +43,9 @@ class Favourites extends Component {
                       position='top center' on='click' wide='very'>
                       <Popup.Content>
                         <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
-                        comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
-                        typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                        comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                        selectPokemon2={selectPokemon2} typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} 
+                        addToFavourites={addToFavourites} />
                       </Popup.Content>
                     </Popup>
 

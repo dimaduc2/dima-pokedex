@@ -1,7 +1,7 @@
 
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Card, Icon, Button, Label, Grid, Image } from 'semantic-ui-react'
+import { Card, Icon, Button, Label, Grid, Image, Dropdown } from 'semantic-ui-react'
 
 //import './Compare.css';
 
@@ -15,8 +15,21 @@ class Profile extends Component {
   render() {
     // const {  } = this.state
 
-    const { Pokedex, tenPokemonDangXem, comPokemon1, comPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
+    const { Pokedex, tenPokemonDangXem, comPokemon1, comPokemon2, selectPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
       removeFromFavourites, addToFavourites } = this.props
+
+
+      const pokemonOptions = Object.keys(Pokedex).map (
+        (moiTen) => (
+          {
+            key: moiTen,
+            text: Pokedex[moiTen].name,
+            value: moiTen,
+            image: { avatar: true, src: Pokedex[moiTen].picture },
+          }
+        )
+      )
+
 
     return (
       <Card fluid>
@@ -49,9 +62,7 @@ class Profile extends Component {
                               {tenPokemonDangXem in favPokemon ? 'Remove' : 'Favorite'}
                 </Button>
 
-                {comPokemon2 === tenPokemonDangXem
-                  ?null
-                  : <Button basic color='black' onClick = { () => comparePokemon1 (tenPokemonDangXem) }>
+                <Button basic color='black' onClick = { () => comparePokemon1 (tenPokemonDangXem) }>
                   {/* <Icon name={tenPokemonDangXem in comPokemon ?'circle' :'circle outline'} /> */}
                   {comPokemon1 === tenPokemonDangXem
                     ? <Icon name='check' color="green" />
@@ -61,22 +72,21 @@ class Profile extends Component {
                     ? 'Comparing'
                     : 'Compare'
                   }
+                  
                 </Button>
-                }
 
-                {comPokemon1 === tenPokemonDangXem || comPokemon1 === ''
-                  ? null
-                  : <Button basic color='black' onClick = { () => comparePokemon2 (tenPokemonDangXem) }>
-                      {comPokemon2 === tenPokemonDangXem
-                        ? <Icon name='check' color="green" />
-                        : null
-                      }
-                      {comPokemon2 === tenPokemonDangXem
-                        ? <span>Compared vs {comPokemon1}</span>
-                        : <span>Compare vs {comPokemon1}</span>
-                      }
-                    </Button>
-                }
+                  {comPokemon1 === tenPokemonDangXem
+                    ? <Dropdown placeholder='Select Pokemon'
+                    fluid
+                    search
+                    selection
+                    options={pokemonOptions}
+                    onChange={selectPokemon2}
+                    />
+                    : null
+                  }
+
+                
 
               </Grid.Column>
             </Grid>

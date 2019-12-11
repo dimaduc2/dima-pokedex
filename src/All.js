@@ -50,7 +50,7 @@ class All extends Component {
   
   render() {
     const { pictureSize, soCot } = this.state
-    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, 
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, selectPokemon2, 
             comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo } = this.props;
     return (
       <div className="All" align="center">
@@ -79,8 +79,9 @@ class All extends Component {
                   position='top center' on='click' wide='very' >
                   <Popup.Content>
                     <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
-                    comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon}  
-                    typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                    comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                    typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
+                    selectPokemon2={selectPokemon2} />
                   </Popup.Content>
                 </Popup>
               </Grid.Column>

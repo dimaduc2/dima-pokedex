@@ -30,12 +30,11 @@ class Evolution extends Component {
     this.setState({tenPokemonDaChon: value })
     
   }
-
   
   render() {
     const { tenPokemonDaChon } = this.state
     const { Pokedex, comPokemon1, comPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
-            removeFromFavourites, addToFavourites } = this.props;
+            removeFromFavourites, addToFavourites, selectPokemon2 } = this.props;
     
     const pokemonOptions = Object.keys(Pokedex).map (
       (moiTen) => (
@@ -65,10 +64,10 @@ class Evolution extends Component {
           </div>}
           position='top center' on='click' wide='very' >
           <Popup.Content>
-            <Profile Pokedex={Pokedex}
-            tenPokemonDangXem={tenPokemonDaChon} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
-            comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
-            typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+            <Profile Pokedex={Pokedex} 
+            tenPokemonDangXem={tenPokemonDaChon} comPokemon1={comPokemon1} comPokemon2={comPokemon2} comparePokemon1={comparePokemon1} 
+            comparePokemon2={comparePokemon2} favPokemon={favPokemon} typesInfo={typesInfo} 
+            removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} selectPokemon2 = {selectPokemon2} />
           </Popup.Content>
         </Popup>
 
@@ -93,8 +92,8 @@ class Evolution extends Component {
               position='top center' on='click' wide='very' >
               <Popup.Content>
                 <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
-                comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
-                typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} selectPokemon2 = {selectPokemon2} 
+                typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites}  />
               </Popup.Content>
             </Popup>
           : null
@@ -113,7 +112,7 @@ class Evolution extends Component {
                 position='top center' on='click' wide='very' >
                 <Popup.Content>
                   <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
-                  comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                  comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} selectPokemon2 = {selectPokemon2} 
                   typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
                 </Popup.Content>
               </Popup>

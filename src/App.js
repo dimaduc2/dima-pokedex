@@ -1,6 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Menu, Image, Checkbox, Icon, Dropdown, Label, Button } from 'semantic-ui-react'
+import { Menu, Image, Checkbox, Icon, Dropdown, Label, Flag } from 'semantic-ui-react'
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
@@ -774,13 +774,18 @@ class App extends Component {
     comPokemon1: '',
     comPokemon2: '', 
     light_or_dark: true,
-    colorTheme: 'red'
-
+    colorTheme: 'red',
+    language: 'en',
+    quayTron: 'App-logo-quay-xuoi',
+    daXemCompare: true
   }
 
 //Phần 3: các Function
   changeColorTheme = (color) => {
     this.setState({colorTheme: color})
+  }
+  changeLanguage = (langMoi) => {
+    this.setState({language: langMoi})
   }
   doimau = () => {
     if (this.state.light_or_dark === true) {
@@ -791,7 +796,10 @@ class App extends Component {
     }
   }
   handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name });
+    this.setState({ activeItem: name});
+    if(name === 'compare') {
+      this.setState({ daXemCompare: true });
+    }
   }
   comparePokemon1 = (newName1) => {
     this.setState({comPokemon1: newName1})
@@ -806,8 +814,7 @@ class App extends Component {
     this.setState({comPokemon1: value})
   }
   selectPokemon2 = (e, {value}) => {
-    // alert(value)
-    this.setState({comPokemon2: value})
+    this.setState({comPokemon2: value, daXemCompare: false})
   }
   addToFavourites = (tenPokeMoi) => {
 
@@ -837,8 +844,18 @@ class App extends Component {
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
+  quay = () => {
+    const { quayTron } = this.state
+    if(quayTron === 'App-logo-quay-xuoi'){
+      this.setState({quayTron: 'App-logo-quay-nguoc'});
+    }
+    else {this.setState({quayTron: 'App-logo-quay-xuoi'});}
+  }
+
+
   render() {
-    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark, colorTheme } = this.state
+    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark, 
+      colorTheme, language, quayTron, daXemCompare } = this.state
 
     return (
       <Router basename={process.env.PUBLIC_URL}>
@@ -908,11 +925,23 @@ class App extends Component {
 
             <Menu.Item
               as={Link}
-              to="/Compare"
+              to="/compare"
               name='compare'
               active={activeItem === 'compare'}
               onClick={this.handleItemClick}>
-              Compare
+              {language === 'en'
+                ? "Compare"
+                : "So sánh"
+              }
+
+              {daXemCompare
+                ? null
+                : <Label color='blue'>
+                    <Icon name='check'/>
+                  </Label>
+              }
+
+
             </Menu.Item>
 
             <Menu.Item
@@ -921,7 +950,10 @@ class App extends Component {
               name='trainer'
               active={activeItem === 'trainer'}
               onClick={this.handleItemClick}>
-              Trainer
+              {language === 'en'
+                ? "Trainer"
+                : "Huấn luyện viên"
+              }
             </Menu.Item>
 
             <Menu.Item
@@ -939,7 +971,10 @@ class App extends Component {
               name='evolution'
               active={activeItem === 'evolution'}
               onClick={this.handleItemClick}>
-              Evolution
+              {language === 'en'
+                ? "Evolution"
+                : "Tiến hóa"
+              }
             </Menu.Item>
 
             <Menu.Item
@@ -948,16 +983,18 @@ class App extends Component {
               name='favourites'
               active={activeItem === 'favourites'}
               onClick={this.handleItemClick}>
-              Favourites
+              {language === 'en'
+                ? "Favourites"
+                : "Ưa thích"
+              }
               
               {
                 Object.keys(favPokemon).length === 0 
                 ? null
-                : <Label color='red' >
+                : <Label color='red'>
                     {Object.keys(favPokemon).length}
                   </Label>
               }
-
             </Menu.Item>
 
             <Menu.Item
@@ -966,7 +1003,10 @@ class App extends Component {
               name='about'
               active={activeItem === 'about'}
               onClick={this.handleItemClick}>
-              About
+              {language === 'en'
+                ? "About"
+                : "Giới thiệu"
+              }
             </Menu.Item>
 
             <Dropdown item icon='setting' simple>
@@ -1023,6 +1063,25 @@ class App extends Component {
                   </Dropdown.Menu>
                 </Dropdown>
 
+                <Dropdown item text="Language">
+                  <Dropdown.Menu>
+                    
+                    <Dropdown.Item onClick={ () => this.changeLanguage('en')}><Flag name='us' />EN
+                      {language === 'en'
+                        ? <Icon name='check' />
+                        : null
+                      }
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={ () => this.changeLanguage('vn')}><Flag name='vn' />VN
+                      {language === 'vn'
+                        ? <Icon name='check' />
+                        : null
+                      }
+                    </Dropdown.Item>
+
+                  </Dropdown.Menu>
+                </Dropdown>
+
               </Dropdown.Menu>
             </Dropdown>
 
@@ -1033,12 +1092,12 @@ class App extends Component {
           <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
           comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} typesInfo = {typesInfo}
           removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} comPokemon1 = {comPokemon1} 
-          comPokemon2 = {comPokemon2} />} />
+          comPokemon2 = {comPokemon2} selectPokemon2={this.selectPokemon2} />} />
           
           <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
           removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo}
           comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} 
-          comPokemon2 = {comPokemon2} />} />
+          comPokemon2 = {comPokemon2} selectPokemon2 = {this.selectPokemon2} />} />
           
           <Route path = "/Types_Z" render={() => <Types_Z typesZ = {typesZ} />} />
 
@@ -1053,12 +1112,13 @@ class App extends Component {
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} comPokemon1 = {comPokemon1} 
           comPokemon2 = {comPokemon2} comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
           removeFromFavourites={this.removeFromFavourites} addToFavourites={this.addToFavourites} typesInfo={typesInfo}
-          favPokemon = {favPokemon} /> } />
+          favPokemon = {favPokemon} selectPokemon2 = {this.selectPokemon2} /> } />
           
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
           removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites}
           addToFavourites = {this.addToFavourites} typesInfo={typesInfo} comparePokemon1 = {this.comparePokemon1} 
-          comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} />} />
+          comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
+          selectPokemon2 = {this.selectPokemon2} />} />
           
           <Route path = "/About" component = {About} />
           
@@ -1079,7 +1139,7 @@ class App extends Component {
                           : colorTheme === 'pink'
                             ? poke_logo_pink
                             : poke_logo_grey
-              } className="App-logo" alt="poke_logo" />
+              } className={quayTron} alt="poke_logo" onClick={this.quay} />
           </header>
 
           <a href='#denTrenCung' className='nut-bam-len-tren'> <Icon bordered inverted color='teal' name='angle double up' /> </a>
@@ -1090,3 +1150,4 @@ class App extends Component {
   }
 }
 export default App;
+// 

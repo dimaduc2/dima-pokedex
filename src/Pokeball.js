@@ -1,6 +1,7 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
 import { Button, Icon, Image, Grid } from 'semantic-ui-react'
+import './PokeBall.css';
 import Beast_Ball from './PokeBall/Beast Ball.jpg';
 import Cherish_Ball from './PokeBall/Cherish Ball.jpg';
 import Crystal_Ball from './PokeBall/Crystal Ball.jpg';
@@ -77,6 +78,7 @@ class PokeBall extends Component {
 //Phần 2: các State
   state = {
     pokeballDangChon: "",
+    tenQuaBong: 'qua-bong'
   }
   //Phần 3: các Function
   gioiThieuPokeball = (pokeball) => {
@@ -91,8 +93,23 @@ class PokeBall extends Component {
       // setState là thay đổi state pokeballDangChon có 
     }
   };
+
+  bongNhay = () => {
+    if(this.state.tenQuaBong === 'qua-bong-nhay'){
+      this.setState({tenQuaBong: 'qua-bong'});
+    }
+    else {this.setState({tenQuaBong: 'qua-bong-nhay'});}
+  }
+
+  // bongNhay = () => {
+  //   this.setState({tenQuaBong: 'qua-bong-nhay'});
+  // }
+  // bongDung = () => {
+  //   this.setState({tenQuaBong: 'qua-bong'});
+  // }
+  
   render() {
-    var {pokeballDangChon} = this.state;
+    var {pokeballDangChon, tenQuaBong} = this.state;
     //const {  } = this.props
     return (
       <div className="PokeBall" align='center'>
@@ -114,8 +131,12 @@ class PokeBall extends Component {
           }
         </Grid>
         <br/>
-        <Image src={pokeballs[pokeballDangChon].picture} size='small' />
-      </div>
+        <Image className={tenQuaBong} src={pokeballs[pokeballDangChon].picture} size='small' onClick={this.bongNhay}
+        // onMouseEnter={this.bongNhay} 
+        // onMouseLeave={this.bongDung}
+         />
+        <br/><br/><br/><br/><br/></div>
+      
     )
   }
 }
