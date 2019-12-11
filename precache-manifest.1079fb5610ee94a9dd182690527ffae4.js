@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a83502a2d27085d9611f19967d214597",
+    "revision": "97e535bfc646054b4297c94afd713aaf",
     "url": "/dima-pokedex/index.html"
   },
   {
-    "revision": "4f620fd9c218470285ca",
+    "revision": "99ac4a130b23a5ac63e1",
     "url": "/dima-pokedex/static/css/2.734b0118.chunk.css"
   },
   {
-    "revision": "393156c6db3da6b8d42a",
-    "url": "/dima-pokedex/static/css/main.bce82e31.chunk.css"
+    "revision": "62f99940838f2dc68378",
+    "url": "/dima-pokedex/static/css/main.b8c9f492.chunk.css"
   },
   {
-    "revision": "4f620fd9c218470285ca",
-    "url": "/dima-pokedex/static/js/2.cd786695.chunk.js"
+    "revision": "99ac4a130b23a5ac63e1",
+    "url": "/dima-pokedex/static/js/2.ec2f664e.chunk.js"
   },
   {
-    "revision": "393156c6db3da6b8d42a",
-    "url": "/dima-pokedex/static/js/main.5a080bd4.chunk.js"
+    "revision": "62f99940838f2dc68378",
+    "url": "/dima-pokedex/static/js/main.d78b028e.chunk.js"
   },
   {
     "revision": "6dc0074cbbfd63fd3039",
@@ -120,8 +120,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Flying.72131126.png"
   },
   {
-    "revision": "4e33e5ef7b271939e6e3566177664362",
-    "url": "/dima-pokedex/static/media/Friend Ball.4e33e5ef.jpg"
+    "revision": "c101c67e7c3f679aa439ba9e2686ef58",
+    "url": "/dima-pokedex/static/media/Friend Ball.c101c67e.jpg"
   },
   {
     "revision": "c1df25b94d4a3c6778e1ad58a09f4b1c",
@@ -156,8 +156,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Grass.80efee71.png"
   },
   {
-    "revision": "f3c5d82291b6f6a6a93a91e4dc238cea",
-    "url": "/dima-pokedex/static/media/Great Ball.f3c5d822.jpg"
+    "revision": "ad9fe204d9e2c5d9a3984f6fcaadf619",
+    "url": "/dima-pokedex/static/media/Great Ball.ad9fe204.jpg"
   },
   {
     "revision": "487e5fafe633852d56af362be162ad92",
@@ -168,16 +168,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Heal Ball.8eff9037.jpg"
   },
   {
-    "revision": "db13808fde435f29f7020f005e51851f",
-    "url": "/dima-pokedex/static/media/Heavy Ball.db13808f.jpg"
+    "revision": "9b45e8bd34831fdd017cb23f135ae8c8",
+    "url": "/dima-pokedex/static/media/Heavy Ball.9b45e8bd.jpg"
   },
   {
     "revision": "6e7d5d9434fa0e8bead7b4166a205e22",
     "url": "/dima-pokedex/static/media/Ice.6e7d5d94.png"
   },
   {
-    "revision": "c6803f853b733b989f73324f6fa09bc5",
-    "url": "/dima-pokedex/static/media/Level Ball.c6803f85.jpg"
+    "revision": "92a516a5a37b809848023c4ff3935ce1",
+    "url": "/dima-pokedex/static/media/Level Ball.92a516a5.jpg"
   },
   {
     "revision": "8c9e7d0568a0a8cc94943f5eefb20f85",
@@ -272,8 +272,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Pokemon_symbol_purple.a04ba315.png"
   },
   {
-    "revision": "4f37dcdf2bbc708803f4c6d29516f284",
-    "url": "/dima-pokedex/static/media/Poké Ball.4f37dcdf.jpg"
+    "revision": "ee784ca07479b1f8b5550c74c8c7e2f9",
+    "url": "/dima-pokedex/static/media/Poké Ball.ee784ca0.jpg"
   },
   {
     "revision": "6bec180e32e7513e7b7c9fdd42ad9509",
@@ -388,8 +388,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/dima-pokedex/static/media/Timer Ball.30c92abc.png"
   },
   {
-    "revision": "d8b760f88121ab7ede2aa743272dcaf1",
-    "url": "/dima-pokedex/static/media/Ultra Ball.d8b760f8.jpg"
+    "revision": "3120aaaf148de6a79c46f997d2af7f6c",
+    "url": "/dima-pokedex/static/media/Ultra Ball.3120aaaf.jpg"
   },
   {
     "revision": "1296d91bad0e2929804b2179a7c536cc",
