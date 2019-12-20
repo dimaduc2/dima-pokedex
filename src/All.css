@@ -1,0 +1,24 @@
+.chon-pokemon-theo-type{
+  position: fixed;
+  bottom: 160px;
+  right: 20px;
+}
+.nut-phong-to{
+  position: fixed;
+  bottom: 110px;
+  right: 20px;
+}
+.nut-phong-nho{
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+}
+.bang-type{
+  width: 200px;
+  position: fixed;
+  bottom: 60px;
+  right: 70px;
+  background-color: black;
+  padding: 10px;
+  opacity: 60%;
+}

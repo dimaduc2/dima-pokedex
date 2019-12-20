@@ -1125,21 +1125,21 @@ class App extends Component {
           <br/><br/>
           <header className="App-header">
             <img src={colorTheme === 'red'
-                ? poke_logo 
-                : colorTheme === 'blue'
-                  ? poke_logo_blue
-                  : colorTheme === 'green'
-                    ? poke_logo_green
-                    : colorTheme === 'orange'
-                      ? poke_logo_orange
-                      : colorTheme === 'purple'
-                        ? poke_logo_purple
-                        : colorTheme === 'brown'
-                          ? poke_logo_brown
-                          : colorTheme === 'pink'
-                            ? poke_logo_pink
-                            : poke_logo_grey
-              } className={quayTron} alt="poke_logo" onClick={this.quay} />
+              ? poke_logo 
+              : colorTheme === 'black'
+                ? poke_logo_blue
+                : colorTheme === 'green'
+                  ? poke_logo_green
+                  : colorTheme === 'orange'
+                    ? poke_logo_orange
+                    : colorTheme === 'purple'
+                      ? poke_logo_purple
+                      : colorTheme === 'brown'
+                        ? poke_logo_brown
+                        : colorTheme === 'pink'
+                          ? poke_logo_pink
+                          : poke_logo_grey
+            } className={quayTron} alt="poke_logo" onClick={this.quay} />
           </header>
 
           <a href='#denTrenCung' className='nut-bam-len-tren'> <Icon bordered inverted color='teal' name='angle double up' /> </a>

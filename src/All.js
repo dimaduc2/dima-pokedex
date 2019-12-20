@@ -1,8 +1,10 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Grid, Image, Popup, Button } from 'semantic-ui-react'
+import { Grid, Image, Popup, Button, Icon } from 'semantic-ui-react'
 
 import Profile from './Profile'
+
+import './All.css';
 
 //import './All.css';
 class All extends Component {
@@ -10,12 +12,15 @@ class All extends Component {
 //Phần 2: tạo các State
   state = {
     pictureSize: 'mini',
-    soCot: 7
+    soCot: 7,
+    typeDangChon: "All",
+    dangMoBangType: false
   }
 
 //Phần 3: các Function
   
   //gọi function này thì sẽ to lên
+  
   bigPicture = () => {
     // nếu ảnh đang bé nhất
     if(this.state.pictureSize === 'mini') {
@@ -48,16 +53,27 @@ class All extends Component {
     }
   }
   
+  chonPokemonTheoType = (type) => {
+    alert("hello" + " " + type)
+  }
+
+  hienBangType = () => {
+    if(this.state.dangMoBangType === false) {
+      this.setState({dangMoBangType: true})
+    }
+    else {
+      this.setState({dangMoBangType: false})
+    }
+}
+
   render() {
-    const { pictureSize, soCot } = this.state
+    const { pictureSize, soCot, dangMoBangType } = this.state
     const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, selectPokemon2, 
             comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo } = this.props;
+    const tenTypes = Object.keys(typesInfo).slice(1, 19);
     return (
       <div className="All" align="center">
-        <Button circular icon='search plus' onClick={this.bigPicture}></Button>
-        <Button circular icon='search minus' onClick={this.smallPicture}></Button>
         <br/><br/>
-        
         {/*         
         <Grid columns={pictureSize === 'mini'
           ? 7
@@ -78,7 +94,7 @@ class All extends Component {
                     </div>}
                   position='top center' on='click' wide='very' >
                   <Popup.Content>
-                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
+                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
                     comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
                     typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
                     selectPokemon2={selectPokemon2} />
@@ -88,6 +104,25 @@ class All extends Component {
             )
           }
         </Grid>
+
+        
+
+        {dangMoBangType === true
+          ? <div className='bang-type'>
+              <Grid columns={3}>
+                { tenTypes.map(
+                  (moiType) => 
+                  <Grid.Column><Image src={typesInfo[moiType].symbol} size='mini' onClick={() => this.chonPokemonTheoType(moiType)} /></Grid.Column>
+                )}
+              </Grid>
+            </div>
+          : null
+        }
+
+
+        <Button color='blue' circular icon='search plus' onClick={this.bigPicture} className="nut-phong-to"></Button>
+        <Button color='red' circular icon='search minus' onClick={this.smallPicture} className="nut-phong-nho"></Button>
+        <Button color='violet' icon='filter' onClick={this.hienBangType} className="chon-pokemon-theo-type"></Button>
       </div>
     )
   }
