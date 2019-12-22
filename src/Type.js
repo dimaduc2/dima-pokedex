@@ -1,7 +1,6 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
 import { Button, Icon, Image, Grid, Card, Popup } from 'semantic-ui-react'
-
 import Profile from './Profile'
 //import './Type.css';
 class Type extends Component {
@@ -45,7 +44,6 @@ class Type extends Component {
         <Grid columns={6} doubling >
           {Object.keys(Pokedex).map(
             (moiTen) => Pokedex[moiTen].types.includes(typeDangChon)
-              
             ? <Grid.Column>
                 <Popup
                   trigger={
@@ -62,7 +60,6 @@ class Type extends Component {
                   </Popup.Content>
                 </Popup>
               </Grid.Column>
-
             : null
           )}
         </Grid>

@@ -14,7 +14,7 @@ class All extends Component {
     pictureSize: 'mini',
     soCot: 7,
     typeDangChon: "All",
-    dangMoBangType: false
+    dangMoBangType: false,
   }
 
 //Phần 3: các Function
@@ -54,25 +54,35 @@ class All extends Component {
   }
   
   chonPokemonTheoType = (type) => {
-    alert("hello" + " " + type)
+    if (this.state.typeDangChon === type) {
+    this.setState({ typeDangChon: "All" });
+    }
+    else {
+      this.setState({ typeDangChon: type });
+    }
+  }
+
+  chonAllPokemon = () => {
+    this.setState({ typeDangChon: "All" });
   }
 
   hienBangType = () => {
-    if(this.state.dangMoBangType === false) {
+    if (this.state.dangMoBangType === false) {
       this.setState({dangMoBangType: true})
     }
     else {
       this.setState({dangMoBangType: false})
     }
-}
+  }
 
   render() {
-    const { pictureSize, soCot, dangMoBangType } = this.state
+    const { pictureSize, soCot, dangMoBangType, typeDangChon } = this.state
     const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, selectPokemon2, 
             comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo } = this.props;
     const tenTypes = Object.keys(typesInfo).slice(1, 19);
     return (
       <div className="All" align="center">
+        <h1>{typeDangChon} Pokemon</h1>
         <br/><br/>
         {/*         
         <Grid columns={pictureSize === 'mini'
@@ -85,41 +95,59 @@ class All extends Component {
         <Grid columns={soCot} doubling >
           {
             Object.keys(Pokedex).map(
-              (moiTen) => 
-              <Grid.Column>
-                <Popup
-                  trigger={<div>
-                      <Image src={Pokedex[moiTen].picture}  size={pictureSize} />
-                      <p>{Pokedex[moiTen].name}</p>
-                    </div>}
-                  position='top center' on='click' wide='very' >
-                  <Popup.Content>
-                    <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
-                    comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
-                    typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
-                    selectPokemon2={selectPokemon2} />
-                  </Popup.Content>
-                </Popup>
-              </Grid.Column>
+              (moiTen) => Pokedex[moiTen].types.includes(typeDangChon) || typeDangChon==="All"
+              ? <Grid.Column>
+                  <Popup
+                    trigger={<div>
+                        <Image src={Pokedex[moiTen].picture}  size={pictureSize} />
+                        <p>{Pokedex[moiTen].name}</p>
+                      </div>}
+                    position='top center' on='click' wide='very' >
+                    <Popup.Content>
+                      <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
+                      comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                      typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
+                      selectPokemon2={selectPokemon2} />
+                    </Popup.Content>
+                  </Popup>
+                </Grid.Column>
+              : null
             )
           }
         </Grid>
-
         
-
         {dangMoBangType === true
           ? <div className='bang-type'>
               <Grid columns={3}>
                 { tenTypes.map(
                   (moiType) => 
-                  <Grid.Column><Image src={typesInfo[moiType].symbol} size='mini' onClick={() => this.chonPokemonTheoType(moiType)} /></Grid.Column>
+                  <Grid.Column>
+                    <Image className={
+                      moiType === typeDangChon
+                      ? "da-bam"
+                      : "chua-bam"
+                    } 
+                    src={typesInfo[moiType].symbol} size='mini' onClick={() => this.chonPokemonTheoType(moiType)} />
+                  </Grid.Column>
                 )}
               </Grid>
+              <br/>
+              <Button onClick={this.chonAllPokemon} fluid color="red" 
+
+
+                basic={
+                  typeDangChon === "All"
+                  ? false
+                  : true
+                }
+
+
+
+              >All</Button>
             </div>
           : null
         }
-
-
+        
         <Button color='blue' circular icon='search plus' onClick={this.bigPicture} className="nut-phong-to"></Button>
         <Button color='red' circular icon='search minus' onClick={this.smallPicture} className="nut-phong-nho"></Button>
         <Button color='violet' icon='filter' onClick={this.hienBangType} className="chon-pokemon-theo-type"></Button>
