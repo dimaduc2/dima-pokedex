@@ -12,6 +12,7 @@ class Favourites extends Component {
   state = {}
 
 //Phần 3: các Function
+
   render() {
     // const {  } = this.state
     const { favPokemon, Pokedex, removeFromFavourites, removeAllFromFavourites, selectPokemon2, 

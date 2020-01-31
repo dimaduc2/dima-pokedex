@@ -127,12 +127,12 @@ class Evolution extends Component {
 
         {/* <p>{Pokedex[tenPokemonDaChon].evolves_into}</p> */}
 
-        {/* 
+      {/* 
         {Pokedex[tenPokemonDaChon].evolves_into
           ? <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_into].picture} size='small' />
           : null
         }
-         */}
+       */}
 
 
         

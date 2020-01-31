@@ -26,6 +26,7 @@ import PokeBall from './PokeBall';
 import Evolution from './Evolution';
 import Favourites from './Favourites';
 import About from './About';
+import Admin from './Admin';
 
 import Genesect_Normal from './Genesect/Genesect (Normal).png';
 import Genesect_Electric from './Genesect/Genesect (Electric) - Shock Drive.png';
@@ -69,6 +70,10 @@ import SilvallyPsychic from './Silvally Type/Silvally Psychic.png';
 import SilvallyRock from './Silvally Type/Silvally Rock.png';
 import SilvallySteel from './Silvally Type/Silvally Steel.png';
 import SilvallyWater from './Silvally Type/Silvally Water.png';
+
+// import Pichu from './/';
+// import Pikachu from './/';
+// import Raichu from './/';
 
 import Normal from './Type/Normal.png';
 import Fire from './Type/Fire.png';
@@ -223,8 +228,7 @@ const typesInfo = {
   'Fairy' : {symbol : Fairy, bgcolor: '#ffaec9'},
 }
 
-const Pokemon = {
-  
+const Pokedex = {
   'genesectN':{
     name: 'Genesect Normal',
     pokedexNum: 649,
@@ -763,11 +767,14 @@ const Pokemon = {
     evolves_into: [],
     evolves_from: ''
   }
-}
+};
+
+
+
 
 class App extends Component {
 
-//Phần 2: các State
+  //Phần 2: các State
   state = {
     dangXemGi: "dangXemHome",
     favPokemon: {},
@@ -777,10 +784,19 @@ class App extends Component {
     colorTheme: 'red',
     language: 'en',
     quayTron: 'App-logo-quay-xuoi',
-    daXemCompare: true
+    daXemCompare: true,
+    tenSauMenu: '',
+    anhPokemonAll: '',
+    NickPoke: '00000000000000',
+    tenHP: 0,
+    PokeAttack: 0,
+    PokeDefense: 0,
+    PokeSp_atk: 0,
+    PokeSp_def: 0,
+    PokeSpeed: 0,
   }
 
-//Phần 3: các Function
+  //Phần 3: các Function
   changeColorTheme = (color) => {
     this.setState({colorTheme: color})
   }
@@ -829,17 +845,31 @@ class App extends Component {
     //cho newFav (gồm tất cả pokemon ưa thích cũ và mới) vào trong favPokemon
   }
   removeFromFavourites = (tenPokeMuonXoa) => {
-    var newFav = this.state.favPokemon;
-    //lấy danh sách Pokemon ưa thích CŨ, đang ở trong state favPokemon, rồi cho vào newFav
-    delete newFav[tenPokeMuonXoa];
-    //xóa tên Pokemon ưa thích khỏi newFar
+    var coXoaHayKhong = window.confirm("có xóa " + Pokedex[tenPokeMuonXoa].name + " không?");
+    if (coXoaHayKhong === true) {
 
-    this.setState({ favPokemon: newFav });
-    //thay đổi state favPokemon
-    //cho newFav (gồm tất cả pokemon ưa thích cũ trừ pokemon vừa xóa) vào trong favPokemon
+      var newFav = this.state.favPokemon;
+      //lấy danh sách Pokemon ưa thích cũ, đang ở trong state favPokemon, rồi cho vào newFav
+      delete newFav[tenPokeMuonXoa];
+      //xóa tên Pokemon ưa thích khỏi newFar
+
+      this.setState({ favPokemon: newFav });
+      //thay đổi state favPokemon
+      //cho newFav (gồm tất cả pokemon ưa thích cũ trừ pokemon vừa xóa) vào trong favPokemon
+
+    }
+    else {
+        alert("Không xóa ảnh.")
+    }
   }
   removeAllFromFavourites = () => {
-    this.setState({ favPokemon: {} });
+    var coXoaTatcaHayKhong  = window.confirm("có xóa tất cả không?");
+    if (coXoaTatcaHayKhong === true){
+      this.setState({ favPokemon: {} });
+    }
+    else {
+        alert("Không xóa tất cả ảnh.")
+    }
   }
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
@@ -852,10 +882,50 @@ class App extends Component {
     else {this.setState({quayTron: 'App-logo-quay-xuoi'});}
   }
 
+  // themTenPokemonMoi = (ten) => {this.setState({tenSauMenu: ten})}
+  // themAnhPokemonMoi = (tenAnh) => {this.setState({anhPokemonAll: tenAnh})}
+  // themTenDem = (TenDemPoke) => {this.setState({NickPoke :TenDemPoke})}
 
+  themTenPoke = (ten, tenDem, tenHP, tenAttack, tenDefense, tenSp_atk, tenSp_def, tenSpeed, tenAnh, tenType, tenEvolves_into, tenEvolves_from) => {
+ 
+    Pokedex[tenDem] = {
+      name: ten,
+      pokedexNum: 773,
+      picture: tenAnh,
+      types: tenType,
+      hp: Number(tenHP),
+      attack: Number(tenAttack),
+      defense: Number(tenDefense),
+      sp_atk: Number(tenSp_atk),
+      sp_def: Number(tenSp_def),
+      speed: Number(tenSpeed),
+      evolves_into: tenEvolves_into,
+      evolves_from: tenEvolves_from
+    };
+    
+    this.forceUpdate()
+
+  }
+  
+  deletePoke1 = (ten) => {
+    var coXoaPokeKo = window.confirm("có muốn xóa "+Pokedex[ten].name+" không?");
+    if(coXoaPokeKo === true){
+      delete Pokedex[ten]
+      this.forceUpdate()
+    }
+    else {
+      alert("Không xóa ảnh.")
+    }
+  }
+  deletePoke2 = (ten) => {
+    delete Pokedex[ten]
+    this.forceUpdate()
+  }
+  
   render() {
-    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark, 
-      colorTheme, language, quayTron, daXemCompare } = this.state
+    const { activeItem, favPokemon, comPokemon1, comPokemon2, light_or_dark, colorTheme, language, quayTron, daXemCompare, 
+      anhPokemonAll, tenSauMenu, NickPoke, tenHP, tenAttack, tenDefense, tenSp_atk, tenSp_def, tenSpeed, tenAnh, tenType, 
+      tenEvolves_into, tenEvolves_from} = this.state
 
     return (
       <Router basename={process.env.PUBLIC_URL}>
@@ -940,8 +1010,6 @@ class App extends Component {
                     <Icon name='check'/>
                   </Label>
               }
-
-
             </Menu.Item>
 
             <Menu.Item
@@ -999,15 +1067,29 @@ class App extends Component {
 
             <Menu.Item
               as={Link}
+              to='/Admin'
+              name='admin'
+              active={activeItem === 'admin'}
+              onClick={this.handleItemClick}>
+              {language === 'en'
+                ? "Admin"
+                : "Quản lý"
+              }
+            </Menu.Item>
+
+            <Menu.Item
+              as={Link}
               to="/About"
               name='about'
               active={activeItem === 'about'}
               onClick={this.handleItemClick}>
               {language === 'en'
-                ? "About"
+                ? "About "
                 : "Giới thiệu"
               }
+              {tenSauMenu}
             </Menu.Item>
+
 
             <Dropdown item icon='setting' simple>
               <Dropdown.Menu>
@@ -1089,38 +1171,45 @@ class App extends Component {
 
           <Route exact path = "/" component = {Home} />
           
-          <Route path = "/All" render={() => <All Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
-          comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} typesInfo = {typesInfo}
+          <Route path = "/All" render={() => <All Pokedex = {Pokedex} addToFavourites = {this.addToFavourites} 
+          comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} typesInfo = {typesInfo} 
           removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} comPokemon1 = {comPokemon1} 
-          comPokemon2 = {comPokemon2} selectPokemon2={this.selectPokemon2} />} />
+          comPokemon2 = {comPokemon2} selectPokemon2 = {this.selectPokemon2} tenSauAll = {tenSauMenu} imageAll = {anhPokemonAll} 
+          NickPoke = {NickPoke} anhPokemonMoi = {this.themAnhPokemonMoi} tenHP = {tenHP} tenAttack = {tenAttack} 
+          tenDefense = {tenDefense} tenSp_atk = {tenSp_atk} tenSp_def = {tenSp_def} tenSpeed = {tenSpeed} tenAnh = {tenAnh} 
+          tenType = {tenType} deletePoke1 = {this.deletePoke1} />} />
           
-          <Route path = "/Type" render={() => <Type Pokedex = {Pokemon} addToFavourites = {this.addToFavourites} 
+          <Route path = "/Type" render={() => <Type Pokedex = {Pokedex} addToFavourites = {this.addToFavourites} 
           removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo}
           comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} 
           comPokemon2 = {comPokemon2} selectPokemon2 = {this.selectPokemon2} />} />
           
           <Route path = "/Types_Z" render={() => <Types_Z typesZ = {typesZ} />} />
 
-          <Route path = "/Compare" render={() => <Compare Pokedex={Pokemon} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
-          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} Pokedex = {Pokemon} 
+          <Route path = "/Compare" render={() => <Compare Pokedex={Pokedex} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
+          selectPokemon1 = {this.selectPokemon1} selectPokemon2 = {this.selectPokemon2} typesInfo = {typesInfo} Pokedex = {Pokedex} 
           favPokemon={favPokemon} typesInfo={typesInfo} />} />
           
           <Route path = "/Trainer" component = {Trainer} />
           
           <Route path = "/PokeBall" component = {PokeBall} />
           
-          <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokemon} comPokemon1 = {comPokemon1} 
+          <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokedex} comPokemon1 = {comPokemon1} 
           comPokemon2 = {comPokemon2} comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
           removeFromFavourites={this.removeFromFavourites} addToFavourites={this.addToFavourites} typesInfo={typesInfo}
           favPokemon = {favPokemon} selectPokemon2 = {this.selectPokemon2} /> } />
           
-          <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokemon} favPokemon = {favPokemon} 
+          <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokedex} favPokemon = {favPokemon} 
           removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites}
-          addToFavourites = {this.addToFavourites} typesInfo={typesInfo} comparePokemon1 = {this.comparePokemon1} 
+          addToFavourites = {this.addToFavourites} typesInfo = {typesInfo} comparePokemon1 = {this.comparePokemon1} 
           comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
           selectPokemon2 = {this.selectPokemon2} />} />
           
           <Route path = "/About" component = {About} />
+
+          <Route path = "/Admin" render={() => <Admin themTenPokemonMoi = {this.themTenPokemonMoi} themTenDem = {this.themTenDem} 
+          themAnhPokemonMoi = {this.themAnhPokemonMoi} themTenPoke = {this.themTenPoke} tenType = {tenType} 
+          Pokedex = {Pokedex} deletePoke2 = {this.deletePoke2} />} />
           
           <br/><br/>
           <header className="App-header">
@@ -1150,4 +1239,3 @@ class App extends Component {
   }
 }
 export default App;
-// 

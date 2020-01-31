@@ -20,19 +20,23 @@ class About extends Component {
         <p>
           All là gì?
           <br/>
-          là giới triệu pokemon
+          là giới triệu pokemon.
           <br/><br/>
           Type là gì?
           <br/>
           là sức mạnh của pokemon, mỗi con có 1 hoặc 2 sức mạnh.
           <br/><br/>
+          Type Z là gì?
+          <br/>
+          là tiêu cuối cùng.
+          <br/><br/>
           Compare là gì?
           <br/>
-          là để so sánh sức mạnh 2 con pokemon
+          là để so sánh sức mạnh 2 con pokemon.
           <br/><br/>
           Trainer là gì?
           <br/>
-          là giới triệu người có pokemon
+          là giới triệu người có pokemon.
           <br/><br/>
           Pokeball là gì?
           <br/>
@@ -40,11 +44,15 @@ class About extends Component {
           <br/><br/>
           Evolution là gì?
           <br/>
-          Là pokemon tiến hóa theo level tăng khi đấu đầu đối thủ và tập luyện hoặc dùng hòn đá có type
+          Là pokemon tiến hóa theo level tăng khi đấu đầu đối thủ và tập luyện hoặc dùng hòn đá có type.
           <br/><br/>
           Favourites là gì?
           <br/>
           Là danh sách ưa thích.
+          <br/><br/>
+          Admin là gì?
+          <br/>
+          Là quản lý thông tin.
           <br/>
         </p>
         

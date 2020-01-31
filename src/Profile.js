@@ -11,12 +11,13 @@ class Profile extends Component {
   state = {}
 
 //Phần 3: các Function
-
+    
+  
   render() {
     // const {  } = this.state
 
     const { Pokedex, tenPokemonDangXem, comPokemon1, comPokemon2, selectPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
-      removeFromFavourites, addToFavourites } = this.props
+      removeFromFavourites, addToFavourites, deletePoke1 } = this.props
 
 
       const pokemonOptions = Object.keys(Pokedex).map (
@@ -74,19 +75,25 @@ class Profile extends Component {
                   }
                   
                 </Button>
+                
+                <br/><br/>
 
-                  {comPokemon1 === tenPokemonDangXem
-                    ? <Dropdown placeholder='Select Pokemon'
-                    fluid
-                    search
-                    selection
-                    options={pokemonOptions}
-                    onChange={selectPokemon2}
-                    />
-                    : null
-                  }
+                <Button style={{backgroundColor:'#cc0000' , color:'white'}}  
+                        onClick={() => deletePoke1(tenPokemonDangXem)}>Delete</Button>
+                {/* <Button basic color='blue' onClick={() => this.Delete() }>Delete</Button> */}
+
 
                 
+                {comPokemon1 === tenPokemonDangXem
+                  ? <Dropdown placeholder='Select Pokemon'
+                  fluid
+                  search
+                  selection
+                  options={pokemonOptions}
+                  onChange={selectPokemon2}
+                  />
+                  : null
+                }
 
               </Grid.Column>
             </Grid>

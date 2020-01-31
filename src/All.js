@@ -1,12 +1,11 @@
 //Phần 1: các Import
 import React, { Component } from 'react'
-import { Grid, Image, Popup, Button, Icon } from 'semantic-ui-react'
+import { Grid, Image, Popup, Button } from 'semantic-ui-react'
 
 import Profile from './Profile'
 
 import './All.css';
 
-//import './All.css';
 class All extends Component {
 
 //Phần 2: tạo các State
@@ -77,8 +76,8 @@ class All extends Component {
 
   render() {
     const { pictureSize, soCot, dangMoBangType, typeDangChon } = this.state
-    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, selectPokemon2, 
-            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo } = this.props;
+    const { Pokedex, favPokemon, addToFavourites, removeFromFavourites, selectPokemon2, deletePoke1,
+            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, typesInfo, imageAll} = this.props;
     const tenTypes = Object.keys(typesInfo).slice(1, 19);
     return (
       <div className="All" align="center">
@@ -95,7 +94,7 @@ class All extends Component {
         <Grid columns={soCot} doubling >
           {
             Object.keys(Pokedex).map(
-              (moiTen) => Pokedex[moiTen].types.includes(typeDangChon) || typeDangChon==="All"
+              (moiTen) => Pokedex[moiTen].types.includes(typeDangChon) || typeDangChon==="All" 
               ? <Grid.Column>
                   <Popup
                     trigger={<div>
@@ -107,7 +106,7 @@ class All extends Component {
                       <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
                       comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
                       typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
-                      selectPokemon2={selectPokemon2} />
+                      selectPokemon2={selectPokemon2} deletePoke1 = {deletePoke1} />
                     </Popup.Content>
                   </Popup>
                 </Grid.Column>
@@ -115,6 +114,7 @@ class All extends Component {
             )
           }
         </Grid>
+        
         
         {dangMoBangType === true
           ? <div className='bang-type'>
@@ -134,20 +134,22 @@ class All extends Component {
               <br/>
               <Button onClick={this.chonAllPokemon} fluid color="red" 
 
-
                 basic={
                   typeDangChon === "All"
                   ? false
                   : true
                 }
 
-
-
               >All</Button>
             </div>
           : null
         }
-        
+        <Image src= {imageAll} size='small' />
+        {/* {tenSauAll}
+        <br/>
+        {NickPoke} */}
+
+
         <Button color='blue' circular icon='search plus' onClick={this.bigPicture} className="nut-phong-to"></Button>
         <Button color='red' circular icon='search minus' onClick={this.smallPicture} className="nut-phong-nho"></Button>
         <Button color='violet' icon='filter' onClick={this.hienBangType} className="chon-pokemon-theo-type"></Button>
