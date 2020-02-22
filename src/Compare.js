@@ -2,18 +2,61 @@
 import React, { Component } from 'react'
 import { Image, Table, Dropdown, Label } from 'semantic-ui-react'
 
-//import './Compare.css';
+import './Compare.css';
 
 
 class Compare extends Component {
 
 //Phần 2: các State
-  state = {  }
+  state = { 
+    quayTronXuoi: 'Anh-quay-xuoi',
+    quayTronNguoc: 'App-logo-quay-nguoc',
 
-//Phần 3: các Function
+    
+    tenCssAnhTrai: 'Anh-trai',
+    tenCssAnhPhai: 'Anh-phai',
+  }
+
+
+   
+  //Phần 3: các Function
+  // quayXuoi = () => {
+  //   const { quayTronXuoi } = this.state
+  //   if(quayTronXuoi === 'Anh-quay-xuoi'){
+  //     this.setState({quayTronXuoi: 'App-logo-quay-nguoc'});
+  //   }
+  // }
+  // quayNguoc = () => {
+  //   const { quayTronNguoc } = this.state
+  //   if(quayTronNguoc === 'App-logo-quay-nguoc'){
+  //     this.setState({quayTronNguoc: 'Anh-quay-xuoi'});
+  //   }
+  // }
+
+
+  bayTraiPhai = () => {
+    const { tenCssAnhTrai, tenCssAnhPhai } = this.state
+    if(tenCssAnhTrai === 'Anh-trai'){
+      this.setState({tenCssAnhTrai: 'Anh-trai-bay'});
+    }
+    else {
+      this.setState({tenCssAnhTrai: 'Anh-trai'});
+    }
+    if(tenCssAnhPhai === 'Anh-phai'){
+      this.setState({tenCssAnhPhai: 'Anh-phai-bay'});
+    }
+    else {
+      this.setState({tenCssAnhPhai: 'Anh-phai'});
+    }
+  }
+
+
+
+
 
   render() {
-    const { comPokemon1, comPokemon2, Pokedex, selectPokemon1, selectPokemon2, typesInfo} = this.props
+    const { comPokemon1, comPokemon2, Pokedex, selectPokemon1, selectPokemon2, typesInfo } = this.props
+    const {tenCssAnhTrai, tenCssAnhPhai } = this.state
 
       const pokemonOptions = Object.keys(Pokedex).map (
         (moiTen) => (
@@ -67,8 +110,18 @@ class Compare extends Component {
               <Table.Header>
                 <Table.Row align="center">
                   <Table.HeaderCell />
-                  <Table.HeaderCell><Image src = {Pokedex[comPokemon1].picture} size='medium' /></Table.HeaderCell>
-                  <Table.HeaderCell><Image src = {Pokedex[comPokemon2].picture} size='medium' /></Table.HeaderCell>
+                  <Table.HeaderCell><img src = {Pokedex[comPokemon1].picture} 
+                          size='medium' 
+                          size='mini'
+                          className={tenCssAnhTrai}
+                          onClick={this.bayTraiPhai}
+                   /></Table.HeaderCell>
+                  <Table.HeaderCell><img src = {Pokedex[comPokemon2].picture}   
+                          size='medium' 
+                          size='mini'
+                          className={tenCssAnhPhai}
+                          onClick={this.bayTraiPhai}
+                   /></Table.HeaderCell>
                 </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell />

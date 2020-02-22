@@ -46,7 +46,7 @@ class Admin extends Component {
       NewPoke: '', 
       EditPoke: '', 
       NewEdit: 'Edit Pokemon',
-      NewEditSubmit:'Edit'
+      NewEditSubmit:'Edit',
     }
 
   //Phần 3: các Function
@@ -67,7 +67,6 @@ class Admin extends Component {
       'Sp. Def: '+spDef+"\n"+
       'Speed: '+speed+"\n"+
       'Total '+(Number(hp) + Number(attack) + Number(defense) + Number(spAtk) + Number(spDef) + Number(speed))
-
     )
   }
 
@@ -76,7 +75,8 @@ class Admin extends Component {
     // this.props.themTenPokemonMoi(fullname)
     // this.props.themAnhPokemonMoi(image)
     // this.props.themTenDem(nickname)
-    this.props.themTenPoke(fullname, nickname, hp, attack, defense, spAtk, spDef, speed, image, type, tenEvolves_into, tenEvolves_from)
+    this.props.themTenPoke(fullname, nickname, hp, attack, defense, spAtk, spDef, 
+                            speed, image, type, tenEvolves_into, tenEvolves_from)
     if (fullname.trim() === '') {
       alert('phải đặt tên trong Pokemon Name')
     }
@@ -152,7 +152,6 @@ class Admin extends Component {
 
   taoPokeMoi = () => {
     this.setState({dangSuaPokeCu: false})
-
     this.setState({fullname: ''})
     this.setState({nickname: ''})
     this.setState({image: ''})
@@ -173,7 +172,6 @@ class Admin extends Component {
   
   suaPokeCu = () => {
     this.setState({dangSuaPokeCu: true})
-    
 
 
     // this.setState({EditPoke: 'Edit Pokemon', NewPoke: ''})
@@ -183,8 +181,8 @@ class Admin extends Component {
   
   // deletePokeAdmin = () => {
   //   const {Pokedex} = this.props
-  //   var coXoaTatcaHayKhong  = window.confirm("có xóa tất cả thông tin của " +Pokedex+ " không?");
-  //   if (coXoaTatcaHayKhong === true){
+  //   var coXoaTatCaHayKhong  = window.confirm("có xóa tất cả thông tin của " +Pokedex+ " không?");
+  //   if (coXoaTatCaHayKhong === true){
   //     this.setState({Pokedex: ''});
   //     this.setState({fullname: ''})
   //     this.setState({nickname: ''})
@@ -211,8 +209,8 @@ class Admin extends Component {
 
   deletePokeAdmin = () => {
     const {Pokedex} = this.props
-    var coXoaTatcaHayKhong  = window.confirm("có xóa tất cả thông tin của " +this.state.fullname+ " không?");
-    if (coXoaTatcaHayKhong === true){
+    var coXoaTatCaHayKhong  = window.confirm("có xóa tất cả thông tin của " +this.state.fullname+ " không?");
+    if (coXoaTatCaHayKhong === true){
       this.setState({Pokedex: ''});
       this.setState({fullname: ''})
       this.setState({nickname: ''})
@@ -226,7 +224,6 @@ class Admin extends Component {
       this.setState({speed: 0})
       this.setState({tenEvolves_into: ''})
       this.setState({tenEvolves_from: ''})
-      
       this.props.deletePoke2(this.state.nickname)
     }
     else {
@@ -236,13 +233,13 @@ class Admin extends Component {
   
   render() {
     const { fullname, nickname, image, info, type, hp, attack, defense, spAtk, spDef, speed, result, NewEditSubmit,
-            tenEvolves_into, tenEvolves_from, dangSuaPokeCu, NewPoke, EditPoke, NewEdit } = this.state
+            tenEvolves_into, tenEvolves_from, dangSuaPokeCu, dauBang, NewPoke, EditPoke, NewEdit } = this.state
     const { themTenPokemonMoi, Pokedex, } = this.props;
     
     const pokemonOptions = Object.keys(Pokedex).map (
       (moiTen) => (
         {
-          key: moiTen,
+          // key: moiTen,
           text: Pokedex[moiTen].name,
           value: moiTen,
           image: { avatar: true, src: Pokedex[moiTen].picture },
@@ -268,16 +265,19 @@ class Admin extends Component {
         
         {dangSuaPokeCu === true
           ? <span>
-            <Button style = {{backgroundColor:'#cc0000', color:'white'}} 
-            disabled = {(nickname === "")} 
+              <Button style = {{backgroundColor:'#cc0000', color:'white'}} disabled = {(nickname === "")} 
               onClick = {this.deletePokeAdmin}>Delete</Button>
-            
+              
+              {/* {nickname === "" 
+                ? null
+                : <Button style = {{backgroundColor:'#cc0000', color:'white'}} onClick = {this.deletePokeAdmin}>Delete</Button>
+              } */}
+
               {/* <Button style={{backgroundColor:'#cc0000', color:'white'}} disabled={(nickname === "")} 
                       onClick={() => deletePoke(nickname)}>Delete</Button> */}
             </span>
           : null
         }
-        
 
         <br/><br/>
 
@@ -293,7 +293,6 @@ class Admin extends Component {
           : null
         }
 
-
 {/* {nickName === ""
   ? disabled = {true}
   : disabled = {true}
@@ -303,7 +302,6 @@ class Admin extends Component {
   ? disabled = {dangSuaPokeCu === true}
   : disabled = {dangSuaPokeCu = true}
 } */}
-
 
         <br/><br/>
         <Image src= {image} size='small' />
@@ -323,91 +321,97 @@ class Admin extends Component {
             </div>
           : null
         }
-        <Form>
-          <Form.Input inline
-            label='Pokemon Name'
-            placeholder='Pokemon Name' name='fullname' value={fullname}
-            onChange={this.handleChange} />
+        {nickname === "" && dangSuaPokeCu
+          ? null
+          : 
+            <Form>
+              <Form.Input inline
+                label='Pokemon Name'
+                placeholder='Pokemon Name' name='fullname' value={fullname}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+                label='Pokemon Nickname'
+                disabled={(dangSuaPokeCu === true)}
+                placeholder='Pokemon NickName' name='nickname' value={nickname}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+              
+                label='Image'
+                placeholder='Image' name='image' value={image}
+                onChange={this.handleChange} />
           
-          <Form.Input inline
-            label='Pokemon Nickname'
-            disabled={(dangSuaPokeCu === true)}
-            placeholder='Pokemon NnickName' name='nickname' value={nickname}
-            onChange={this.handleChange} />
+              <Form.Dropdown inline
+                label='Type'
+                clearable
+                multiple
+                search
+                selection
+                options={Type}
+                placeholder='Type' 
+                name='type'
+                value={type}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+                label='HP'
+                placeholder='HP' name='hp' value={hp}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+                label='Attack'
+                placeholder='Attack' name='attack' value={attack}
+                onChange={this.handleChange} />
           
-          <Form.Input inline
-            label='Image'
-            placeholder='Image' name='image' value={image}
-            onChange={this.handleChange} />
+              <Form.Input inline
+                label='Defense'
+                placeholder='Defense' name='defense' value={defense}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+                label='Sp. Atk'
+                placeholder='Sp. Atk' name='spAtk' value={spAtk}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+                label='Sp. Def'
+                placeholder='Sp. Def' name='spDef' value={spDef}
+                onChange={this.handleChange} />
+              
+              <Form.Input inline
+                label='Speed'
+                placeholder='Speed' name='speed' value={speed}
+                onChange={this.handleChange} />
           
-          <Form.Dropdown inline
-            label='Type'
-            clearable
-            multiple
-            search
-            selection
-            options={Type}
-            placeholder='Type' name='type'
-            value={type}
-            onChange={this.handleChange} />
-          
-          <Form.Input inline
-            label='HP'
-            placeholder='HP' name='hp' value={hp}
-            onChange={this.handleChange} />
-          
-          <Form.Input inline
-            label='Attack'
-            placeholder='Attack' name='attack' value={attack}
-            onChange={this.handleChange} />
-          
-          <Form.Input inline
-            label='Defense'
-            placeholder='Defense' name='defense' value={defense}
-            onChange={this.handleChange} />
-          
-          <Form.Input inline
-            label='Sp. Atk'
-            placeholder='Sp. Atk' name='spAtk' value={spAtk}
-            onChange={this.handleChange} />
-          
-          <Form.Input inline
-            label='Sp. Def'
-            placeholder='Sp. Def' name='spDef' value={spDef}
-            onChange={this.handleChange} />
-          
-          <Form.Input inline
-            label='Speed'
-            placeholder='Speed' name='speed' value={speed}
-            onChange={this.handleChange} />
-          
-          <Form.Field inline
-            label={'Total: ' + (Number(hp) + Number(attack) + Number(defense) + Number(spAtk) + Number(spDef) + Number(speed))} />
-          
-          <Form.Dropdown inline
-            label='Evolves Into'
-            clearable
-            multiple
-            search
-            selection
-            options={pokemonOptions}
-            placeholder='Evolves Into' name='tenEvolves_into' value={tenEvolves_into}
-            onChange={this.handleChange} />
+              <Form.Field inline
+                label={'Total: ' + (Number(hp) + Number(attack) + Number(defense) + Number(spAtk) + Number(spDef) + Number(speed))} />
+              
+              <Form.Dropdown inline
+                label='Evolves Into'
+                clearable
+                multiple
+                search
+                selection
+                options={pokemonOptions}
+                placeholder='Evolves Into' name='tenEvolves_into' value={tenEvolves_into}
+                onChange={this.handleChange} />
             
-          <Form.Dropdown inline
-            label='Evolves From'
-            clearable
-            search
-            selection
-            options={pokemonOptions}
-            placeholder='Evolves From' name='tenEvolves_from' value={tenEvolves_from}
-            onChange={this.handleChange} />
-            
-          <Button onClick={() => this.alertTotal1()}>Submit1</Button>
-      <Button onClick={() => this.alertTotal2()} >{NewEditSubmit}</Button>
-          <Button onClick={() => this.alertTotal3()}>Submit3</Button>
-          <Button onClick={() => themTenPokemonMoi(fullname)}>Submit4</Button>
-        </Form>
+              <Form.Dropdown inline
+                label='Evolves From'
+                clearable
+                search
+                selection
+                options={pokemonOptions}
+                placeholder='Evolves From' name='tenEvolves_from' value={tenEvolves_from}
+                onChange={this.handleChange} />
+                
+              <Button onClick={() => this.alertTotal1()}>Submit1</Button>
+              <Button onClick={() => this.alertTotal2()} >{NewEditSubmit}</Button>
+              <Button onClick={() => this.alertTotal3()}>Submit3</Button>
+              <Button onClick={() => themTenPokemonMoi(fullname)}>Submit4</Button>
+            </Form>
+        }
       </div>
     )
   }

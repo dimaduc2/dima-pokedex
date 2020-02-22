@@ -863,8 +863,8 @@ class App extends Component {
     }
   }
   removeAllFromFavourites = () => {
-    var coXoaTatcaHayKhong  = window.confirm("có xóa tất cả không?");
-    if (coXoaTatcaHayKhong === true){
+    var coXoaTatCaHayKhong  = window.confirm("có xóa tất cả không?");
+    if (coXoaTatCaHayKhong === true){
       this.setState({ favPokemon: {} });
     }
     else {
@@ -886,7 +886,8 @@ class App extends Component {
   // themAnhPokemonMoi = (tenAnh) => {this.setState({anhPokemonAll: tenAnh})}
   // themTenDem = (TenDemPoke) => {this.setState({NickPoke :TenDemPoke})}
 
-  themTenPoke = (ten, tenDem, tenHP, tenAttack, tenDefense, tenSp_atk, tenSp_def, tenSpeed, tenAnh, tenType, tenEvolves_into, tenEvolves_from) => {
+  themTenPoke = (ten, tenDem, tenHP, tenAttack, tenDefense, tenSp_atk, tenSp_def, 
+                  tenSpeed, tenAnh, tenType, tenEvolves_into, tenEvolves_from) => {
  
     Pokedex[tenDem] = {
       name: ten,
@@ -1228,7 +1229,11 @@ class App extends Component {
                         : colorTheme === 'pink'
                           ? poke_logo_pink
                           : poke_logo_grey
-            } className={quayTron} alt="poke_logo" onClick={this.quay} />
+            } 
+            className={quayTron} 
+            // alt="poke_logo" 
+            // onClick={this.quay}
+             />
           </header>
 
           <a href='#denTrenCung' className='nut-bam-len-tren'> <Icon bordered inverted color='teal' name='angle double up' /> </a>
