@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/dima-pokedex/static/css/main.54458a66.chunk.css",
+    "main.css": "/dima-pokedex/static/css/main.59af4d9e.chunk.css",
     "main.js": "/dima-pokedex/static/js/main.12570a5c.chunk.js",
     "main.js.map": "/dima-pokedex/static/js/main.12570a5c.chunk.js.map",
     "runtime~main.js": "/dima-pokedex/static/js/runtime~main.8c727313.js",
@@ -9,10 +9,10 @@
     "static/js/2.b7c52b46.chunk.js": "/dima-pokedex/static/js/2.b7c52b46.chunk.js",
     "static/js/2.b7c52b46.chunk.js.map": "/dima-pokedex/static/js/2.b7c52b46.chunk.js.map",
     "index.html": "/dima-pokedex/index.html",
-    "precache-manifest.67f28521cdd03ec4143792720cadde63.js": "/dima-pokedex/precache-manifest.67f28521cdd03ec4143792720cadde63.js",
+    "precache-manifest.f0c579efc4d58186f0e67028cbd921a7.js": "/dima-pokedex/precache-manifest.f0c579efc4d58186f0e67028cbd921a7.js",
     "service-worker.js": "/dima-pokedex/service-worker.js",
     "static/css/2.916669b4.chunk.css.map": "/dima-pokedex/static/css/2.916669b4.chunk.css.map",
-    "static/css/main.54458a66.chunk.css.map": "/dima-pokedex/static/css/main.54458a66.chunk.css.map",
+    "static/css/main.59af4d9e.chunk.css.map": "/dima-pokedex/static/css/main.59af4d9e.chunk.css.map",
     "static/media/133 Eevee (Normal).jpg": "/dima-pokedex/static/media/133 Eevee (Normal).ae452560.jpg",
     "static/media/134 Vaporeon (Water).jpg": "/dima-pokedex/static/media/134 Vaporeon (Water).62f911f2.jpg",
     "static/media/135 Jolteon (Electric).jpg": "/dima-pokedex/static/media/135 Jolteon (Electric).a0bfe258.jpg",
