@@ -110,18 +110,20 @@ class Compare extends Component {
               <Table.Header>
                 <Table.Row align="center">
                   <Table.HeaderCell />
-                  <Table.HeaderCell><img src = {Pokedex[comPokemon1].picture} 
-                          size='medium' 
-                          size='mini'
-                          className={tenCssAnhTrai}
-                          onClick={this.bayTraiPhai}
-                   /></Table.HeaderCell>
-                  <Table.HeaderCell><img src = {Pokedex[comPokemon2].picture}   
-                          size='medium' 
-                          size='mini'
-                          className={tenCssAnhPhai}
-                          onClick={this.bayTraiPhai}
-                   /></Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <Image src = {Pokedex[comPokemon1].picture} 
+                      size='medium'
+                      className={tenCssAnhTrai}
+                      onClick={this.bayTraiPhai}
+                    />
+                  </Table.HeaderCell>
+                  <Table.HeaderCell>
+                    <Image src = {Pokedex[comPokemon2].picture}   
+                      size='medium'
+                      className={tenCssAnhPhai}
+                      onClick={this.bayTraiPhai}
+                    />
+                  </Table.HeaderCell>
                 </Table.Row>
                 <Table.Row>
                   <Table.HeaderCell />

@@ -63,6 +63,8 @@ class Profile extends Component {
                               {tenPokemonDangXem in favPokemon ? 'Remove' : 'Favorite'}
                 </Button>
 
+
+
                 <Button basic color='black' onClick = { () => comparePokemon1 (tenPokemonDangXem) }>
                   {/* <Icon name={tenPokemonDangXem in comPokemon ?'circle' :'circle outline'} /> */}
                   {comPokemon1 === tenPokemonDangXem
@@ -75,15 +77,6 @@ class Profile extends Component {
                   }
                   
                 </Button>
-                
-                <br/><br/>
-
-                <Button style={{backgroundColor:'#cc0000' , color:'white'}}  
-                        onClick={() => deletePoke1(tenPokemonDangXem)}>Delete</Button>
-                {/* <Button basic color='blue' onClick={() => this.Delete() }>Delete</Button> */}
-
-
-                
                 {comPokemon1 === tenPokemonDangXem
                   ? <Dropdown placeholder='Select Pokemon'
                   fluid
@@ -94,6 +87,13 @@ class Profile extends Component {
                   />
                   : null
                 }
+                
+                <br/><br/>
+                
+
+                <Button style={{backgroundColor:'#cc0000' , color:'white'}}  
+                        onClick={() => deletePoke1(tenPokemonDangXem)}>Delete</Button>
+                {/* <Button basic color='blue' onClick={() => this.Delete() }>Delete</Button> */}
 
               </Grid.Column>
             </Grid>
