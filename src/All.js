@@ -133,13 +133,11 @@ class All extends Component {
               </Grid>
               <br/>
               <Button onClick={this.chonAllPokemon} fluid color="red" 
-
                 basic={
                   typeDangChon === "All"
                   ? false
                   : true
                 }
-
               >All</Button>
             </div>
           : null
@@ -148,7 +146,6 @@ class All extends Component {
         {/* {tenSauAll}
         <br/>
         {NickPoke} */}
-
 
         <Button color='blue' circular icon='search plus' onClick={this.bigPicture} className="nut-phong-to"></Button>
         <Button color='red' circular icon='search minus' onClick={this.smallPicture} className="nut-phong-nho"></Button>
