@@ -21,7 +21,7 @@ class Type extends Component {
   render() {
     var {typeDangChon} = this.state;
     const { Pokedex, addToFavourites, removeFromFavourites, favPokemon, typesInfo, 
-            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, selectPokemon2 } = this.props
+            comparePokemon1, comparePokemon2, comPokemon1, comPokemon2, selectPokemon2, deletePoke1 } = this.props
     const tenTypes = Object.keys(typesInfo).slice(1, 19);
     return (
       <div className="Type" align='center'>
@@ -56,7 +56,8 @@ class Type extends Component {
                   <Popup.Content>
                     <Profile Pokedex={Pokedex} tenPokemonDangXem={moiTen} comPokemon1={comPokemon1} comPokemon2={comPokemon2}  
                     comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} typesInfo={typesInfo} 
-                    removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} selectPokemon2 = {selectPokemon2}/>
+                    removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} selectPokemon2 = {selectPokemon2} 
+                    deletePoke1 = {deletePoke1} />
                   </Popup.Content>
                 </Popup>
               </Grid.Column>

@@ -1183,7 +1183,7 @@ class App extends Component {
           <Route path = "/Type" render={() => <Type Pokedex = {Pokedex} addToFavourites = {this.addToFavourites} 
           removeFromFavourites = {this.removeFromFavourites} favPokemon = {favPokemon} typesInfo = {typesInfo}
           comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} 
-          comPokemon2 = {comPokemon2} selectPokemon2 = {this.selectPokemon2} />} />
+          comPokemon2 = {comPokemon2} selectPokemon2 = {this.selectPokemon2} deletePoke1 = {this.deletePoke1} />} />
           
           <Route path = "/Types_Z" render={() => <Types_Z typesZ = {typesZ} />} />
 
@@ -1198,7 +1198,7 @@ class App extends Component {
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokedex} comPokemon1 = {comPokemon1} 
           comPokemon2 = {comPokemon2} comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
           removeFromFavourites={this.removeFromFavourites} addToFavourites={this.addToFavourites} typesInfo={typesInfo}
-          favPokemon = {favPokemon} selectPokemon2 = {this.selectPokemon2} /> } />
+          favPokemon = {favPokemon} selectPokemon2 = {this.selectPokemon2} deletePoke1 = {this.deletePoke1} /> } />
           
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokedex} favPokemon = {favPokemon} 
           removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites}

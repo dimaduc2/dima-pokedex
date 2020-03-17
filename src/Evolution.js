@@ -14,7 +14,7 @@ class Evolution extends Component {
 //Phần 3: các Function
   chonPokemon  = (e, {value}) => {
 
-    const { Pokedex } = this.props;
+    const { deletePoke1 } = this.props;
     
     // var tenPokemonEvolves = "";
 
@@ -34,7 +34,7 @@ class Evolution extends Component {
   render() {
     const { tenPokemonDaChon } = this.state
     const { Pokedex, comPokemon1, comPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
-            removeFromFavourites, addToFavourites, selectPokemon2 } = this.props;
+            removeFromFavourites, addToFavourites, selectPokemon2,  deletePoke1 } = this.props;
     
     const pokemonOptions = Object.keys(Pokedex).map (
       (moiTen) => (
@@ -93,7 +93,8 @@ class Evolution extends Component {
               <Popup.Content>
                 <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
                 comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} selectPokemon2 = {selectPokemon2} 
-                typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites}  />
+                typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
+                deletePoke1 = {deletePoke1} />
               </Popup.Content>
             </Popup>
           : null
@@ -113,7 +114,8 @@ class Evolution extends Component {
                 <Popup.Content>
                   <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
                   comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} selectPokemon2 = {selectPokemon2} 
-                  typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} />
+                  typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
+                  />
                 </Popup.Content>
               </Popup>
             )}
