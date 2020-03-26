@@ -15,23 +15,18 @@ class Profile extends Component {
   
   render() {
     // const {  } = this.state
-
-    const { Pokedex, tenPokemonDangXem, comPokemon1, comPokemon2, selectPokemon2, comparePokemon1, comparePokemon2, favPokemon, typesInfo, 
-      removeFromFavourites, addToFavourites, deletePoke1 } = this.props
-
-
-      const pokemonOptions = Object.keys(Pokedex).map (
-        (moiTen) => (
-          {
-            key: moiTen,
-            text: Pokedex[moiTen].name,
-            value: moiTen,
-            image: { avatar: true, src: Pokedex[moiTen].picture },
-          }
-        )
+    const { Pokedex, tenPokemonDangXem, comPokemon1, comPokemon2, selectPokemon2, comparePokemon1, comparePokemon2, favPokemon, 
+            typesInfo, removeFromFavourites, addToFavourites, deletePoke1 } = this.props
+    const pokemonOptions = Object.keys(Pokedex).map (
+      (moiTen) => (
+        {
+          key: moiTen,
+          text: Pokedex[moiTen].name,
+          value: moiTen,
+          image: { avatar: true, src: Pokedex[moiTen].picture },
+        }
       )
-
-
+    )
     return (
       <Card fluid>
         <Card.Content>
@@ -44,7 +39,7 @@ class Profile extends Component {
                 <Label style={{backgroundColor: typesInfo[moiType].bgcolor, color:'white'}}>{moiType + " "}</Label>)}</p>
               </Grid.Column>
               <Grid.Column width={6}>
-                {Pokedex[tenPokemonDangXem].info 
+                {Pokedex[tenPokemonDangXem].info
                   ? <p> Info: {Pokedex[tenPokemonDangXem].info} </p> 
                   : null
                 }

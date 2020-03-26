@@ -13,22 +13,18 @@ class Evolution extends Component {
 
 //Phần 3: các Function
   chonPokemon  = (e, {value}) => {
-
     const { deletePoke1 } = this.props;
     
     // var tenPokemonEvolves = "";
-
     // for(let i = 0; i < Pokedex[value].evolves_into.length; i++){
     //   tenPokemonEvolves += (Pokedex[value].evolves_into[i] + "\n")
     // }
-
     // alert(Pokedex[value].name + " " 
     //   + "\n" + "evolves into: " +  "\n" + tenPokemonEvolves
     //   + "\n" + "evolves from: " +  "\n" + Pokedex[value].evolves_from
     // )
 
     this.setState({tenPokemonDaChon: value })
-    
   }
   
   render() {
@@ -55,72 +51,83 @@ class Evolution extends Component {
           selection
           options={pokemonOptions}
           onChange={this.chonPokemon}
-        /><br/><br/>
+        /><br/>
+        <br/>
 
-        <Popup
-          trigger={<div>
-            <Image src={Pokedex[tenPokemonDaChon].picture} size='small' />
-            <p>{Pokedex[tenPokemonDaChon].name}</p>
-          </div>}
-          position='top center' on='click' wide='very' >
-          <Popup.Content>
-            <Profile Pokedex={Pokedex} 
-            tenPokemonDangXem={tenPokemonDaChon} comPokemon1={comPokemon1} comPokemon2={comPokemon2} comparePokemon1={comparePokemon1} 
-            comparePokemon2={comparePokemon2} favPokemon={favPokemon} typesInfo={typesInfo} 
-            removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} selectPokemon2 = {selectPokemon2} />
-          </Popup.Content>
-        </Popup>
-
-        <br/><br/><br/><br/>
-
-        {Pokedex[tenPokemonDaChon].evolves_into.length > 0 || Pokedex[tenPokemonDaChon].evolves_from !== ''
-          ? Pokedex[tenPokemonDaChon].evolves_from
-              ?<Icon name='arrow up' size='massive' />
-              :<Icon name='arrow down' size='massive' />
-            
-          : null
-        }
-
-        <br/><br/><br/><br/>
-
-        {Pokedex[tenPokemonDaChon].evolves_from
-          ? <Popup
-              trigger={<div>
-                <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_from].picture} size='small' />
-                <p>{Pokedex[Pokedex[tenPokemonDaChon].evolves_from].name}</p>
-              </div>}
-              position='top center' on='click' wide='very' >
-              <Popup.Content>
-                <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
-                comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} selectPokemon2 = {selectPokemon2} 
-                typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
-                deletePoke1 = {deletePoke1} />
-              </Popup.Content>
-            </Popup>
-          : null
-        }
-
-
-        <Grid columns={4} doubling style={{align:'center'}}>
-          <Grid.Row>
-          {Pokedex[tenPokemonDaChon].evolves_into.map (
-            (moiPokeEvo) =>
+        {Pokedex[tenPokemonDaChon]
+          ? <div>
               <Popup
-                trigger={<Grid.Column>
-                  <Image src={Pokedex[moiPokeEvo].picture} size='small' />
-                  {Pokedex[moiPokeEvo].name}
-                  </Grid.Column>}
+                trigger={<div>
+                  <Image src={Pokedex[tenPokemonDaChon].picture} size='small' />
+                  <p>{Pokedex[tenPokemonDaChon].name}</p>
+                </div>}
                 position='top center' on='click' wide='very' >
                 <Popup.Content>
-                  <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
-                  comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} selectPokemon2 = {selectPokemon2} 
-                  typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} addToFavourites={addToFavourites} 
-                  />
+                  <Profile Pokedex={Pokedex} 
+                  tenPokemonDangXem={tenPokemonDaChon} comPokemon1={comPokemon1} comPokemon2={comPokemon2} comparePokemon1={comparePokemon1} 
+                  comparePokemon2={comparePokemon2} favPokemon={favPokemon} typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} 
+                  addToFavourites={addToFavourites} selectPokemon2 = {selectPokemon2} deletePoke1 = {deletePoke1} />
                 </Popup.Content>
               </Popup>
-            )}
-            </Grid.Row>
-        </Grid>
+
+              <br/><br/><br/><br/>
+
+              {Pokedex[tenPokemonDaChon].evolves_into.length > 0 || Pokedex[tenPokemonDaChon].evolves_from !== ''
+                ? Pokedex[tenPokemonDaChon].evolves_from
+                    ?<Icon name='arrow up' size='massive' />
+                    :<Icon name='arrow down' size='massive' />
+                : null
+              }
+
+              <br/><br/><br/><br/>
+
+              {Pokedex[tenPokemonDaChon].evolves_from
+                ? <Popup
+                    trigger={<div>
+                      <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_from].picture} size='small' />
+                      <p>{Pokedex[Pokedex[tenPokemonDaChon].evolves_from].name}</p>
+                    </div>}
+                    position='top center' on='click' wide='very' >
+                    <Popup.Content>
+                      <Profile Pokedex={Pokedex} tenPokemonDangXem={Pokedex[tenPokemonDaChon].evolves_from} comPokemon1={comPokemon1} 
+                      comPokemon2={comPokemon2} comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                      selectPokemon2 = {selectPokemon2} typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} 
+                      addToFavourites={addToFavourites} deletePoke1 = {deletePoke1} />
+                    </Popup.Content>
+                  </Popup>
+                : null
+              }
+
+              <Grid columns={4} doubling style={{align:'center'}}>
+                <Grid.Row>
+                {Pokedex[tenPokemonDaChon].evolves_into.map (
+                  (moiPokeEvo) => 
+                    Pokedex[moiPokeEvo]
+                      ? <Popup
+                        trigger={<Grid.Column>
+                            <Image src={Pokedex[moiPokeEvo].picture} size='small' />
+                            {Pokedex[moiPokeEvo].name}
+                            </Grid.Column>}
+                          position='top center' on='click' wide='very' >
+                          <Popup.Content>
+                            <Profile Pokedex={Pokedex} tenPokemonDangXem={moiPokeEvo} comPokemon1={comPokemon1} comPokemon2={comPokemon2} 
+                            comparePokemon1={comparePokemon1} comparePokemon2={comparePokemon2} favPokemon={favPokemon} 
+                            selectPokemon2 = {selectPokemon2} typesInfo={typesInfo} removeFromFavourites={removeFromFavourites} 
+                            addToFavourites={addToFavourites} deletePoke1 = {deletePoke1} />
+                          </Popup.Content>
+                        </Popup>
+                      : null
+                  )}
+                  </Grid.Row>
+              </Grid>
+            </div>
+          : null
+        }
+
+
+      
+
+
 
           
 
@@ -129,26 +136,23 @@ class Evolution extends Component {
 
         {/* <p>{Pokedex[tenPokemonDaChon].evolves_into}</p> */}
 
-      {/* 
-        {Pokedex[tenPokemonDaChon].evolves_into
-          ? <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_into].picture} size='small' />
-          : null
-        }
-       */}
-
-
-        
-
-        {/* <Grid columns={5} doubling>
-          {
-            Object.keys(Pokedex).map(
-              (moiTenPokemon) => 
-              <Grid.Column>
-              
-              </Grid.Column>
-            )
+        {/* 
+          {Pokedex[tenPokemonDaChon].evolves_into
+            ? <Image src={Pokedex[Pokedex[tenPokemonDaChon].evolves_into].picture} size='small' />
+            : null
           }
-        </Grid> */}
+        */}
+
+          {/* <Grid columns={5} doubling>
+            {
+              Object.keys(Pokedex).map(
+                (moiTenPokemon) => 
+                <Grid.Column>
+                
+                </Grid.Column>
+              )
+            }
+          </Grid> */}
 
         {/* <Grid columns={5} doubling>
           {

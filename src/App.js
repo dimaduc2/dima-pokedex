@@ -819,49 +819,27 @@ class App extends Component {
   }
   comparePokemon1 = (newName1) => {
     this.setState({comPokemon1: newName1})
-    //  alert(newName1)
   }
   comparePokemon2 = (newName2) => {
     this.setState({comPokemon2: newName2})
-    //  alert(newName2)
   }
   selectPokemon1 = (e, {value}) => {
-    // alert(value)
     this.setState({comPokemon1: value})
   }
   selectPokemon2 = (e, {value}) => {
     this.setState({comPokemon2: value, daXemCompare: false})
   }
-  addToFavourites = (tenPokeMoi) => {
 
+  addToFavourites = (tenPokeMoi) => {
     var newFav = this.state.favPokemon;
     //lấy danh sách Pokemon ưa thích CŨ, đang ở trong state favPokemon, rồi cho vào newFav
-    
     newFav[tenPokeMoi] = true;
     //thêm tên Pokemon ưa thích MỚI vào newFav
-
     this.setState({ favPokemon: newFav });
     //thay đổi state favPokemon
     //cho newFav (gồm tất cả pokemon ưa thích cũ và mới) vào trong favPokemon
   }
-  removeFromFavourites = (tenPokeMuonXoa) => {
-    var coXoaHayKhong = window.confirm("có xóa " + Pokedex[tenPokeMuonXoa].name + " không?");
-    if (coXoaHayKhong === true) {
 
-      var newFav = this.state.favPokemon;
-      //lấy danh sách Pokemon ưa thích cũ, đang ở trong state favPokemon, rồi cho vào newFav
-      delete newFav[tenPokeMuonXoa];
-      //xóa tên Pokemon ưa thích khỏi newFar
-
-      this.setState({ favPokemon: newFav });
-      //thay đổi state favPokemon
-      //cho newFav (gồm tất cả pokemon ưa thích cũ trừ pokemon vừa xóa) vào trong favPokemon
-
-    }
-    else {
-        alert("Không xóa ảnh.")
-    }
-  }
   removeAllFromFavourites = () => {
     var coXoaTatCaHayKhong  = window.confirm("có xóa tất cả không?");
     if (coXoaTatCaHayKhong === true){
@@ -871,6 +849,57 @@ class App extends Component {
         alert("Không xóa tất cả ảnh.")
     }
   }
+  removeFromFavourites = (tenPokeMuonXoa) => {
+      var newFav = this.state.favPokemon;
+      //lấy danh sách Pokemon ưa thích cũ, đang ở trong state favPokemon, rồi cho vào newFav
+      delete newFav[tenPokeMuonXoa];
+      //xóa tên Pokemon ưa thích khỏi newFar
+      this.setState({ favPokemon: newFav });
+      //thay đổi state favPokemon
+      //cho newFav (gồm tất cả pokemon ưa thích cũ trừ pokemon vừa xóa) vào trong favPokemon
+  }
+
+  deletePoke1 = (ten) => {
+    const { favPokemon, comPokemon1, comPokemon2 } = this.state
+    if(ten in favPokemon) {
+      var coXoaPokeKoKhoiDatabaseFavouritesKo = window.confirm("có xóa " + Pokedex[ten].name + " khỏi database và favourites không?")
+      if(coXoaPokeKoKhoiDatabaseFavouritesKo === true){
+        for(var i = 0; i< Pokedex[ten].evolves_into.length; i++){
+          Pokedex[Pokedex[ten].evolves_into[i]].evolves_from = '';
+        }
+        this.removeFromFavourites(ten)
+        delete Pokedex[ten]
+        this.forceUpdate()
+      }
+      else {
+        alert("Không xóa ảnh.")
+      }
+    }
+    else {
+      var coXoaPokeKoKhoiDatabaseKo           = window.confirm("có xóa " + Pokedex[ten].name + " khỏi databute không?");
+      if(coXoaPokeKoKhoiDatabaseKo === true){
+        for(var i = 0; i < Pokedex[ten].evolves_into.length; i++){
+          Pokedex[Pokedex[ten].evolves_into[i]].evolves_from = '';
+        }
+        delete Pokedex[ten]
+        this.forceUpdate()
+      }
+      else {
+        alert("Không xóa ảnh.")
+      }
+    }
+    if(ten === comPokemon1) {
+      this.setState({comPokemon1: ""})
+    }
+    if(ten === comPokemon2) {
+      this.setState({comPokemon2: ""})
+    }
+  }
+  deletePoke2 = (ten) => {
+    delete Pokedex[ten]
+    this.forceUpdate()
+  }
+
   bamHome = () => {
     this.setState({dangXemGi:"dangXemHome", activeItem: "" });
   }
@@ -886,9 +915,7 @@ class App extends Component {
   // themAnhPokemonMoi = (tenAnh) => {this.setState({anhPokemonAll: tenAnh})}
   // themTenDem = (TenDemPoke) => {this.setState({NickPoke :TenDemPoke})}
 
-  themTenPoke = (ten, tenDem, tenHP, tenAttack, tenDefense, tenSp_atk, tenSp_def, 
-                  tenSpeed, tenAnh, tenType, tenEvolves_into, tenEvolves_from) => {
- 
+  themTenPoke = (ten, tenDem, tenHP, tenAttack, tenDefense, tenSp_atk, tenSp_def, tenSpeed, tenAnh, tenType, tenEvolves_into, tenEvolves_from) => {
     Pokedex[tenDem] = {
       name: ten,
       pokedexNum: 773,
@@ -903,24 +930,18 @@ class App extends Component {
       evolves_into: tenEvolves_into,
       evolves_from: tenEvolves_from
     };
-    
     this.forceUpdate()
-
   }
   
-  deletePoke1 = (ten) => {
-    var coXoaPokeKo = window.confirm("có muốn xóa "+Pokedex[ten].name+" không?");
-    if(coXoaPokeKo === true){
-      delete Pokedex[ten]
-      this.forceUpdate()
+
+  hoiCoXoaKhong = (tenPokeMuonXoa) => {
+    var coXoaHayKhong = window.confirm("có xóa " + Pokedex[tenPokeMuonXoa].name + " khỏi Favourites không?");
+    if (coXoaHayKhong === true) {
+      this.removeFromFavourites(tenPokeMuonXoa)
     }
     else {
-      alert("Không xóa ảnh.")
+        alert("Không xóa ảnh.")
     }
-  }
-  deletePoke2 = (ten) => {
-    delete Pokedex[ten]
-    this.forceUpdate()
   }
   
   render() {
@@ -1197,14 +1218,14 @@ class App extends Component {
           
           <Route path = "/Evolution" render={() => <Evolution Pokedex = {Pokedex} comPokemon1 = {comPokemon1} 
           comPokemon2 = {comPokemon2} comparePokemon1 = {this.comparePokemon1} comparePokemon2 = {this.comparePokemon2} 
-          removeFromFavourites={this.removeFromFavourites} addToFavourites={this.addToFavourites} typesInfo={typesInfo}
+          removeFromFavourites = {this.removeFromFavourites} addToFavourites={this.addToFavourites} typesInfo={typesInfo}
           favPokemon = {favPokemon} selectPokemon2 = {this.selectPokemon2} deletePoke1 = {this.deletePoke1} /> } />
           
           <Route path = "/Favourites"  render={() => <Favourites Pokedex = {Pokedex} favPokemon = {favPokemon} 
           removeFromFavourites = {this.removeFromFavourites} removeAllFromFavourites = {this.removeAllFromFavourites}
           addToFavourites = {this.addToFavourites} typesInfo = {typesInfo} comparePokemon1 = {this.comparePokemon1} 
           comparePokemon2 = {this.comparePokemon2} comPokemon1 = {comPokemon1} comPokemon2 = {comPokemon2} 
-          selectPokemon2 = {this.selectPokemon2} />} />
+          selectPokemon2 = {this.selectPokemon2} deletePoke1 = {this.deletePoke1} hoiCoXoaKhong = {this.hoiCoXoaKhong} />} />
           
           <Route path = "/About" component = {About} />
 

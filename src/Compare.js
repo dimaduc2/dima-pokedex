@@ -17,8 +17,6 @@ class Compare extends Component {
     tenCssAnhPhai: 'Anh-phai',
   }
 
-
-   
   //Phần 3: các Function
   // quayXuoi = () => {
   //   const { quayTronXuoi } = this.state
@@ -32,7 +30,6 @@ class Compare extends Component {
   //     this.setState({quayTronNguoc: 'Anh-quay-xuoi'});
   //   }
   // }
-
 
   bayTraiPhai = () => {
     const { tenCssAnhTrai, tenCssAnhPhai } = this.state
@@ -49,14 +46,10 @@ class Compare extends Component {
       this.setState({tenCssAnhPhai: 'Anh-phai'});
     }
   }
-
-
-
-
-
+  
   render() {
     const { comPokemon1, comPokemon2, Pokedex, selectPokemon1, selectPokemon2, typesInfo } = this.props
-    const {tenCssAnhTrai, tenCssAnhPhai } = this.state
+    const { tenCssAnhTrai, tenCssAnhPhai } = this.state
 
       const pokemonOptions = Object.keys(Pokedex).map (
         (moiTen) => (
@@ -104,7 +97,7 @@ class Compare extends Component {
           </Table.Header>
         </Table>
         
-        { comPokemon1 === "" || comPokemon2 === ""
+        {comPokemon1 === "" || comPokemon2 === ""
           ? null
           : <Table definition textAlign="center">
               <Table.Header>
@@ -204,7 +197,6 @@ class Compare extends Component {
                     </Table.Cell>
                 </Table.Row>
               </Table.Body>
-
             </Table>
         }
       </div>
